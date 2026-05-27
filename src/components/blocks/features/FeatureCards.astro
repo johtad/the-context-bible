@@ -10,14 +10,6 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 // - UI
 import Card from '../../ui/cards/FeatureCard.astro'
-
-// Content
-// - Cards
-import feature01 from '../../../assets/cards/feature-01.svg'
-import feature02 from '../../../assets/cards/feature-02.svg'
-import feature03 from '../../../assets/cards/feature-03.svg'
-import feature04 from '../../../assets/cards/feature-04.svg'
-import feature05 from '../../../assets/cards/feature-05.svg'
 ---
 
 <Section id="features">
@@ -35,7 +27,7 @@ import feature05 from '../../../assets/cards/feature-05.svg'
 			<Card
 				title="Context panels for every verse"
 				subtitle="Tap any passage to see its historical setting, theological tradition, early church reception, and academic discourse — side by side with the text."
-				image={feature01}
+				icon="book"
 				link="/features"
 			/>
 		</Col>
@@ -43,13 +35,13 @@ import feature05 from '../../../assets/cards/feature-05.svg'
 			<Card
 				title="Ask Bible questions, get real citations"
 				subtitle="Get answers grounded in scholarly sources, not guesses. Every response shows you where it came from."
-				image={feature02}
+				icon="chat-bubble-left-right"
 				link="/features"
 			/>
 			<Card
 				title="Beautiful verse cards to share"
 				subtitle="Turn what speaks to you into shareable images for Instagram, Stories, or wherever you talk with friends."
-				image={feature03}
+				icon="eye"
 				link="/features"
 			/>
 		</Col>
@@ -57,13 +49,13 @@ import feature05 from '../../../assets/cards/feature-05.svg'
 			<Card
 				title="Weekly Context insights"
 				subtitle="A new themed deep-dive each week, surfacing the cultural and historical layers behind the passages you're reading."
-				image={feature04}
+				icon="filled-star"
 				link="/features"
 			/>
 			<Card
 				title="Verse of the Day"
 				subtitle="A daily verse delivered to your phone — with the context that makes it land."
-				image={feature05}
+				icon="sun"
 				link="/features"
 			/>
 		</Col>

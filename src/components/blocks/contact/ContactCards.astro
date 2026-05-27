@@ -23,49 +23,38 @@ const { classes } = Astro.props
 <Section id="requests" classes={classes}>
 	<Row>
 		<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
-			<h2 class="text-balance">Have a Special Request? We’re Here to <strong>Help!</strong></h2>
+			<h2 class="text-balance">Or just email us <strong>directly</strong></h2>
 			<p class="pb-0 text-lg">
-				Choose from one of the options below to get the specific help you need. Whether it's
-				customer support, sales inquiries, feature requests, or general feedback, we're here to
-				provide you with the best assistance possible.
+				Forms work, but if you'd rather send an email, here is what reaches us fastest.
 			</p>
 		</Col>
 	</Row>
 	<Row>
-		<Col span="3">
+		<Col span="4">
 			<Card
-				title="Customer Support"
-				subtitle="Need help with Foxi? Our support team is available 24/7 to assist you with any issues or questions you might have."
-				icon="rocket"
-				classes="text-center dark:!bg-neutral-800/50"
-				link="/contact"
-			/>
-		</Col>
-		<Col span="3">
-			<Card
-				title="Sales Inquiries "
-				subtitle="Interested in our plans or want a custom solution? Get in touch with our sales team to find the perfect fit. "
-				icon="document-text"
-				classes="text-center dark:!bg-neutral-800/50"
-				link="/contact"
-			/>
-		</Col>
-		<Col span="3">
-			<Card
-				title="Feature Requests"
-				subtitle="Have an idea to make Foxi even better? We’d love to hear from you! Share your feature requests and help us improve "
-				icon="bolt"
-				classes="text-center dark:!bg-neutral-800/50"
-				link="/contact"
-			/>
-		</Col>
-		<Col span="3" classes="flex flex-col gap-6">
-			<Card
-				title="General Feedback"
-				subtitle="Your feedback is invaluable to us. Let us know how we’re doing and how we can improve. "
+				title="General questions"
+				subtitle="Anything about the app, the project, or what we're working on — send it to theaspireed@gmail.com and we'll write back."
 				icon="chat-bubble-left-ellipsis"
 				classes="text-center dark:!bg-neutral-800/50"
-				link="/contact"
+				link="mailto:theaspireed@gmail.com"
+			/>
+		</Col>
+		<Col span="4">
+			<Card
+				title="Feature requests"
+				subtitle="Have an idea to make The Context Bible better? Tell us. We read every suggestion that comes in."
+				icon="bolt"
+				classes="text-center dark:!bg-neutral-800/50"
+				link="mailto:theaspireed@gmail.com?subject=Feature%20request"
+			/>
+		</Col>
+		<Col span="4" classes="flex flex-col gap-6">
+			<Card
+				title="Bug reports"
+				subtitle="If something is broken, please describe what you were doing when it happened. Screenshots help."
+				icon="bug-ant"
+				classes="text-center dark:!bg-neutral-800/50"
+				link="mailto:theaspireed@gmail.com?subject=Bug%20report"
 			/>
 		</Col>
 	</Row>

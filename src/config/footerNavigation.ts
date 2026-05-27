@@ -39,7 +39,7 @@ export const footerNavigationData: FooterData = {
 		aboutText:
 			'A Bible reading app that surfaces the historical setting, early church interpretation, and academic discourse behind every verse. Read with the depth Scripture was written with.',
 		logo: {
-			src: '/logo.svg',
+			src: '/app-icon.png',
 			alt: 'The Context Bible',
 			text: 'Context Bible'
 		}

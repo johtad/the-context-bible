@@ -3,15 +3,13 @@ title: 'Welcome to The Context Bible'
 pubDate: 2026-05-27T05:00:00Z
 description: 'A Bible app built around one idea — that the text deserves to be understood, not just read. Here is what the app is, who it is for, and what is coming next.'
 author: 'The Context Bible team'
-image: '/blog/post-01-cover.png'
+image: '/app-icon.png'
 tags: ['launch', 'announcement', 'about']
 ---
 
 If you have spent any time reading the Bible, you have probably had this experience: you read a verse, and a question forms — *who was this written to? what did "Pharisee" mean to the people hearing it? why does Paul start a letter this way?* — and you flip pages, or open a browser, or ask someone, and the answer either arrives an hour later or never arrives at all.
 
 The Context Bible is built around closing that gap.
-
-![The Context Bible](/blog/post-01.png)
 
 ## What the app is
 

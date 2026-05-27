@@ -33,7 +33,7 @@ export interface NavData {
 
 export const navigationBarData: NavData = {
 	logo: {
-		src: '/logo.svg',
+		src: '/app-icon.png',
 		alt: 'The Context Bible',
 		text: 'Context Bible'
 	},

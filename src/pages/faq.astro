@@ -5,7 +5,6 @@ import Layout from '../layouts/Layout.astro'
 // - UI
 import Hero from '../components/blocks/hero/PageHeader.astro'
 import FAQ from '../components/blocks/FAQ/FaqSticky.astro'
-import TextImage from '../components/blocks/basic/TextImage.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 
 // Data
@@ -16,7 +15,6 @@ const faqFeatures = faqData.filter((faq) => faq.category === 'features')
 const faqPricing = faqData.filter((faq) => faq.category === 'pricing')
 
 // Content
-import faqImage1 from '../assets/faq/faq-01.png'
 // - SEO
 const SEO = {
 	title: 'FAQ — The Context Bible',
@@ -37,19 +35,11 @@ const header = {
 		text="The big-picture questions — what The Context Bible is, who it is for, and how it differs from other Bible apps."
 		data={faqGeneral}
 	/>
-	<TextImage
-		title="Built around <strong>one idea</strong>"
-		text="The Bible was written into a context — a time, a place, a people. Stripping that away leaves you with words on a page. The Context Bible puts the world back around the text, so the passages read with the depth they were written with."
-		image={faqImage1}
-		mobileImage={faqImage1}
-		imagePosition="left"
-		offsetImage
-		classes="bg-neutral-50 dark:bg-neutral-900 lg:!py-64"
-	/>
 	<FAQ
 		title="Features and reading"
 		text="Translations, traditions, context panels, notes, highlights, and the everyday details of using the app."
 		data={faqFeatures}
+		classes="bg-neutral-50 dark:bg-neutral-900"
 	/>
 	<FAQ
 		title="Pricing, privacy, and accounts"

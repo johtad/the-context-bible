@@ -24,9 +24,9 @@ export const configData: Config = {
 	siteTitle: 'The Context Bible',
 	siteDescription:
 		'Read Scripture in its original literary, historical, and cultural context.',
-	ogImage: '/og.jpg',
+	ogImage: '/app-icon.png',
 	logo: {
-		src: '/logo.svg',
+		src: '/app-icon.png',
 		alt: 'The Context Bible'
 	},
 	canonical: true,

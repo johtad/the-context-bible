@@ -1,7 +1,7 @@
 ---
 // Home page CTA Section
 // ------------
-// Description: Hero section with headline, subhead, primary CTA, and screenshot.
+// Description: Hero section with headline, subhead, primary CTA, and app icon.
 
 // Components
 // - Layout
@@ -10,18 +10,20 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 // - UI
 import ChipNotification from '../../ui/ChipNotification.astro'
-import { Image } from 'astro:assets'
 import Button from '../../ui/Button.astro'
-
-// Content
-// - Hero Image (placeholder — swap with an app screenshot when ready)
-import heroImage from '../../../assets/hero-01.png'
 ---
 
 <Section id="intro" padding="top" classes="bg-neutral-50 dark:bg-neutral-900">
 	<Row>
 		<Col span="2" />
 		<Col span="8" align="center">
+			<img
+				src="/app-icon.png"
+				alt="The Context Bible app icon"
+				width="160"
+				height="160"
+				class="mx-auto mb-8 h-32 w-32 rounded-3xl shadow-xl shadow-neutral-200 dark:shadow-neutral-950 lg:h-40 lg:w-40"
+			/>
 			<ChipNotification radius="rounded-full" classes="mb-6">
 				Now available on iOS and Android
 			</ChipNotification>
@@ -33,16 +35,6 @@ import heroImage from '../../../assets/hero-01.png'
 			</p>
 			<Button size="lg" link="/app">Download free</Button>
 		</Col>
-		<Col span="2" />
-		<Col span="2" />
-		<Col span="8">
-			<Image
-				src={heroImage}
-				alt="The Context Bible app"
-				class="translate-y-8 shadow-2xl shadow-neutral-200 dark:shadow-neutral-950"
-				format="webp"
-			/></Col
-		>
 		<Col span="2" />
 	</Row>
 </Section>
