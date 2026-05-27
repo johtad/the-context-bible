@@ -10,54 +10,67 @@ import CTA from '../components/blocks/CTA/BasicDark.astro'
 // Data
 import featuresData from '../data/json-files/featuresData.json'
 // - Feature Categories
-const featuresAnalytics = featuresData.filter((feature) => feature.category === 'Analytics')
-const featuresProductivity = featuresData.filter((feature) => feature.category === 'Productivity')
-const featuresSecurity = featuresData.filter((feature) => feature.category === 'Security')
-const featuresIntegrations = featuresData.filter((feature) => feature.category === 'Integrations')
-const featuresSupport = featuresData.filter((feature) => feature.category === 'Support')
+const featuresContext = featuresData.filter((feature) => feature.category === 'Context')
+const featuresReading = featuresData.filter((feature) => feature.category === 'Reading')
+const featuresDaily = featuresData.filter((feature) => feature.category === 'Daily')
+const featuresLibrary = featuresData.filter((feature) => feature.category === 'Library')
+const featuresSharing = featuresData.filter((feature) => feature.category === 'Sharing')
+const featuresPremium = featuresData.filter((feature) => feature.category === 'Premium')
+const featuresPrivacy = featuresData.filter((feature) => feature.category === 'Privacy')
 
 // Content
 // - SEO
 const SEO = {
-	title: 'Foxi | Features to Boost Productivity & Security',
+	title: 'Features — The Context Bible',
 	description:
-		"Explore Foxi's powerful features designed to enhance productivity, ensure top-notch security, and integrate seamlessly with your favorite tools. Join thousands of satisfied users and transform your workflow with Foxi today!"
+		'Read with the depth Scripture was written with. Historical, theological, and academic context for every verse — plus reading customization, daily inspiration, and a personal library that syncs across devices.'
 }
 // - Page Header
 const header = {
-	title: 'Why you and your team will <strong>love</strong> foxi.',
-	text: 'Streamline your tasks, protect your data, and enjoy working with our tools!'
+	title: 'Read with <strong>depth</strong>, not just surface',
+	text: 'Every feature is built around one idea: the text deserves to be understood, not just consumed.'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero title={header.title} text={header.text} />
 	<Feature
-		title="Insightful Analytics"
-		text="Delve into your data with precision and uncover actionable insights."
-		data={featuresAnalytics}
+		title="Context for every verse"
+		text="Four lenses that open up the passage you're reading — its world, its earliest readers, its scholarly debates, and its echoes elsewhere in Scripture."
+		data={featuresContext}
 	/>
 	<Feature
-		title="Efficiency Unleashed"
-		text="Streamline tasks and focus on what matters with tools designed to boost your productivity."
-		data={featuresSecurity}
+		title="A reading experience built for long sessions"
+		text="Translations, traditions, themes, and typefaces — set the app up the way your eyes and your tradition expect."
+		data={featuresReading}
 		classes="bg-neutral-50 dark:bg-neutral-900"
 	/>
 	<Feature
-		title="Ultimate Data Protection"
-		text="Keep your data safe with top-notch security measures and real-time threat detection."
-		data={featuresProductivity}
+		title="Daily and weekly rhythms"
+		text="Verse of the Day, Weekly Context Insights, delivered on your schedule."
+		data={featuresDaily}
 	/>
 	<Feature
-		title="Seamless Connectivity"
-		text="Effortlessly connect your favorite apps and automate workflows for a smoother workday."
-		data={featuresIntegrations}
+		title="Your personal library"
+		text="Save the verses that stop you. Highlight the words that move you. Notes that follow you across devices."
+		data={featuresLibrary}
 		classes="bg-neutral-50 dark:bg-neutral-900"
 	/>
 	<Feature
-		title="24/7 Expert Help"
-		text="Our friendly support team is always here to assist you with any questions or issues."
-		data={featuresSupport}
+		title="Share what speaks to you"
+		text="Verse cards designed for every social platform — and made to feel like yours, not a template."
+		data={featuresSharing}
+	/>
+	<Feature
+		title="Premium — for readers who want more"
+		text="Sync, raised daily limits, and the deepest dive on every passage."
+		data={featuresPremium}
+		classes="bg-neutral-50 dark:bg-neutral-900"
+	/>
+	<Feature
+		title="A quiet account experience"
+		text="No tracking, no ad targeting, no surprises. Your reading life is yours."
+		data={featuresPrivacy}
 	/>
 	<CTA />
 </Layout>

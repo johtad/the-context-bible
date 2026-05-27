@@ -1,104 +1,80 @@
 [
 	{
-		"question": "What is the cost of the basic plan?",
-		"reply": "The basic plan is $9.99 per month, which includes access to core features and limited integrations. This plan is perfect for individuals or small teams looking to improve their productivity without a large investment.",
-		"category": "pricing",
+		"question": "What is The Context Bible?",
+		"reply": "The Context Bible is a Bible reading app that surfaces the historical setting, early church interpretation, academic discourse, and cross-references behind every passage. It's built for readers who want to understand Scripture in its original context, not just read the words on the page.",
+		"category": "general",
 		"open": true
 	},
 	{
-		"question": "Are there any discounts for annual subscriptions?",
-		"reply": "Yes, we offer a 20% discount on annual subscriptions for all our plans. By choosing an annual subscription, you can save money and ensure uninterrupted access to all Foxi features for the entire year.",
-		"category": "pricing",
+		"question": "Who is the app for?",
+		"reply": "Anyone who wants to read Scripture with more depth — students, pastors, small group leaders, everyday Christians, and curious skeptics alike. If you've ever wondered \"who was this written to, and what did it mean to them?\", this app is for you.",
+		"category": "general",
 		"open": false
 	},
 	{
-		"question": "Can I change my subscription plan at any time?",
-		"reply": "Yes, you can upgrade or downgrade your subscription plan at any time from your account settings. This flexibility allows you to adjust your plan based on your changing needs and usage.",
-		"category": "pricing",
+		"question": "How is this different from other Bible apps?",
+		"reply": "Most Bible apps focus on the text alone — translations, plans, devotionals. The Context Bible focuses on what surrounds the text: the world the writer lived in, the way the earliest readers understood it, what modern scholarship has uncovered, and how it connects to the rest of Scripture. Context is the product, not an add-on.",
+		"category": "general",
 		"open": false
 	},
 	{
-		"question": "Is there a free trial available?",
-		"reply": "Yes, we offer a 14-day free trial for all new users. During the trial, you can explore all the features of Foxi without any commitment, allowing you to see how it fits into your workflow.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "Do you offer refunds?",
-		"reply": "We offer a 30-day money-back guarantee if you are not satisfied with our service. Simply contact our support team within 30 days of your purchase, and we'll process your refund.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "How do I cancel my subscription?",
-		"reply": "You can cancel your subscription from your account settings at any time. After cancellation, you will still have access to your account until the end of the billing cycle.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "Can I use Foxi with Google Calendar?",
-		"reply": "Yes, Foxi integrates seamlessly with Google Calendar for easy scheduling and task management. This integration helps you keep track of your events and tasks in one place.",
-		"category": "integrations",
-		"open": true
-	},
-	{
-		"question": "Does Foxi work with Slack?",
-		"reply": "Yes, you can integrate Foxi with Slack to receive notifications and updates directly in your channels. This allows you to stay informed about your projects without leaving Slack.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "How do I connect Foxi with Trello?",
-		"reply": "To connect Foxi with Trello, go to the integrations page in your settings and follow the instructions to link your accounts. This integration helps you manage your Trello boards and Foxi projects together.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "Is there an API for custom integrations?",
-		"reply": "Yes, we provide an API that allows you to create custom integrations with Foxi. Our API documentation provides detailed instructions and examples to help you get started.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "Can I sync Foxi with my email?",
-		"reply": "Currently, we do not support email integration, but this feature is on our roadmap for future releases. Stay tuned for updates as we continue to enhance Foxi's capabilities.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "Does Foxi support Zapier?",
-		"reply": "Yes, Foxi integrates with Zapier, allowing you to connect with over 2,000 apps and automate your workflows. This integration helps you streamline your processes and improve efficiency.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "What are the main features of Foxi?",
-		"reply": "Foxi includes in-app messaging, project management, time tracking, customizable dashboards, and more. These features are designed to help you stay organized, communicate effectively, and manage your time efficiently.",
+		"question": "What translations are available?",
+		"reply": "The app currently offers the King James Version (KJV) with selectable canons for the Protestant, Catholic, and Orthodox traditions. More translations are on the roadmap.",
 		"category": "features",
 		"open": true
 	},
 	{
-		"question": "How do I use the in-app messaging feature?",
-		"reply": "In-app messaging allows you to communicate with your team directly within Foxi. Simply navigate to the messaging tab to start a conversation. You can send messages, share files, and create group chats.",
+		"question": "What's the difference between Historical Context and Early Church View?",
+		"reply": "Historical Context covers the world the passage was written into — the culture, politics, geography, and audience of the time. Early Church View covers how the earliest readers, the church fathers, and the councils received and interpreted that same passage. Together they show you both the original setting and the first centuries of reception.",
 		"category": "features",
 		"open": false
 	},
 	{
-		"question": "Can I customize my dashboard?",
-		"reply": "Yes, you can customize your dashboard by adding, removing, and rearranging widgets to fit your workflow. This customization helps you keep important information at your fingertips.",
+		"question": "Can I switch between Protestant, Catholic, and Orthodox canons?",
+		"reply": "Yes. You pick your tradition in Settings, and the app shows the books and ordering appropriate to that canon. You can change it anytime without losing your notes, highlights, or saved verses.",
 		"category": "features",
 		"open": false
 	},
 	{
-		"question": "How does the time tracking feature work?",
-		"reply": "Time tracking allows you to log the time spent on tasks and projects. Start the timer when you begin a task and stop it when you're done. You can also manually log time if needed.",
+		"question": "How do verse cards work?",
+		"reply": "Tap the share icon on any verse to generate a shareable image. Pick the ratio you need — 1:1 for Instagram, 3:4 for Stories, 16:9 for everything else — and adjust the background opacity and blur. Save it to your camera roll or send it straight to a friend.",
 		"category": "features",
 		"open": false
 	},
 	{
-		"question": "Is there a mobile app for Foxi?",
-		"reply": "Yes, Foxi is available on both iOS and Android, allowing you to manage your tasks and projects on the go. Download the app from the App Store or Google Play to stay productive anywhere.",
+		"question": "Can I take notes and highlights?",
+		"reply": "Yes. Highlight any passage, attach notes, and build a personal library of the verses you keep returning to. With Premium, all of it syncs across every device you read on.",
 		"category": "features",
+		"open": false
+	},
+	{
+		"question": "Is the app available in Spanish?",
+		"reply": "Yes. The interface is available in English and Español, and you can switch languages anytime in Settings.",
+		"category": "features",
+		"open": false
+	},
+	{
+		"question": "Is The Context Bible free?",
+		"reply": "Yes — the core app is free. Reading the text, exploring context panels, getting the Verse of the Day, and saving verses are all included at no cost.",
+		"category": "pricing",
+		"open": true
+	},
+	{
+		"question": "What do I get with Premium?",
+		"reply": "Premium adds notes-and-highlights sync across devices, raised daily limits for asking Bible questions and generating verse cards, and the deepest dive on every passage's context.",
+		"category": "pricing",
+		"open": false
+	},
+	{
+		"question": "How is my data handled?",
+		"reply": "We only use your name to personalize your experience — that's it. No ad targeting, no data resale. You can update or remove your name anytime in Settings.",
+		"category": "pricing",
+		"open": false
+	},
+	{
+		"question": "How do I sign in?",
+		"reply": "Continue with Google, Apple, or email. There's no separate password to remember.",
+		"category": "pricing",
 		"open": false
 	}
 ]

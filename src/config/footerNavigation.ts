@@ -35,19 +35,23 @@ export interface FooterData {
 
 export const footerNavigationData: FooterData = {
 	footerAbout: {
-		title: 'Foxi.',
+		title: 'The Context Bible',
 		aboutText:
-			'Expertly made, responsive, accessible components in React and HTML ready to be used on your website or app. Just copy and paste them on your Tailwind CSS project.',
+			'A Bible reading app that surfaces the historical setting, early church interpretation, and academic discourse behind every verse. Read with the depth Scripture was written with.',
 		logo: {
 			src: '/logo.svg',
-			alt: 'The tailwind astro theme',
-			text: 'Foxi.'
+			alt: 'The Context Bible',
+			text: 'Context Bible'
 		}
 	},
 	footerColumns: [
 		{
-			category: 'Product',
+			category: 'The app',
 			subCategories: [
+				{
+					subCategory: 'Download',
+					subCategoryLink: '/app'
+				},
 				{
 					subCategory: 'Features',
 					subCategoryLink: '/features'
@@ -55,35 +59,19 @@ export const footerNavigationData: FooterData = {
 				{
 					subCategory: 'FAQ',
 					subCategoryLink: '/faq'
-				},
-				{
-					subCategory: 'Pricing',
-					subCategoryLink: '/pricing'
-				},
-				{
-					subCategory: 'Changelog',
-					subCategoryLink: '/changelog'
-				},
-				{
-					subCategory: 'Terms',
-					subCategoryLink: '/terms'
 				}
 			]
 		},
 		{
-			category: 'About us',
+			category: 'Read more',
 			subCategories: [
 				{
-					subCategory: 'About us',
-					subCategoryLink: '/'
-				},
-				{
-					subCategory: 'News',
+					subCategory: 'Blog',
 					subCategoryLink: '/blog'
 				},
 				{
-					subCategory: 'Careers',
-					subCategoryLink: '/blog'
+					subCategory: 'Terms',
+					subCategoryLink: '/terms'
 				}
 			]
 		},
@@ -93,19 +81,11 @@ export const footerNavigationData: FooterData = {
 				{
 					subCategory: 'Contact',
 					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Support',
-					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Join us',
-					subCategoryLink: '/contact'
 				}
 			]
 		}
 	],
 	subFooter: {
-		copywriteText: '© Foxi 2024.'
+		copywriteText: '© The Context Bible 2026.'
 	}
 }
