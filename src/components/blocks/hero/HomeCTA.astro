@@ -1,7 +1,7 @@
 ---
 // Home page CTA Section
 // ------------
-// Description: A centered call to action section that contains: a title, text, a user review snippet, a button and a image.
+// Description: Hero section with headline, subhead, primary CTA, and screenshot.
 
 // Components
 // - Layout
@@ -12,20 +12,10 @@ import Col from '../../ui/Col.astro'
 import ChipNotification from '../../ui/ChipNotification.astro'
 import { Image } from 'astro:assets'
 import Button from '../../ui/Button.astro'
-import AvatarGroup from '../../ui/AvatarGroup.astro'
 
 // Content
-// - Hero Image
+// - Hero Image (placeholder — swap with an app screenshot when ready)
 import heroImage from '../../../assets/hero-01.png'
-// - Avatars
-import user1 from '../../../assets/avatars/avatar-01.webp'
-import user2 from '../../../assets/avatars/avatar-02.webp'
-import user3 from '../../../assets/avatars/avatar-03.webp'
-const avatars = [
-	{ image: { src: user1.src, alt: 'user name' }, link: '/' },
-	{ image: { src: user2.src, alt: 'user name' }, link: '/' },
-	{ image: { src: user3.src, alt: 'user name' }, link: '/' }
-]
 ---
 
 <Section id="intro" padding="top" classes="bg-neutral-50 dark:bg-neutral-900">
@@ -33,20 +23,22 @@ const avatars = [
 		<Col span="2" />
 		<Col span="8" align="center">
 			<ChipNotification radius="rounded-full" classes="mb-6">
-				<strong>30K+</strong> satisfied customers
-				<AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
+				Now available on iOS and Android
 			</ChipNotification>
-			<h1>Enhance team <strong>performance</strong> with seamless integration</h1>
+			<h1>Read Scripture in its <strong>original context</strong></h1>
 
-			<p class="pb-0 text-lg">Work smarter, not harder, with our innovative platform</p>
-			<Button size="lg" link="/">Get started for free</Button>
+			<p class="pb-0 text-lg">
+				Every verse comes with the historical setting, early church interpretation,
+				and academic discourse it deserves.
+			</p>
+			<Button size="lg" link="/app">Download free</Button>
 		</Col>
 		<Col span="2" />
 		<Col span="2" />
 		<Col span="8">
 			<Image
 				src={heroImage}
-				alt="Foxi. The tailwind astro theme"
+				alt="The Context Bible app"
 				class="translate-y-8 shadow-2xl shadow-neutral-200 dark:shadow-neutral-950"
 				format="webp"
 			/></Col
