@@ -19,7 +19,7 @@
 	},
 	{
 		"question": "What translations are available?",
-		"reply": "The app currently offers the King James Version (KJV) with selectable canons for the Protestant, Catholic, and Orthodox traditions. More translations are on the roadmap.",
+		"reply": "Twenty-nine translations across English and Spanish. English includes KJV, NIV (2011 + Anglicized), NIrV, NASB (1995 + 2020), Amplified, Berean Standard, Free Bible Version, Literal Standard Version, World English Bible, American Standard, Geneva Bible, EasyEnglish, Plain English (Aboriginal), Passion Translation, the Text-Critical English New Testament, and more. Specialized canons include the Catholic Public Domain Version, the Orthodox Jewish Bible, and the World Messianic Bible (American and British editions). Spanish includes La Biblia de las Américas, Nueva Biblia de las Américas, Nueva Versión Internacional (2015 and 2025), Reina-Valera Antigua, Versión Biblia Libre, Palabra de Dios para Ti, and Gloss Spanish.",
 		"category": "features",
 		"open": true
 	},
@@ -30,8 +30,8 @@
 		"open": false
 	},
 	{
-		"question": "Can I switch between Protestant, Catholic, and Orthodox canons?",
-		"reply": "Yes. You pick your tradition in Settings, and the app shows the books and ordering appropriate to that canon. You can change it anytime without losing your notes, highlights, or saved verses.",
+		"question": "Can I switch translations easily?",
+		"reply": "Yes. The translation selector is at the top of the reader — tap and pick any of the 29 translations. Your notes, highlights, and saved verses carry across, so you can compare a passage in KJV, NIV, and the Berean Standard in a few taps without losing your place.",
 		"category": "features",
 		"open": false
 	},

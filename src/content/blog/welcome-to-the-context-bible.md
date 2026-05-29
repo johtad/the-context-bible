@@ -32,7 +32,7 @@ Anyone who wants to read Scripture with more depth. Students who want to underst
 
 ## What is in the app today
 
-- King James Version, with **Protestant, Catholic, and Orthodox** canons selectable based on your tradition
+- **29 translations** across English and Spanish — from KJV and Geneva to NIV, NASB, Berean Standard, and Amplified, plus specialized editions: Catholic Public Domain, Orthodox Jewish, World Messianic, and Plain English for Aboriginal readers
 - **English and Español** interface
 - **Ten reading themes** and **five typefaces** for long sessions
 - **Verse of the Day** and **Weekly Context Insights** by push notification or email

@@ -30,21 +30,21 @@
 		"category": "Context"
 	},
 	{
-		"title": "King James Version",
+		"title": "29 translations",
 		"icon": "document-chart-bar",
-		"description": "Read in the King James translation, with the Protestant, Catholic, and Orthodox canons selectable based on your tradition.",
+		"description": "Twenty-one English translations — KJV, NIV, NASB (1995 & 2020), Berean Standard, Amplified, Geneva, ASV, Literal Standard, Free Bible, Passion Translation, and more — plus eight Spanish translations.",
 		"category": "Reading"
 	},
 	{
-		"title": "Multiple Traditions",
+		"title": "Specialized editions",
 		"icon": "scale",
-		"description": "Switch between Protestant, Catholic, and Orthodox biblical canons without leaving the app. Read with the canon that's home to you.",
+		"description": "Catholic Public Domain Version, Orthodox Jewish Bible, World Messianic Bible (both editions), and Plain English Version for Aboriginal readers — read with the canon and the cadence that's home to you.",
 		"category": "Reading"
 	},
 	{
-		"title": "English & Spanish",
+		"title": "Spanish translations",
 		"icon": "chat-bubbles",
-		"description": "Use the app in English or Español. Switch languages anytime in settings.",
+		"description": "La Biblia de las Américas, Nueva Biblia de las Américas, Nueva Versión Internacional (2015 & 2025), Reina-Valera Antigua, Versión Biblia Libre, Palabra de Dios para Ti, and Gloss Spanish. Switch the interface language anytime.",
 		"category": "Reading"
 	},
 	{
