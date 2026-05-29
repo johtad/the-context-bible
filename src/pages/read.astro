@@ -1,0 +1,202 @@
+---
+// Embedded Bible Reader Page
+// --------------------------
+// Hosts the live web reader (bible-app-3.onrender.com) inside contextscripture.org
+// for desktop visitors. Mobile visitors get redirected to /app to download the
+// native app, since the embedded web reader isn't a great experience on phones.
+
+import { configData } from '../config/config'
+
+const title = 'Read the Bible — The Context Bible'
+const description =
+	'Read 29 translations with full historical, theological, and academic context — right in your browser, free.'
+const READER_URL = 'https://bible-app-3.onrender.com/#/home'
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="icon" href={configData.logo.src} type="image/png" />
+		<link rel="apple-touch-icon" href={configData.logo.src} />
+		<meta name="theme-color" content="#134e4a" />
+
+		<!-- Open Graph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://contextscripture.org/read" />
+		<meta property="og:image" content={configData.ogImage} />
+
+		<!-- Mobile fallback: if JS is disabled, the noscript redirect kicks in -->
+		<noscript>
+			<style>
+				.mobile-hint { display: block !important; }
+				.reader-frame, .reader-header__back { display: none !important; }
+			</style>
+		</noscript>
+
+		<style is:global>
+			html, body {
+				margin: 0;
+				padding: 0;
+				height: 100%;
+				background: #faf8f3;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+				color: #1a1a1a;
+			}
+			body {
+				display: flex;
+				flex-direction: column;
+			}
+			a { color: inherit; text-decoration: none; }
+
+			.reader-header {
+				display: flex;
+				align-items: center;
+				gap: 16px;
+				height: 56px;
+				flex-shrink: 0;
+				padding: 0 16px;
+				background: #fff;
+				border-bottom: 1px solid #e5e5e5;
+				font-size: 14px;
+			}
+
+			.reader-header__back {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+				padding: 6px 12px;
+				border-radius: 8px;
+				color: #5a3a1f;
+				font-weight: 500;
+				transition: background 0.1s ease;
+			}
+			.reader-header__back:hover { background: #f3f3f3; }
+
+			.reader-header__brand {
+				display: inline-flex;
+				align-items: center;
+				gap: 10px;
+				font-weight: 600;
+				color: #1a1a1a;
+				margin-left: auto;
+			}
+			.reader-header__brand img {
+				width: 28px;
+				height: 28px;
+				border-radius: 6px;
+			}
+
+			.reader-header__download {
+				display: inline-flex;
+				align-items: center;
+				padding: 8px 16px;
+				background: #134e4a;
+				color: #fff !important;
+				border-radius: 8px;
+				font-weight: 500;
+				transition: background 0.1s ease;
+			}
+			.reader-header__download:hover { background: #0f3a37; }
+
+			.reader-frame {
+				flex: 1;
+				width: 100%;
+				border: 0;
+				display: block;
+			}
+
+			.mobile-hint {
+				display: none;
+				padding: 48px 24px;
+				text-align: center;
+				max-width: 420px;
+				margin: 0 auto;
+			}
+			.mobile-hint h1 {
+				font-size: 24px;
+				margin: 16px 0 8px;
+			}
+			.mobile-hint p {
+				color: #6b6b6b;
+				line-height: 1.5;
+				margin-bottom: 24px;
+			}
+			.mobile-hint .reader-header__download {
+				display: inline-flex;
+			}
+
+			/* Hide brand text on narrow screens to save space */
+			@media (max-width: 640px) {
+				.reader-header__brand span { display: none; }
+			}
+
+			/* Hide the right-hand brand/download on very narrow phones — back button is enough */
+			@media (max-width: 400px) {
+				.reader-header__brand { display: none; }
+			}
+		</style>
+	</head>
+	<body>
+		<header class="reader-header">
+			<a class="reader-header__back" href="/" aria-label="Back to The Context Bible homepage">
+				<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+					<line x1="19" y1="12" x2="5" y2="12"></line>
+					<polyline points="12 19 5 12 12 5"></polyline>
+				</svg>
+				Back to The Context Bible
+			</a>
+			<a class="reader-header__brand" href="/">
+				<img src="/app-icon.png" alt="" width="28" height="28" />
+				<span>The Context Bible</span>
+			</a>
+			<a class="reader-header__download" href="/app">Download the app</a>
+		</header>
+
+		<iframe
+			class="reader-frame"
+			src={READER_URL}
+			title="The Context Bible web reader"
+			allow="clipboard-read; clipboard-write"
+			referrerpolicy="strict-origin-when-cross-origin"
+		></iframe>
+
+		<div class="mobile-hint" aria-hidden="true">
+			<img src="/app-icon.png" alt="" width="96" height="96" style="border-radius: 20px;" />
+			<h1>Better on the app</h1>
+			<p>
+				The browser reader is built for big screens. On your phone, the native
+				app is a smoother experience — same 29 translations, same context.
+			</p>
+			<a class="reader-header__download" href="/app">Download the app</a>
+		</div>
+
+		<script>
+			// Mobile detection — redirect mobile/tablet visitors to the download page.
+			// Desktop visitors stay here and use the embedded reader.
+			const ua = navigator.userAgent || ''
+			const isIPad =
+				/iPad/.test(ua) ||
+				(navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+			const isIPhone = /iPhone|iPod/.test(ua)
+			const isAndroid = /android/i.test(ua)
+			const isMobile = isIPad || isIPhone || isAndroid
+
+			if (isMobile) {
+				// Show the mobile hint briefly, then redirect to /app
+				const hint = document.querySelector('.mobile-hint') as HTMLElement | null
+				const frame = document.querySelector('.reader-frame') as HTMLElement | null
+				if (hint) hint.style.display = 'block'
+				if (frame) frame.style.display = 'none'
+				setTimeout(() => {
+					window.location.replace('/app')
+				}, 1500)
+			}
+		</script>
+	</body>
+</html>
