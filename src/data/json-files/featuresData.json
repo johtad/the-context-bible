@@ -92,7 +92,7 @@
 	{
 		"title": "Notes & Highlights",
 		"icon": "cliboard-document-check",
-		"description": "Highlight the words that stop you and jot the thoughts they spark. With Premium, everything syncs across every device you read on.",
+		"description": "Highlight the words that stop you and jot the thoughts they spark. Everything syncs across every device you sign in on.",
 		"category": "Library"
 	},
 	{
@@ -122,14 +122,8 @@
 	{
 		"title": "Sync Across Devices",
 		"icon": "computer-desktop",
-		"description": "Premium keeps your notes, highlights, and saved verses in step on every device you read on. Pick up where you left off.",
-		"category": "Premium"
-	},
-	{
-		"title": "More Daily Generations",
-		"icon": "bolt",
-		"description": "Ask more questions, generate more verse cards, and explore more context with raised daily limits.",
-		"category": "Premium"
+		"description": "Your notes, highlights, and saved verses stay in step on every device you sign in on. Pick up where you left off.",
+		"category": "Library"
 	},
 	{
 		"title": "Your Name, Only",

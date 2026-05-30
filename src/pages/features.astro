@@ -15,7 +15,6 @@ const featuresReading = featuresData.filter((feature) => feature.category === 'R
 const featuresDaily = featuresData.filter((feature) => feature.category === 'Daily')
 const featuresLibrary = featuresData.filter((feature) => feature.category === 'Library')
 const featuresSharing = featuresData.filter((feature) => feature.category === 'Sharing')
-const featuresPremium = featuresData.filter((feature) => feature.category === 'Premium')
 const featuresPrivacy = featuresData.filter((feature) => feature.category === 'Privacy')
 
 // Content
@@ -62,15 +61,10 @@ const header = {
 		data={featuresSharing}
 	/>
 	<Feature
-		title="Premium — for readers who want more"
-		text="Sync, raised daily limits, and the deepest dive on every passage."
-		data={featuresPremium}
-		classes="bg-neutral-50 dark:bg-neutral-900"
-	/>
-	<Feature
 		title="A quiet account experience"
 		text="No tracking, no ad targeting, no surprises. Your reading life is yours."
 		data={featuresPrivacy}
+		classes="bg-neutral-50 dark:bg-neutral-900"
 	/>
 	<CTA />
 </Layout>

@@ -37,16 +37,10 @@ Anyone who wants to read Scripture with more depth. Students who want to underst
 - **Ten reading themes** and **five typefaces** for long sessions
 - **Verse of the Day** and **Weekly Context Insights** by push notification or email
 - **Beautiful verse cards** — square, portrait, or landscape — for sharing what speaks to you
-- A personal **library** of saved verses, with notes and highlights
-
-## What Premium adds
-
-- **Sync** across every device you read on
-- **Raised daily limits** for asking questions and generating verse cards
-- More to come
+- A personal **library** of saved verses, with notes and highlights that sync across every device you sign in on
 
 ## How to get it
 
-The app is free on iOS and Android. [Tap here to download.](/app)
+The app is free on iOS and Android — every reader gets the same content, with no tiers and no upsell. [Tap here to download.](/app)
 
 Thanks for being here at the start.

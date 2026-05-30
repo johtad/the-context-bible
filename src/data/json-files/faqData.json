@@ -43,7 +43,7 @@
 	},
 	{
 		"question": "Can I take notes and highlights?",
-		"reply": "Yes. Highlight any passage, attach notes, and build a personal library of the verses you keep returning to. With Premium, all of it syncs across every device you read on.",
+		"reply": "Yes. Highlight any passage, attach notes, and build a personal library of the verses you keep returning to. Everything syncs across every device you sign in on.",
 		"category": "features",
 		"open": false
 	},
@@ -55,15 +55,9 @@
 	},
 	{
 		"question": "Is The Context Bible free?",
-		"reply": "Yes — the core app is free. Reading the text, exploring context panels, getting the Verse of the Day, and saving verses are all included at no cost.",
+		"reply": "Yes. The Context Bible is fully free — every reader gets the same content, the same translations, the same context panels, the same notes and highlights. No tiers, no upsell.",
 		"category": "pricing",
 		"open": true
-	},
-	{
-		"question": "What do I get with Premium?",
-		"reply": "Premium adds notes-and-highlights sync across devices, raised daily limits for asking Bible questions and generating verse cards, and the deepest dive on every passage's context.",
-		"category": "pricing",
-		"open": false
 	},
 	{
 		"question": "How is my data handled?",
