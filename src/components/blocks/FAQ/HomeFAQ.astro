@@ -63,22 +63,21 @@ const faqs: QA[] = [
 
 <Section id="home-faq" stickyCol classes="bg-neutral-50 dark:bg-neutral-900">
 	<Row>
-		<Col span="5" classes="self-start">
+		<Col span="4" classes="self-start">
 			<div class="lg:sticky lg:top-24">
 				<h2 class="text-pretty">
-					Reading with context is <strong>faithful study</strong>, not theological compromise
+					Why do I need to <strong>study context?</strong>
 				</h2>
 				<p class="text-lg leading-relaxed">
-					If you've ever wondered whether it's right to bring history, scholarship,
-					and the early church into your Bible reading — these are the questions
-					Scripture itself helps us answer.
+					Honest questions about bringing history, scholarship, and the early
+					church into your Bible reading — answered from Scripture itself.
 				</p>
 				<div class="mt-6">
 					<Button link="/faq" style="secondary">See all FAQs</Button>
 				</div>
 			</div>
 		</Col>
-		<Col span="7">
+		<Col span="8">
 			<Card classes="divide-y divide-neutral-100 dark:divide-neutral-800">
 				{faqs.map((item) => (
 					<Accordion title={item.q} text={item.a} open={item.open} />
