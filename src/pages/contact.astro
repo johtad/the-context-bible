@@ -3,7 +3,7 @@
 // - Layout
 import Layout from '../layouts/Layout.astro'
 // - UI
-import FormHero from '../components/blocks/hero/ContactHero.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 import ContactCards from '../components/blocks/contact/ContactCards.astro'
 
@@ -22,12 +22,7 @@ const header = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<FormHero
-		title={header.title}
-		text={header.text}
-		id="contact"
-		classes="bg-neutral-50 dark:bg-neutral-950/80"
-	/>
+	<Hero title={header.title} text={header.text} />
 	<ContactCards classes="dark:bg-neutral-950/80" />
 	<CTA />
 </Layout>
