@@ -22,7 +22,7 @@ const { classes } = Astro.props
 
 <Section id="requests" classes={classes}>
 	<Row>
-		<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
+		<Col span="12" align="center" classes="mb-8 max-w-4xl mx-auto">
 			<h2 class="text-balance">Email us <strong>directly</strong></h2>
 			<p class="pb-0 text-lg">
 				Pick the right thread and we'll get back to you.
@@ -33,11 +33,15 @@ const { classes } = Astro.props
 		<Col span="4">
 			<Card
 				title="General questions"
-				subtitle="Anything about the app, the project, or what we're working on — send it to theaspireed@gmail.com and we'll write back."
+				subtitle="Anything about the app, the project, or what we're working on — we'll write back."
 				icon="chat-bubble-left-ellipsis"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="mailto:theaspireed@gmail.com"
-			/>
+			>
+				<span class="mt-3 inline-block break-all rounded-md bg-primary-50 px-3 py-1.5 font-mono text-sm font-medium text-primary-700 dark:bg-primary-950 dark:text-primary-300">
+					theaspireed@gmail.com
+				</span>
+			</Card>
 		</Col>
 		<Col span="4">
 			<Card
@@ -46,7 +50,11 @@ const { classes } = Astro.props
 				icon="bolt"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="mailto:theaspireed@gmail.com?subject=Feature%20request"
-			/>
+			>
+				<span class="mt-3 inline-block break-all rounded-md bg-primary-50 px-3 py-1.5 font-mono text-sm font-medium text-primary-700 dark:bg-primary-950 dark:text-primary-300">
+					theaspireed@gmail.com
+				</span>
+			</Card>
 		</Col>
 		<Col span="4" classes="flex flex-col gap-6">
 			<Card
@@ -55,7 +63,11 @@ const { classes } = Astro.props
 				icon="bug-ant"
 				classes="text-center dark:!bg-neutral-800/50"
 				link="mailto:theaspireed@gmail.com?subject=Bug%20report"
-			/>
+			>
+				<span class="mt-3 inline-block break-all rounded-md bg-primary-50 px-3 py-1.5 font-mono text-sm font-medium text-primary-700 dark:bg-primary-950 dark:text-primary-300">
+					theaspireed@gmail.com
+				</span>
+			</Card>
 		</Col>
 	</Row>
 </Section>
