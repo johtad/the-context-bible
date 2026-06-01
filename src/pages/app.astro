@@ -1,0 +1,223 @@
+---
+// Download landing page
+// ---------------------
+// Auto-detects the user's device and redirects to the appropriate app store.
+// Desktop users see both store buttons. Fires a `store_redirect` event to
+// GA4 (with target_store + UTM params) before the redirect happens, so we
+// can break down clicks by source / device / country / city in Analytics.
+
+import { googleAnalyticsMeasurementID } from '../config/analytics'
+
+const IOS_URL =
+	'https://apps.apple.com/us/app/the-context-bible/id6754007140'
+const ANDROID_URL =
+	'https://play.google.com/store/apps/details?id=com.aspireed.tcb20251014b&hl=en_US'
+
+const gaId = googleAnalyticsMeasurementID || ''
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>Download The Context Bible</title>
+
+		<!-- Apple Smart App Banner -->
+		<meta name="apple-itunes-app" content="app-id=6754007140" />
+
+		<!-- Open Graph / link previews -->
+		<meta property="og:title" content="The Context Bible" />
+		<meta property="og:description" content="Tap to download The Context Bible on your phone." />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://contextscripture.org/app" />
+		<meta property="og:image" content="/app-icon.png" />
+		<meta name="twitter:card" content="summary" />
+
+		<!-- No-JS fallback: send straight to the iOS store after 0s -->
+		<noscript>
+			<meta http-equiv="refresh" content={`0; url=${IOS_URL}`} />
+		</noscript>
+
+		<!-- Google Analytics 4 (only if the ID is configured) -->
+		{gaId && (
+			<>
+				<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+				<script is:inline define:vars={{ gaId }}>
+					{`window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					window.gtag = gtag;
+					gtag('js', new Date());
+					gtag('config', '${gaId}', { send_page_view: true });`}
+				</script>
+			</>
+		)}
+
+		<style>
+			:root {
+				--bg: #faf8f3;
+				--ink: #18181b;
+				--muted: #52525b;
+				--accent: #166f84;
+			}
+			* { box-sizing: border-box; }
+			html, body {
+				margin: 0;
+				padding: 0;
+				background: var(--bg);
+				color: var(--ink);
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+				-webkit-font-smoothing: antialiased;
+			}
+			main {
+				min-height: 100vh;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				padding: 32px 24px;
+				text-align: center;
+			}
+			h1 {
+				font-size: clamp(28px, 6vw, 44px);
+				margin: 0 0 8px;
+				letter-spacing: -0.01em;
+			}
+			p.lede {
+				color: var(--muted);
+				font-size: clamp(15px, 3.5vw, 18px);
+				margin: 0 0 32px;
+				max-width: 32ch;
+			}
+			.buttons {
+				display: flex;
+				flex-direction: column;
+				gap: 14px;
+				align-items: center;
+				width: 100%;
+				max-width: 280px;
+			}
+			.store-btn {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				gap: 10px;
+				width: 100%;
+				padding: 14px 20px;
+				border-radius: 12px;
+				background: #000;
+				color: #fff;
+				text-decoration: none;
+				font-size: 16px;
+				font-weight: 500;
+				transition: transform 0.1s ease, opacity 0.1s ease;
+			}
+			.store-btn:hover { opacity: 0.88; }
+			.store-btn:active { transform: scale(0.98); }
+			.store-btn svg { flex-shrink: 0; }
+			.detecting {
+				color: var(--muted);
+				font-size: 14px;
+				margin-top: 24px;
+				min-height: 20px;
+			}
+			footer {
+				margin-top: 48px;
+				color: var(--muted);
+				font-size: 13px;
+			}
+			footer a { color: var(--accent); text-decoration: none; }
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>The Context Bible</h1>
+			<p class="lede">Tap below to download on your device.</p>
+
+			<div class="buttons">
+				<a class="store-btn" id="ios-btn" data-store="ios" href={IOS_URL}>
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M17.05 12.04c-.03-3.08 2.52-4.55 2.63-4.62-1.43-2.1-3.66-2.39-4.46-2.42-1.9-.19-3.7 1.12-4.66 1.12-.97 0-2.45-1.09-4.03-1.06-2.07.03-3.98 1.2-5.04 3.06-2.15 3.72-.55 9.22 1.55 12.24 1.03 1.48 2.25 3.14 3.85 3.08 1.55-.06 2.13-1 4-1 1.86 0 2.4 1 4.03.97 1.66-.03 2.71-1.5 3.73-2.99 1.17-1.71 1.66-3.37 1.68-3.46-.04-.02-3.23-1.24-3.28-4.92zM14.4 3.94c.86-1.04 1.43-2.49 1.28-3.94-1.23.05-2.73.82-3.61 1.85-.79.92-1.49 2.4-1.3 3.81 1.37.11 2.78-.7 3.63-1.72z"/>
+					</svg>
+					Download on App Store
+				</a>
+				<a class="store-btn" id="android-btn" data-store="android" href={ANDROID_URL}>
+					<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M3.6 1.81a1.5 1.5 0 0 0-.6 1.2v17.98c0 .46.21.88.55 1.15L13.3 12 3.6 1.81zM14.3 13l2.66 2.66-9.7 5.6L14.3 13zm0-2L7.27 2.74l9.7 5.6L14.3 11zm6.4 1.94l-2.96 1.71-3.04-3.05 3.04-3.05 2.96 1.71c1.07.62 1.07 2.06 0 2.68z"/>
+					</svg>
+					Get it on Google Play
+				</a>
+			</div>
+
+			<p class="detecting" id="status"></p>
+
+			<footer>&copy; The Context Bible</footer>
+		</main>
+
+		<script is:inline define:vars={{ IOS_URL, ANDROID_URL }}>
+			(function () {
+				const ua = navigator.userAgent || navigator.vendor || window.opera || ''
+				const isIPad =
+					/iPad/.test(ua) ||
+					(navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
+				const isIPhone = /iPhone|iPod/.test(ua)
+				const isIOS = isIPhone || isIPad
+				const isAndroid = /android/i.test(ua)
+
+				// Parse UTM params off the current URL so we can attach them to the event
+				const qs = new URLSearchParams(window.location.search)
+				const utm = {
+					utm_source: qs.get('utm_source') || '',
+					utm_medium: qs.get('utm_medium') || '',
+					utm_campaign: qs.get('utm_campaign') || '',
+					utm_content: qs.get('utm_content') || '',
+					utm_term: qs.get('utm_term') || ''
+				}
+
+				function track(target_store, then) {
+					// Fire a GA4 store_redirect event with target + UTMs, using the beacon
+					// transport so the request survives the immediate page navigation.
+					if (typeof window.gtag === 'function') {
+						window.gtag('event', 'store_redirect', {
+							target_store: target_store,
+							referrer: document.referrer || '(direct)',
+							...utm,
+							transport_type: 'beacon',
+							event_callback: then || (() => {})
+						})
+						// Safety net: if event_callback doesn't fire (no GA / blocked),
+						// proceed after 250ms anyway so the user isn't stuck.
+						setTimeout(() => { if (then) then() }, 250)
+					} else if (then) {
+						then()
+					}
+				}
+
+				const status = document.getElementById('status')
+
+				if (isIOS) {
+					status.textContent = 'Opening the App Store…'
+					track('ios', () => window.location.replace(IOS_URL))
+				} else if (isAndroid) {
+					status.textContent = 'Opening Google Play…'
+					track('android', () => window.location.replace(ANDROID_URL))
+				} else {
+					// Desktop / unknown: stay on the page, but log a landing event.
+					track('desktop_view')
+					// Also instrument the manual button clicks so we capture them too.
+					document.querySelectorAll('.store-btn').forEach((btn) => {
+						btn.addEventListener('click', () => {
+							if (typeof window.gtag === 'function') {
+								window.gtag('event', 'store_button_click', {
+									target_store: btn.dataset.store,
+									referrer: document.referrer || '(direct)',
+									...utm
+								})
+							}
+						})
+					})
+				}
+			})()
+		</script>
+	</body>
+</html>
