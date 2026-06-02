@@ -1,27 +1,53 @@
 ---
 // Imports
-const { frontmatter } = Astro.props
+const { frontmatter, url } = Astro.props
 
 //Layout Components
 import Layout from './Layout.astro'
 
 // Section Components
 import BlogPostHero from '../components/blocks/blog/BlogPostHero.astro'
+import SchemaArticle from '../components/scripts/SchemaArticle.astro'
+import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
 
 // Content
 // - SEO
+// Avoid double-stamping the brand: post titles that already contain
+// "The Context Bible" or "Context Bible" don't need the suffix.
+const postTitle: string = frontmatter.title
+const needsSuffix = !/context bible/i.test(postTitle)
 const SEO = {
-	title: `${frontmatter.title} | The Context Bible`,
+	title: needsSuffix ? `${postTitle} | The Context Bible` : postTitle,
 	description: `${frontmatter.description}`
 }
+
+const SITE = 'https://contextscripture.org'
+const canonical = `${SITE}${url || ''}`
+const pubDate: Date = frontmatter.pubDate instanceof Date ? frontmatter.pubDate : new Date(frontmatter.pubDate)
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
+	<SchemaArticle
+		headline={frontmatter.title}
+		description={frontmatter.description}
+		datePublished={pubDate.toISOString()}
+		authorName={frontmatter.author || 'The Context Bible team'}
+		url={canonical}
+		image={frontmatter.image}
+		tags={frontmatter.tags}
+	/>
+	<SchemaBreadcrumb
+		items={[
+			{ name: 'Home', url: `${SITE}/` },
+			{ name: 'Blog', url: `${SITE}/blog` },
+			{ name: frontmatter.title, url: canonical }
+		]}
+	/>
 	<BlogPostHero
 		tags={frontmatter.tags}
 		title={frontmatter.title}
 		author={frontmatter.author}
-		publishDate={frontmatter.pubDate.toLocaleDateString('en-US', {
+		publishDate={pubDate.toLocaleDateString('en-US', {
 			year: 'numeric',
 			month: 'long',
 			day: 'numeric'

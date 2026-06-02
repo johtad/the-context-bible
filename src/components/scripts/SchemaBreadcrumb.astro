@@ -1,0 +1,25 @@
+---
+// JSON-LD BreadcrumbList emitter.
+//
+// Pass in an array of { name, url } from Home → current page. AI engines
+// and Google use this to understand site structure and where each page sits.
+//
+// Reference: https://schema.org/BreadcrumbList
+
+type Crumb = { name: string; url: string }
+type Props = { items: Crumb[] }
+const { items } = Astro.props
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: items.map((c, i) => ({
+		'@type': 'ListItem',
+		position: i + 1,
+		name: c.name,
+		item: c.url
+	}))
+}
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />

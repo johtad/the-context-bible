@@ -1,0 +1,120 @@
+---
+// Global JSON-LD: Organization, WebSite, MobileApplication (iOS + Android),
+// SoftwareApplication. Rendered into <head> on every page.
+//
+// AI engines (ChatGPT, Perplexity, Gemini, Claude) and Google's AI Mode use
+// these structured-data blocks to extract canonical facts about the brand,
+// the apps, and the canonical site URL.
+//
+// References:
+// - https://schema.org/Organization
+// - https://schema.org/WebSite
+// - https://schema.org/MobileApplication
+// - https://developers.google.com/search/docs/appearance/structured-data/software-app
+
+const SITE = 'https://contextscripture.org'
+const APP_NAME = 'The Context Bible'
+const APP_DESCRIPTION =
+	'A modern Bible app that surfaces the historical setting, early church interpretation, ' +
+	'and academic discourse behind every verse. 29 translations across English and Spanish — ' +
+	'including the Catholic Public Domain Version, Orthodox Jewish Bible, World Messianic Bible, ' +
+	'and Plain English Version for Aboriginal readers.'
+
+const IOS_URL = 'https://apps.apple.com/us/app/the-context-bible/id6754007140'
+const ANDROID_URL =
+	'https://play.google.com/store/apps/details?id=com.aspireed.tcb20251014b&hl=en_US'
+
+const organization = {
+	'@context': 'https://schema.org',
+	'@type': 'Organization',
+	'@id': `${SITE}/#organization`,
+	name: APP_NAME,
+	alternateName: 'Context Bible',
+	url: SITE,
+	logo: `${SITE}/app-icon.png`,
+	description: APP_DESCRIPTION,
+	email: 'theaspireed@gmail.com',
+	founder: {
+		'@type': 'Organization',
+		name: 'The Aspire Ed Project'
+	},
+	sameAs: [IOS_URL, ANDROID_URL]
+}
+
+const website = {
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	'@id': `${SITE}/#website`,
+	url: SITE,
+	name: APP_NAME,
+	description: APP_DESCRIPTION,
+	publisher: { '@id': `${SITE}/#organization` },
+	inLanguage: ['en', 'es']
+}
+
+const mobileApplicationIOS = {
+	'@context': 'https://schema.org',
+	'@type': 'MobileApplication',
+	'@id': `${SITE}/#app-ios`,
+	name: APP_NAME,
+	operatingSystem: 'iOS 14.0+',
+	applicationCategory: 'EducationApplication',
+	applicationSubCategory: 'BibleStudy',
+	description: APP_DESCRIPTION,
+	url: IOS_URL,
+	downloadUrl: IOS_URL,
+	installUrl: IOS_URL,
+	softwareVersion: '1.0.7',
+	fileSize: '22 MB',
+	datePublished: '2025-11-04',
+	inLanguage: ['en', 'es'],
+	contentRating: '4+',
+	offers: {
+		'@type': 'Offer',
+		price: '0',
+		priceCurrency: 'USD'
+	},
+	aggregateRating: {
+		'@type': 'AggregateRating',
+		ratingValue: '5.0',
+		ratingCount: '12',
+		bestRating: '5',
+		worstRating: '1'
+	},
+	publisher: { '@id': `${SITE}/#organization` },
+	featureList: [
+		'29 Bible translations across English and Spanish',
+		'Historical context for every verse',
+		'Early church interpretation',
+		'Academic discourse and scholarly notes',
+		'Cross-references across Scripture',
+		'Ask Bible questions with cited answers',
+		'Notes, highlights, and saved verses with sync',
+		'Verse of the Day and Weekly Context Insights',
+		'Shareable verse cards',
+		'10 reading themes and 5 typefaces'
+	]
+}
+
+const mobileApplicationAndroid = {
+	...mobileApplicationIOS,
+	'@id': `${SITE}/#app-android`,
+	operatingSystem: 'Android',
+	url: ANDROID_URL,
+	downloadUrl: ANDROID_URL,
+	installUrl: ANDROID_URL,
+	aggregateRating: undefined // Play Store rating not exposed via a public lookup
+}
+
+const schemas = [organization, website, mobileApplicationIOS, mobileApplicationAndroid]
+---
+
+{
+	schemas.map((s) => (
+		<script
+			is:inline
+			type="application/ld+json"
+			set:html={JSON.stringify(s, (_, v) => (v === undefined ? undefined : v))}
+		/>
+	))
+}

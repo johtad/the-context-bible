@@ -6,6 +6,8 @@ import Layout from '../layouts/Layout.astro'
 import Feature from '../components/blocks/features/FeatureSticky.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
+// - Schema
+import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
 
 // Data
 import featuresData from '../data/json-files/featuresData.json'
@@ -32,6 +34,12 @@ const header = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
+	<SchemaBreadcrumb
+		items={[
+			{ name: 'Home', url: 'https://contextscripture.org/' },
+			{ name: 'Features', url: 'https://contextscripture.org/features' }
+		]}
+	/>
 	<Hero title={header.title} text={header.text} />
 	<Feature
 		title="Context for every verse"

@@ -9,6 +9,11 @@ import Testimonial from '../components/blocks/testimonials/BasicDark.astro'
 import HighlightBlocks from '../components/blocks/highlights/HightlightRows.astro'
 import HomeFAQ from '../components/blocks/FAQ/HomeFAQ.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
+// - Schema
+import SchemaFAQ from '../components/scripts/SchemaFAQ.astro'
+
+// Data
+import { homeFaqs } from '../data/homeFaqs'
 
 // Content
 // - Testimonial background
@@ -22,6 +27,7 @@ const SEO = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
+	<SchemaFAQ items={homeFaqs} />
 	<Hero />
 	<HomeFAQ />
 	<Features />

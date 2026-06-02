@@ -5,6 +5,8 @@ import Layout from '../layouts/Layout.astro'
 // - UI
 import SidebarContent from '../components/blocks/basic/StickySidebar.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
+// - Schema
+import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
 
 // Content
 // - SEO
@@ -21,6 +23,12 @@ const header = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
+	<SchemaBreadcrumb
+		items={[
+			{ name: 'Home', url: 'https://contextscripture.org/' },
+			{ name: 'Terms', url: 'https://contextscripture.org/terms' }
+		]}
+	/>
 	<Hero title={header.title} text={header.text} />
 	<SidebarContent>
 		<div slot="sidebar">

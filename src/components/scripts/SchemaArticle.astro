@@ -1,0 +1,57 @@
+---
+// JSON-LD Article + Person schema for blog posts.
+// AI engines weight authorship signals heavily — bylines with E-E-A-T
+// (Experience, Expertise, Authoritativeness, Trustworthiness) are part
+// of why some sources get cited and others don't.
+
+type Props = {
+	headline: string
+	description?: string
+	datePublished: string // ISO 8601
+	dateModified?: string // ISO 8601
+	authorName: string
+	url: string // canonical
+	image?: string
+	tags?: string[]
+}
+
+const {
+	headline,
+	description,
+	datePublished,
+	dateModified = datePublished,
+	authorName,
+	url,
+	image,
+	tags
+} = Astro.props
+
+const SITE = 'https://contextscripture.org'
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline,
+	description,
+	url,
+	datePublished,
+	dateModified,
+	mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+	author: {
+		'@type': 'Person',
+		name: authorName
+	},
+	publisher: { '@id': `${SITE}/#organization` },
+	image: image
+		? { '@type': 'ImageObject', url: image.startsWith('http') ? image : `${SITE}${image}` }
+		: undefined,
+	keywords: tags && tags.length ? tags.join(', ') : undefined,
+	inLanguage: 'en'
+}
+---
+
+<script
+	is:inline
+	type="application/ld+json"
+	set:html={JSON.stringify(schema, (_, v) => (v === undefined ? undefined : v))}
+/>

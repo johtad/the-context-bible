@@ -6,6 +6,9 @@ import Layout from '../layouts/Layout.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
 import FAQ from '../components/blocks/FAQ/FaqSticky.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
+// - Schema
+import SchemaFAQ from '../components/scripts/SchemaFAQ.astro'
+import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
 
 // Data
 import faqData from '../data/json-files/faqData.json'
@@ -13,6 +16,9 @@ import faqData from '../data/json-files/faqData.json'
 const faqGeneral = faqData.filter((faq) => faq.category === 'general')
 const faqFeatures = faqData.filter((faq) => faq.category === 'features')
 const faqPricing = faqData.filter((faq) => faq.category === 'pricing')
+
+// FAQs flattened for JSON-LD
+const faqSchemaItems = faqData.map((f) => ({ q: f.question, a: f.reply }))
 
 // Content
 // - SEO
@@ -29,6 +35,13 @@ const header = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
+	<SchemaFAQ items={faqSchemaItems} />
+	<SchemaBreadcrumb
+		items={[
+			{ name: 'Home', url: 'https://contextscripture.org/' },
+			{ name: 'FAQ', url: 'https://contextscripture.org/faq' }
+		]}
+	/>
 	<Hero title={header.title} text={header.text} />
 	<FAQ
 		title="About the app"

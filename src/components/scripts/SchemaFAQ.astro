@@ -1,0 +1,41 @@
+---
+// JSON-LD FAQPage emitter.
+//
+// Pass in an array of { q, a } and this renders a FAQPage block that AI
+// engines (especially ChatGPT and Perplexity) lift answers directly from.
+// Google is sunsetting the FAQ rich result in mid-2026 but explicitly
+// confirmed FAQPage markup still works for AI extraction and won't damage
+// rankings — so keeping it is the right call.
+//
+// Reference: https://developers.google.com/search/docs/appearance/structured-data/faqpage
+
+type QA = { q: string; a: string }
+type Props = { items: QA[] }
+const { items } = Astro.props
+
+// Strip any HTML so the answer is plain text for the LLM, but keep entities readable.
+function stripHtml(s: string) {
+	return s
+		.replace(/<[^>]+>/g, '')
+		.replace(/&nbsp;/g, ' ')
+		.replace(/&amp;/g, '&')
+		.replace(/&quot;/g, '"')
+		.replace(/&#39;/g, "'")
+		.trim()
+}
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: items.map((qa) => ({
+		'@type': 'Question',
+		name: stripHtml(qa.q),
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: stripHtml(qa.a)
+		}
+	}))
+}
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />

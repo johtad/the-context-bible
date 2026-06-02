@@ -6,6 +6,8 @@ import Layout from '../layouts/Layout.astro'
 import Hero from '../components/blocks/hero/PageHeader.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 import ContactCards from '../components/blocks/contact/ContactCards.astro'
+// - Schema
+import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
 
 // Content
 // - SEO
@@ -22,6 +24,12 @@ const header = {
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
+	<SchemaBreadcrumb
+		items={[
+			{ name: 'Home', url: 'https://contextscripture.org/' },
+			{ name: 'Contact', url: 'https://contextscripture.org/contact' }
+		]}
+	/>
 	<Hero title={header.title} text={header.text} />
 	<ContactCards classes="dark:bg-neutral-950/80" />
 	<CTA />
