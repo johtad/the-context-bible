@@ -44,11 +44,11 @@ const gaId = googleAnalyticsMeasurementID || ''
 			<>
 				<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
 				<script is:inline define:vars={{ gaId }}>
-					{`window.dataLayer = window.dataLayer || [];
-					function gtag(){dataLayer.push(arguments);}
-					window.gtag = gtag;
-					gtag('js', new Date());
-					gtag('config', '${gaId}', { send_page_view: true });`}
+					window.dataLayer = window.dataLayer || []
+					function gtag() { dataLayer.push(arguments) }
+					window.gtag = gtag
+					gtag('js', new Date())
+					gtag('config', gaId, { send_page_view: true })
 				</script>
 			</>
 		)}
