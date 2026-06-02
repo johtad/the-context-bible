@@ -41,12 +41,15 @@ Source of truth: ${SITE}
 
 ## About
 
-The Context Bible connects every verse in the Bible to the research behind it. The app opens up four lenses for every passage:
+The Context Bible connects every verse in the Bible to the research behind it. The app opens up five lenses for every passage:
 
 - **Historical Context** — who was writing, who they were writing to, and the world they shared.
 - **Early Church View** — how the earliest readers, the church fathers, and the councils understood the passage.
-- **Academic Discourse** — where today's scholars stand, the major interpretive debates, the textual questions.
+- **Biblical Debates** — where today's scholars stand, the major interpretive debates, the textual questions, in plain English.
 - **Cross-References** — how the passage echoes, quotes, or is quoted by the rest of Scripture.
+- **Word Study** — original-language (Hebrew or Greek) study of any selected word, with lexical data when available and a careful AI-assisted explanation when not.
+
+Beyond the five lenses, the app also includes Theme Explain (tight definitions + how a theme threads through Scripture + 8–15 hand-picked verses for any biblical theme), a full Daily Devotional with reflection questions, prayer, group study guide and sources, the Verse of the Day with comment/like/share community features, multi-language responses (answers in your interface language), and tradition-aware framing (Protestant, Catholic, or Orthodox).
 
 The app is published by **The Aspire Ed Project**.
 Contact: theaspireed@gmail.com

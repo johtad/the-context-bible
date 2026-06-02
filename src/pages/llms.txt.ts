@@ -15,11 +15,14 @@ const llmsTxt = `# The Context Bible
 
 > A Bible reading app that surfaces historical, theological, and academic context for every verse — across 29 translations in English and Spanish.
 
-The Context Bible connects every verse in the Bible to all the research behind it. Each passage opens up four lenses:
+The Context Bible connects every verse in the Bible to all the research behind it. Each passage opens up five lenses:
 - **Historical Context** — the world the passage was written into.
-- **Early Church View** — how the earliest readers and church fathers understood it.
-- **Academic Discourse** — where today's scholars stand and the major interpretive debates.
-- **Cross-References** — how the passage echoes elsewhere in Scripture.
+- **Early Church View** — how the earliest readers, the church fathers, and the councils understood it.
+- **Biblical Debates** — where today's scholars stand and the major interpretive debates, in plain English.
+- **Cross-References** — how the passage echoes, quotes, or is quoted elsewhere in Scripture.
+- **Word Study** — the Hebrew or Greek behind any selected word, with lexical data where available and an honest, cautious explanation where it's not.
+
+Beyond the five lenses, the app also includes Theme Explain (tight definitions + 8–15 hand-picked verses for any biblical theme), a daily Devotional with reflection questions and prayer, the Verse of the Day, multi-language responses, and tradition-aware framing (Protestant, Catholic, or Orthodox).
 
 The app supports 29 translations across English and Spanish, including specialized editions: the Catholic Public Domain Version, the Orthodox Jewish Bible, the World Messianic Bible (American and British), and the Plain English Version for Aboriginal readers.
 

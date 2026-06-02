@@ -12,9 +12,9 @@
 		"category": "Context"
 	},
 	{
-		"title": "Academic Discourse",
+		"title": "Biblical Debates",
 		"icon": "document-text",
-		"description": "Where today's scholars stand. The major interpretive debates, the textual questions, and the major positions — without the jargon.",
+		"description": "Where today's scholars stand. The major interpretive debates, the textual questions, and the major positions — surfaced plainly, without the jargon, with honest framing of what is contested.",
 		"category": "Context"
 	},
 	{
@@ -24,9 +24,27 @@
 		"category": "Context"
 	},
 	{
+		"title": "Word Study",
+		"icon": "key",
+		"description": "Tap any word in any verse to study its Hebrew or Greek behind it — lexical data when we have it, a careful AI-assisted explanation when we don't, and always honest about uncertainty.",
+		"category": "Context"
+	},
+	{
 		"title": "Ask Bible Questions",
 		"icon": "chat-bubble-left-right",
 		"description": "Ask a question about any verse, doctrine, or theme — and get an answer grounded in real citations from the text and scholarly sources.",
+		"category": "Context"
+	},
+	{
+		"title": "Theme Explain",
+		"icon": "light-bulb",
+		"description": "Type any biblical theme — forgiveness, the kingdom of God, covenant, justice — and get a tight definition, how it threads through Scripture, and 8–15 hand-picked verses to start with.",
+		"category": "Context"
+	},
+	{
+		"title": "Tradition-aware answers",
+		"icon": "scale",
+		"description": "Choose Protestant, Catholic, or Orthodox framing in Settings and the app surfaces context that fits your tradition — without hiding what others see in the same passage.",
 		"category": "Context"
 	},
 	{
