@@ -3,7 +3,7 @@
 // - Google Analytics Measurement ID: for Google Analytics 4
 // - Google Tag Manager ID: for Google Tag Manager (unused; prefer GA4 above)
 
-export const googleSiteVerification = ''
+export const googleSiteVerification = 'z-to8DJ45hTqWqLKVBwBpa-7UN5M1w39CLrDtd06klw'
 
 // Paste your GA4 Measurement ID here (it looks like "G-XXXXXXXXXX").
 // Find it in Google Analytics → Admin → Data Streams → your web stream.
