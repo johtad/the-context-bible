@@ -136,7 +136,7 @@ const {
 </style>
 
 <script is:inline define:vars={{ apiBase: 'https://bible-app-3.onrender.com' }}>
-	(function () {
+	function bindNewsletterForms() {
 		const forms = document.querySelectorAll('[data-newsletter-form]')
 		for (const form of forms) {
 			if (form.dataset.bound === '1') continue
@@ -170,31 +170,43 @@ const {
 				}
 				setStatus('', null)
 				setBusy(true)
+				const source = form.dataset.source || 'site'
+				const track = (outcome) => {
+					if (typeof window.gtag === 'function') {
+						window.gtag('event', 'newsletter_signup', { outcome, source })
+					}
+				}
 				try {
 					const res = await fetch(`${apiBase}/api/newsletter/subscribe`, {
 						method: 'POST',
 						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify({ email, source: form.dataset.source || 'site' })
+						body: JSON.stringify({ email, source })
 					})
 					const payload = await res.json().catch(() => ({}))
 					if (!res.ok || !payload.ok) {
 						setStatus(payload.error || 'Something went wrong. Please try again.', 'error')
+						track('error')
 						setBusy(false)
 						return
 					}
 					if (payload.status === 'already_confirmed') {
 						setStatus("You're already subscribed — see you tomorrow morning.", 'success')
+						track('already_confirmed')
 					} else {
 						setStatus("Check your inbox for a confirmation link to finish signing up.", 'success')
+						track('pending')
 					}
 					form.reset()
 				} catch (err) {
 					console.error('[newsletter signup]', err)
 					setStatus('Could not reach the server. Please try again in a moment.', 'error')
+					track('network_error')
 				} finally {
 					setBusy(false)
 				}
 			})
 		}
-	})()
+	}
+	bindNewsletterForms()
+	document.addEventListener('astro:page-load', bindNewsletterForms)
 </script>
