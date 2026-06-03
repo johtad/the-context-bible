@@ -1,0 +1,147 @@
+---
+// Categorized Blog Posts
+// ------------
+// Description: Blog posts grouped into named categories (Cornerstones, Themes,
+//   Why-Did-Jesus Q&As, Word Studies, Devotionals) with a section heading and
+//   3-column card grid per category. Used on the blog index.
+// Properties:
+// - data: An array of blog posts
+
+import Section from '../../../components/ui/Section.astro'
+import Row from '../../../components/ui/Row.astro'
+import Col from '../../../components/ui/Col.astro'
+import Post from '../../../components/ui/cards/BlogCard.astro'
+import TagNavigation from '../../../components/ui/blog/TagNavigation.astro'
+
+type Props = {
+	data: any
+}
+const { data: allPosts } = Astro.props
+
+const sortByDateDesc = (a: any, b: any) =>
+	new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+
+const hasTag = (post: any, tag: string) =>
+	Array.isArray(post.data.tags) && post.data.tags.includes(tag)
+
+const themes = allPosts.filter((p: any) => hasTag(p, 'theme')).sort(sortByDateDesc)
+const versesAbout = allPosts
+	.filter((p: any) => hasTag(p, 'verses about') && !hasTag(p, 'theme'))
+	.sort(sortByDateDesc)
+const whyDidJesus = allPosts
+	.filter((p: any) => hasTag(p, 'why did jesus') && !hasTag(p, 'theme'))
+	.sort(sortByDateDesc)
+const wordStudies = allPosts
+	.filter((p: any) => hasTag(p, 'word study') && !hasTag(p, 'theme'))
+	.sort(sortByDateDesc)
+const devotionals = allPosts
+	.filter((p: any) => hasTag(p, 'devotional'))
+	.sort(sortByDateDesc)
+
+const categorized = new Set([
+	...themes.map((p: any) => p.id),
+	...versesAbout.map((p: any) => p.id),
+	...whyDidJesus.map((p: any) => p.id),
+	...wordStudies.map((p: any) => p.id),
+	...devotionals.map((p: any) => p.id)
+])
+const cornerstones = allPosts
+	.filter((p: any) => !categorized.has(p.id))
+	.sort(sortByDateDesc)
+
+const renderSubtitle = (post: any) =>
+	`By ${post.data.author} on ${new Date(post.data.pubDate).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	})}`
+
+const sections = [
+	{
+		id: 'cornerstones',
+		title: 'Cornerstone guides',
+		text: 'Foundational pieces on how to read Scripture in context.',
+		posts: cornerstones
+	},
+	{
+		id: 'themes',
+		title: 'What does the Bible say about…',
+		text: 'Long-form theme studies on the big questions of the Christian life.',
+		posts: themes
+	},
+	{
+		id: 'verses-about',
+		title: 'Bible verses about…',
+		text: 'Curated KJV verse collections, organized by topic for quick reference.',
+		posts: versesAbout
+	},
+	{
+		id: 'why-did-jesus',
+		title: 'Why did Jesus…?',
+		text: 'Short, careful answers to the questions Christians actually ask about Jesus.',
+		posts: whyDidJesus
+	},
+	{
+		id: 'word-studies',
+		title: 'Hebrew & Greek word studies',
+		text: 'What the original languages add when you slow down on a single word.',
+		posts: wordStudies
+	},
+	{
+		id: 'devotionals',
+		title: 'Daily devotionals',
+		text: 'Short pastoral reflections from the daily devotional in the app.',
+		posts: devotionals
+	}
+]
+---
+
+<Section>
+	<Row>
+		<Col span="12">
+			<TagNavigation />
+		</Col>
+	</Row>
+</Section>
+
+{
+	sections
+		.filter((s) => s.posts.length > 0)
+		.map((section, index) => (
+			<Section id={section.id} padding={index === 0 ? 'bottom' : 'both'}>
+				<Row>
+					<Col span="12">
+						<div class="category-heading">
+							<h2>{section.title}</h2>
+							<p>{section.text}</p>
+						</div>
+					</Col>
+					{section.posts.map((post: any) => (
+						<Col span="4">
+							<Post
+								link={`/blog/${post.id}`}
+								title={post.data.title}
+								subtitle={renderSubtitle(post)}
+								image={post.data.image}
+								tags={post.data.tags}
+							>
+								{post.data.description}
+							</Post>
+						</Col>
+					))}
+				</Row>
+			</Section>
+		))
+}
+
+<style>
+	.category-heading {
+		@apply mb-8 border-b border-neutral-100 pb-4 dark:border-neutral-800;
+	}
+	.category-heading h2 {
+		@apply mb-2 text-2xl font-semibold lg:text-3xl;
+	}
+	.category-heading p {
+		@apply mb-0 text-neutral-500 dark:text-neutral-400;
+	}
+</style>

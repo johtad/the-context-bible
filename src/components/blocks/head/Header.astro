@@ -25,10 +25,34 @@ type Props = {
 const {
 	title = configData.siteTitle,
 	description = configData.siteDescription,
-	ogImage = configData.ogImage,
+	ogImage: ogImageProp,
 	canonical = configData.canonical,
 	noindex = configData.noindex
 } = Astro.props
+
+// Per-page OG image generation. The OG endpoint at src/pages/og/[...route].png.ts
+// renders PNGs for the keys listed below; any unregistered path falls back to the
+// site default. og:image must be an absolute URL for social scrapers.
+const STATIC_OG_KEYS = new Set([
+	'index',
+	'features',
+	'faq',
+	'app',
+	'read',
+	'contact',
+	'terms',
+	'blog'
+])
+
+const trimmedPath = Astro.url.pathname.replace(/^\/+|\/+$/g, '')
+let ogKey: string | null = null
+if (trimmedPath === '') ogKey = 'index'
+else if (STATIC_OG_KEYS.has(trimmedPath)) ogKey = trimmedPath
+else if (trimmedPath.startsWith('blog/')) ogKey = trimmedPath
+
+const derivedOgImagePath = ogKey ? `/og/${ogKey}.png` : configData.ogImage
+const ogImagePath = ogImageProp ?? derivedOgImagePath
+const ogImage = new URL(ogImagePath, Astro.site).toString()
 ---
 
 <head>

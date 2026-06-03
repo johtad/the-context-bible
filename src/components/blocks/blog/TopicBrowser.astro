@@ -1,0 +1,99 @@
+---
+// Topic Browser
+// ------------
+// Description: Homepage block — visual cards linking the four theme articles
+//   plus a link out to the full blog index.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+
+type Topic = {
+	title: string
+	teaser: string
+	href: string
+}
+const topics: Topic[] = [
+	{
+		title: 'Anxiety & worry',
+		teaser: 'What Jesus, Paul, Peter, and the Psalms say about the anxious mind — and how Scripture replaces it.',
+		href: '/blog/what-does-the-bible-say-about-anxiety/'
+	},
+	{
+		title: 'Forgiveness',
+		teaser: 'How God forgives us, what He calls us to do for one another, and the difference between forgiveness and reconciliation.',
+		href: '/blog/what-does-the-bible-say-about-forgiveness/'
+	},
+	{
+		title: 'Prayer',
+		teaser: "The Hebrew and Greek vocabulary for prayer, the Lord's Prayer, what Paul prescribed, and a simple way to begin.",
+		href: '/blog/what-does-the-bible-say-about-prayer/'
+	},
+	{
+		title: 'Hope',
+		teaser: 'Biblical hope as confident expectation anchored in the resurrection — not wishful thinking.',
+		href: '/blog/what-does-the-bible-say-about-hope/'
+	}
+]
+---
+
+<Section id="topics">
+	<Row>
+		<Col span="12">
+			<div class="topics-heading">
+				<h2>Browse by topic</h2>
+				<p>
+					Long-form studies on what Scripture actually says about the questions Christians live with.
+				</p>
+			</div>
+		</Col>
+		{
+			topics.map((topic) => (
+				<Col span="6">
+					<a class="topic-card" href={topic.href}>
+						<h3>{topic.title}</h3>
+						<p>{topic.teaser}</p>
+						<span class="topic-card__cta">Read the study →</span>
+					</a>
+				</Col>
+			))
+		}
+		<Col span="12">
+			<div class="topics-footer">
+				<a class="topics-footer__link" href="/blog/">
+					Browse all articles, Q&amp;As, word studies, and devotionals →
+				</a>
+			</div>
+		</Col>
+	</Row>
+</Section>
+
+<style>
+	.topics-heading {
+		@apply mb-10 text-center;
+	}
+	.topics-heading h2 {
+		@apply mb-2 text-3xl font-semibold lg:text-4xl;
+	}
+	.topics-heading p {
+		@apply mx-auto mb-0 max-w-2xl text-base text-neutral-500 dark:text-neutral-400;
+	}
+	.topic-card {
+		@apply mb-6 flex h-full flex-col rounded-2xl border border-neutral-100 bg-white p-6 transition-all duration-200 hover:border-primary-300 hover:shadow-md dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-primary-500/40;
+	}
+	.topic-card h3 {
+		@apply mb-2 text-xl font-semibold text-neutral-900 dark:text-neutral-50;
+	}
+	.topic-card p {
+		@apply mb-4 flex-1 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300;
+	}
+	.topic-card__cta {
+		@apply text-sm font-medium text-primary-600 dark:text-primary-400;
+	}
+	.topics-footer {
+		@apply mt-4 text-center;
+	}
+	.topics-footer__link {
+		@apply text-sm font-medium text-primary-600 hover:underline dark:text-primary-400;
+	}
+</style>
