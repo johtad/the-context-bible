@@ -1,0 +1,200 @@
+---
+// Newsletter Signup
+// ------------
+// Description: Email-capture form for the daily devotional list. Posts to the
+//   bible-app backend at /api/newsletter/subscribe, which writes to Supabase and
+//   sends a confirmation email (double opt-in). Includes a honeypot field to
+//   slow basic bots.
+// Properties:
+// - variant: 'inline' (homepage band) | 'page' (full-page hero on /newsletter)
+// - source: optional analytics tag passed to the backend so we can see where
+//   subscriptions are coming from
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+
+type Props = {
+	variant?: 'inline' | 'page'
+	source?: string
+	heading?: string
+	subheading?: string
+}
+const {
+	variant = 'inline',
+	source = 'homepage',
+	heading = 'A daily devotional in your inbox',
+	subheading = 'Short, contextual reflections on Scripture from The Context Bible — sent each morning, free.'
+} = Astro.props
+---
+
+<Section
+	id="newsletter-signup"
+	classes={
+		variant === 'page'
+			? ''
+			: 'bg-neutral-50 dark:bg-neutral-900'
+	}
+>
+	<Row>
+		<Col span="2" />
+		<Col span="8">
+			<div class="newsletter">
+				<div class="newsletter__heading">
+					<h2>{heading}</h2>
+					<p>{subheading}</p>
+				</div>
+				<form
+					class="newsletter__form"
+					data-newsletter-form
+					data-source={source}
+					novalidate
+				>
+					<label class="sr-only" for="newsletter-email">Email address</label>
+					<input
+						id="newsletter-email"
+						class="newsletter__input"
+						type="email"
+						name="email"
+						placeholder="you@example.com"
+						autocomplete="email"
+						required
+						maxlength="254"
+					/>
+					<input
+						type="text"
+						name="website"
+						class="newsletter__honeypot"
+						tabindex="-1"
+						autocomplete="off"
+						aria-hidden="true"
+					/>
+					<button class="newsletter__submit" type="submit" data-newsletter-submit>
+						<span data-newsletter-submit-label>Subscribe</span>
+					</button>
+				</form>
+				<p class="newsletter__status" data-newsletter-status role="status" aria-live="polite"></p>
+				<p class="newsletter__fineprint">
+					Free. One devotional a day. Unsubscribe any time from the link at the bottom of every email.
+				</p>
+			</div>
+		</Col>
+		<Col span="2" />
+	</Row>
+</Section>
+
+<style>
+	.newsletter {
+		@apply mx-auto max-w-2xl text-center;
+	}
+	.newsletter__heading h2 {
+		@apply mb-3 text-2xl font-semibold lg:text-3xl;
+	}
+	.newsletter__heading p {
+		@apply mb-8 text-base text-neutral-600 dark:text-neutral-300;
+	}
+	.newsletter__form {
+		@apply mx-auto flex max-w-md flex-col gap-3 sm:flex-row;
+	}
+	.newsletter__input {
+		@apply flex-1 rounded-lg border border-neutral-200 bg-white px-4 py-3 text-base text-neutral-900 placeholder-neutral-400 outline-none transition focus:border-primary-500 focus:ring-2 focus:ring-primary-200 dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-100 dark:focus:border-primary-400 dark:focus:ring-primary-900;
+	}
+	.newsletter__honeypot {
+		position: absolute !important;
+		left: -10000px;
+		top: auto;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+	.newsletter__submit {
+		@apply inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-300 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-primary-500 dark:hover:bg-primary-600;
+	}
+	.newsletter__status {
+		@apply mt-4 min-h-[1.5em] text-sm;
+	}
+	.newsletter__status[data-state='success'] {
+		@apply text-emerald-600 dark:text-emerald-400;
+	}
+	.newsletter__status[data-state='error'] {
+		@apply text-rose-600 dark:text-rose-400;
+	}
+	.newsletter__fineprint {
+		@apply mt-3 text-xs text-neutral-500 dark:text-neutral-400;
+	}
+	.sr-only {
+		position: absolute !important;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+</style>
+
+<script is:inline define:vars={{ apiBase: 'https://bible-app-3.onrender.com' }}>
+	(function () {
+		const forms = document.querySelectorAll('[data-newsletter-form]')
+		for (const form of forms) {
+			if (form.dataset.bound === '1') continue
+			form.dataset.bound = '1'
+			const submit = form.querySelector('[data-newsletter-submit]')
+			const label = form.querySelector('[data-newsletter-submit-label]')
+			const statusEl = form.parentElement.querySelector('[data-newsletter-status]')
+			const setStatus = (text, state) => {
+				if (!statusEl) return
+				statusEl.textContent = text || ''
+				if (state) statusEl.setAttribute('data-state', state)
+				else statusEl.removeAttribute('data-state')
+			}
+			const setBusy = (busy) => {
+				if (submit) submit.disabled = busy
+				if (label) label.textContent = busy ? 'Sending…' : 'Subscribe'
+			}
+			form.addEventListener('submit', async (event) => {
+				event.preventDefault()
+				const data = new FormData(form)
+				const email = String(data.get('email') || '').trim()
+				const honeypot = String(data.get('website') || '').trim()
+				if (honeypot) {
+					setStatus('Thanks — check your inbox to confirm.', 'success')
+					form.reset()
+					return
+				}
+				if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+					setStatus('Please enter a valid email address.', 'error')
+					return
+				}
+				setStatus('', null)
+				setBusy(true)
+				try {
+					const res = await fetch(`${apiBase}/api/newsletter/subscribe`, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ email, source: form.dataset.source || 'site' })
+					})
+					const payload = await res.json().catch(() => ({}))
+					if (!res.ok || !payload.ok) {
+						setStatus(payload.error || 'Something went wrong. Please try again.', 'error')
+						setBusy(false)
+						return
+					}
+					if (payload.status === 'already_confirmed') {
+						setStatus("You're already subscribed — see you tomorrow morning.", 'success')
+					} else {
+						setStatus("Check your inbox for a confirmation link to finish signing up.", 'success')
+					}
+					form.reset()
+				} catch (err) {
+					console.error('[newsletter signup]', err)
+					setStatus('Could not reach the server. Please try again in a moment.', 'error')
+				} finally {
+					setBusy(false)
+				}
+			})
+		}
+	})()
+</script>

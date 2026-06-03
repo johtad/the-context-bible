@@ -29,6 +29,11 @@ const staticPages: Record<string, PageEntry> = {
 		title: 'Read the Bible — The Context Bible',
 		description: 'Read Scripture with context, in any of 29 translations, right in your browser.'
 	},
+	newsletter: {
+		title: 'Daily devotional newsletter',
+		description:
+			'A short, contextual reflection on Scripture in your inbox each morning. Free. Unsubscribe any time.'
+	},
 	contact: {
 		title: 'Contact — The Context Bible',
 		description: 'Reach the team behind The Context Bible.'

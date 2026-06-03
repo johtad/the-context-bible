@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro'
+import NewsletterSignup from '../components/blocks/newsletter/NewsletterSignup.astro'
+import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
+
+const SEO = {
+	title: 'Daily devotional newsletter — The Context Bible',
+	description:
+		"A short, contextual reflection on Scripture in your inbox each morning. Free. Unsubscribe any time."
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<SchemaBreadcrumb
+		items={[
+			{ name: 'Home', url: 'https://contextscripture.org/' },
+			{ name: 'Newsletter', url: 'https://contextscripture.org/newsletter' }
+		]}
+	/>
+	<NewsletterSignup
+		variant="page"
+		source="newsletter-page"
+		heading="A daily devotional in your inbox"
+		subheading="One short, contextual reflection on Scripture from The Context Bible — sent each morning around 6 AM Eastern. Free."
+	/>
+</Layout>
