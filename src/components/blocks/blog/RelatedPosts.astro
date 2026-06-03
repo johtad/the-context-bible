@@ -1,0 +1,88 @@
+---
+// Related Posts
+// ------------
+// Description: Shown at the bottom of every blog post. Scores other posts by
+//   number of shared tags with the current post and renders the top 3.
+//   Improves internal linking and dwell time without manual curation.
+// Properties:
+// - currentSlug: the id/slug of the current post (excluded from results)
+// - currentTags: tags of the current post (used for scoring)
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+import Post from '../../ui/cards/BlogCard.astro'
+import { getCollection } from 'astro:content'
+
+type Props = {
+	currentSlug: string
+	currentTags?: string[]
+}
+const { currentSlug, currentTags = [] } = Astro.props
+
+const RELATED_LIMIT = 3
+const tagSet = new Set(currentTags)
+
+const allPosts = await getCollection('blog')
+const candidates = allPosts
+	.filter((post) => post.id !== currentSlug)
+	.map((post) => {
+		const postTags: string[] = Array.isArray(post.data.tags) ? post.data.tags : []
+		const shared = postTags.filter((t) => tagSet.has(t)).length
+		return { post, shared }
+	})
+	.filter((c) => c.shared > 0)
+	.sort((a, b) => {
+		if (b.shared !== a.shared) return b.shared - a.shared
+		return new Date(b.post.data.pubDate).getTime() - new Date(a.post.data.pubDate).getTime()
+	})
+	.slice(0, RELATED_LIMIT)
+	.map((c) => c.post)
+
+const renderSubtitle = (post: any) =>
+	`By ${post.data.author} on ${new Date(post.data.pubDate).toLocaleDateString('en-US', {
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric'
+	})}`
+---
+
+{
+	candidates.length > 0 && (
+		<Section classes="bg-neutral-50 dark:bg-neutral-900">
+			<Row>
+				<Col span="12">
+					<div class="related-heading">
+						<h2>Keep reading</h2>
+						<p>More from The Context Bible on related themes.</p>
+					</div>
+				</Col>
+				{candidates.map((post: any) => (
+					<Col span="4">
+						<Post
+							link={`/blog/${post.id}`}
+							title={post.data.title}
+							subtitle={renderSubtitle(post)}
+							image={post.data.image}
+							tags={post.data.tags}
+						>
+							{post.data.description}
+						</Post>
+					</Col>
+				))}
+			</Row>
+		</Section>
+	)
+}
+
+<style>
+	.related-heading {
+		@apply mb-8 border-b border-neutral-200 pb-4 dark:border-neutral-800;
+	}
+	.related-heading h2 {
+		@apply mb-2 text-2xl font-semibold lg:text-3xl;
+	}
+	.related-heading p {
+		@apply mb-0 text-neutral-500 dark:text-neutral-400;
+	}
+</style>

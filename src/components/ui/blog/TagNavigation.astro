@@ -1,36 +1,66 @@
 ---
-// Tags for the Blog and post pages
+// Tag navigation strip — shows the All link, the top tags by post count,
+// then a link to the full tag index. Avoids the 100-item flat dump that
+// the older version produced once the blog grew.
 
-// Components
-// - UI
 import Badge from '../Badge.astro'
-
-//Data
 import { getCollection } from 'astro:content'
+
+const TOP_TAG_LIMIT = 18
+
 const posts = await getCollection('blog')
-const tags = [...new Set(posts.map((post) => post.data.tags).flat())]
+
+const tagCounts = new Map<string, number>()
+for (const post of posts) {
+	const tags = Array.isArray(post.data.tags) ? post.data.tags : []
+	for (const tag of tags) {
+		tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1)
+	}
+}
+
+const topTags = [...tagCounts.entries()]
+	.sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+	.slice(0, TOP_TAG_LIMIT)
+	.map(([tag]) => tag)
+	.sort((a, b) => a.localeCompare(b))
+
 const currentPath = new URL(Astro.request.url).pathname
 const pathSegments = currentPath.split('/').filter((segment) => segment.length > 0)
 const currentTag = pathSegments[pathSegments.length - 1] || ''
+const onTagPage = pathSegments.includes('tags') && currentTag !== 'tags'
+const onBlogIndex = currentPath === '/blog' || currentPath === '/blog/'
+const totalTagCount = tagCounts.size
 ---
 
 <div class="tags">
-	<Badge link={`/blog/`} name={`All`} type={`${currentTag === 'blog' ? 'primary' : 'neutral'}`} />
+	<Badge
+		link={`/blog/`}
+		name={`All`}
+		type={`${onBlogIndex ? 'primary' : 'neutral'}`}
+	/>
 	{
-		tags.map((tag) => (
-			<>
-				<Badge
-					link={`/blog/tags/${tag}`}
-					name={tag}
-					type={`${currentTag === tag ? 'primary' : 'neutral'}`}
-				/>
-			</>
+		topTags.map((tag) => (
+			<Badge
+				link={`/blog/tags/${tag}`}
+				name={tag}
+				type={`${onTagPage && currentTag === tag ? 'primary' : 'neutral'}`}
+			/>
 		))
+	}
+	{
+		totalTagCount > topTags.length && (
+			<a class="tags__more" href="/blog/tags/">
+				See all {totalTagCount} tags →
+			</a>
+		)
 	}
 </div>
 
 <style>
 	.tags {
 		@apply mb-6 flex flex-row flex-wrap items-center justify-start gap-2 capitalize;
+	}
+	.tags__more {
+		@apply ml-2 text-sm font-medium normal-case text-primary-600 hover:underline dark:text-primary-400;
 	}
 </style>

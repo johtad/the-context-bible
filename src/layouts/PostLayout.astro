@@ -1,12 +1,13 @@
 ---
 // Imports
-const { frontmatter, url } = Astro.props
+const { frontmatter, url, slug } = Astro.props
 
 //Layout Components
 import Layout from './Layout.astro'
 
 // Section Components
 import BlogPostHero from '../components/blocks/blog/BlogPostHero.astro'
+import RelatedPosts from '../components/blocks/blog/RelatedPosts.astro'
 import SchemaArticle from '../components/scripts/SchemaArticle.astro'
 import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
 
@@ -24,6 +25,11 @@ const SEO = {
 const SITE = 'https://contextscripture.org'
 const canonical = `${SITE}${url || ''}`
 const pubDate: Date = frontmatter.pubDate instanceof Date ? frontmatter.pubDate : new Date(frontmatter.pubDate)
+
+// Prefer the explicit slug prop from the dynamic route; fall back to deriving
+// it from the URL so the layout still works if it's ever used standalone.
+const currentSlug: string =
+	slug ?? (url || '').replace(/^\/blog\//, '').replace(/\/$/, '')
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
@@ -57,6 +63,8 @@ const pubDate: Date = frontmatter.pubDate instanceof Date ? frontmatter.pubDate 
 	<div class="post-body basic-text basic-text--lg">
 		<slot />
 	</div>
+
+	<RelatedPosts currentSlug={currentSlug} currentTags={frontmatter.tags} />
 </Layout>
 
 <style>
