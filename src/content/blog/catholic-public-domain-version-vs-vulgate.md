@@ -77,6 +77,6 @@ For day-to-day reading and study, most readers will be better served by a transl
 
 [The Context Bible](/) includes the CPDV alongside 20 other English translations and 8 Spanish translations. You can switch between the CPDV and any Hebrew/Greek-based translation passage by passage — useful for seeing where the Vulgate's wording shaped Western theology and where modern translations restore the original. [Download the app free](/app) or [read in your browser](/read).
 
-Every passage in the CPDV — like every passage in every translation we include — comes with the historical context, the early church reception, the academic discourse, and the cross-references that help you read it well.
+Every passage in the CPDV — like every passage in every translation we include — comes with the historical context, the early church reception, the biblical debates, the cross-references, and the original-language word study that help you read it well.
 
 *"Thy word is a lamp unto my feet, and a light unto my path."* — [Psalm 119:105 KJV](https://www.biblegateway.com/passage/?search=Psalm%20119%3A105&version=KJV)

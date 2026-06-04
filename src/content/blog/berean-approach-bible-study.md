@@ -104,10 +104,11 @@ We built [The Context Bible](/) around this rhythm. The app surfaces, for every 
 
 - **Historical Context** — the time, place, and audience the passage was written into.
 - **Early Church View** — how the earliest Christian readers, who spoke the languages and lived near the events, understood it.
-- **Academic Discourse** — what scholars today are saying about the passage and the major interpretive options.
+- **Biblical Debates** — what scholars today are saying about the passage and the major interpretive options.
 - **Cross-References** — the other places in Scripture that echo, quote, or are quoted by the passage.
+- **Hebrew & Greek Word Study** — the original-language word behind the English, with lexical notes on the senses it carries in Scripture.
 
-The point of all four is *to help you search the Scriptures* more carefully — to be the kind of Berean who can test a claim against the text with eyes that have been opened to what the text actually said.
+The point of all five is *to help you search the Scriptures* more carefully — to be the kind of Berean who can test a claim against the text with eyes that have been opened to what the text actually said.
 
 You can [download the app free](/app) on iOS or Android, or [read in your browser](/read). Whichever way you read, the practice is the same as it was in Berea two thousand years ago: receive eagerly, search daily, weigh honestly.
 

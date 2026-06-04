@@ -1,7 +1,7 @@
 [
 	{
 		"question": "What is The Context Bible?",
-		"reply": "The Context Bible is a Bible reading app that surfaces the historical setting, early church interpretation, academic discourse, and cross-references behind every passage. It's built for readers who want to understand Scripture in its original context, not just read the words on the page.",
+		"reply": "The Context Bible is a Bible reading app that surfaces five context lenses on every passage: the historical setting, the early-church interpretation, the modern biblical debates, the cross-references, and the original-language Hebrew or Greek word study. It's built for readers who want to understand Scripture in its original context, not just read the words on the page.",
 		"category": "general",
 		"open": true
 	},
@@ -13,7 +13,7 @@
 	},
 	{
 		"question": "How is this different from other Bible apps?",
-		"reply": "Most Bible apps focus on the text alone — translations, plans, devotionals. The Context Bible focuses on what surrounds the text: the world the writer lived in, the way the earliest readers understood it, what modern scholarship has uncovered, and how it connects to the rest of Scripture. Context is the product, not an add-on.",
+		"reply": "Most Bible apps focus on the text alone — translations, plans, devotionals. The Context Bible focuses on what surrounds the text: the world the writer lived in, the way the earliest readers understood it, what modern scholarship has uncovered, how it connects to the rest of Scripture, and the Hebrew or Greek word behind the English. Context is the product, not an add-on.",
 		"category": "general",
 		"open": false
 	},

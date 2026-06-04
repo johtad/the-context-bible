@@ -96,7 +96,7 @@ A study-Bible-style app that has been around for over two decades. Free version 
 The app we make. Built specifically for readers who want **historical, theological, and academic context** for every verse, free, without subscription tiers.
 
 **What's distinctive.**
-- Every passage opens up **four lenses side by side**: Historical Context (the world the passage was written into), Early Church View (how the earliest readers understood it), Academic Discourse (where modern scholars stand), and Cross-References (other Scripture that echoes the passage).
+- Every passage opens up **five lenses side by side**: Historical Context (the world the passage was written into), Early Church View (how the earliest readers understood it), Biblical Debates (where modern scholars stand), Cross-References (other Scripture that echoes the passage), and Hebrew & Greek Word Study (the original-language word behind the English, with lexical notes).
 - **29 translations** across English and Spanish, including specialized editions other apps often skip: Catholic Public Domain Version, Orthodox Jewish Bible, World Messianic Bible (American and British), the Plain English Version for Aboriginal readers, the EasyEnglish Bible 2024, the Berean Standard, the Geneva Bible, and the Passion Translation. (See our [translations comparison piece](/blog/kjv-niv-esv-nasb-comparison/) for how the major English options compare.)
 - **Ask a question** about any verse and get an answer with real citations.
 - **Notes, highlights, and saved verses sync across every device** — not behind a paywall.
@@ -106,8 +106,8 @@ The app we make. Built specifically for readers who want **historical, theologic
 
 **What we're not the best at.**
 - Reading-plan catalog: YouVersion is bigger and will likely stay bigger. If you live in reading plans, that's where to live.
-- Original-language interlinear depth: Blue Letter Bible is more powerful for raw Greek/Hebrew work. We surface scholarship; we don't (yet) ship a full morphological tagged interlinear.
-- Commentary library purchase: Olive Tree lets you build a serious paid library; we don't sell commentaries — we summarize the scholarly conversation in the Academic Discourse panel.
+- Original-language interlinear depth: Blue Letter Bible is more powerful for raw Greek/Hebrew work. Our Hebrew & Greek Word Study panel covers the key word for each verse with lexical notes; we don't (yet) ship a full morphological tagged interlinear.
+- Commentary library purchase: Olive Tree lets you build a serious paid library; we don't sell commentaries — we summarize the scholarly conversation in the Biblical Debates panel.
 
 **Best for.** Readers who want a Bible app that helps them *understand*, not just *read*; who care about historical/theological context; who appreciate having mainstream and specialized translations in one place; and who want it to be free.
 

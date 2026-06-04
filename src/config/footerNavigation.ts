@@ -37,7 +37,7 @@ export const footerNavigationData: FooterData = {
 	footerAbout: {
 		title: 'The Context Bible',
 		aboutText:
-			'A Bible reading app that surfaces the historical setting, early church interpretation, and academic discourse behind every verse. Read with the depth Scripture was written with.',
+			'A Bible reading app with five context lenses on every verse — historical setting, early church interpretation, biblical debates, cross-references, and original-language word study. Read with the depth Scripture was written with.',
 		logo: {
 			src: '/app-icon.png',
 			alt: 'The Context Bible',

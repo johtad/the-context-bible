@@ -79,6 +79,6 @@ By the end of the Gospel of Matthew, the Jewish furniture of the New Testament w
 
 [The Context Bible](/) includes the Orthodox Jewish Bible alongside the World Messianic Bible (American and British editions), the Catholic Public Domain Version, the KJV, NIV, NASB, and 22 other translations. You can flip from your usual translation into the OJB and back without losing your place. [Download the app free](/app) or [read in your browser](/read).
 
-Every passage opens up Historical Context, Early Church View, Academic Discourse, and Cross-References — which means when you read Matthew 1:1 in the OJB and want to know more about *Sefer Toldot* (the "book of generations" formula) or *Moshiach Ben Dovid*, the context is one tap away.
+Every passage opens up Historical Context, Early Church View, Biblical Debates, Cross-References, and Hebrew & Greek Word Study — which means when you read Matthew 1:1 in the OJB and want to know more about *Sefer Toldot* (the "book of generations" formula) or *Moshiach Ben Dovid*, the context is one tap away.
 
 *"To the Jew first, and also to the Greek."* — [Romans 1:16 KJV](https://www.biblegateway.com/passage/?search=Romans%201%3A16&version=KJV)

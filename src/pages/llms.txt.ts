@@ -47,7 +47,7 @@ The Context Bible is free. There is no Premium tier. Every reader gets the same 
 
 ## Blog
 
-- [Welcome to The Context Bible](${SITE}/blog/welcome-to-the-context-bible): launch post explaining the four context lenses, who the app is for, what's available today, and how to get it.
+- [Welcome to The Context Bible](${SITE}/blog/welcome-to-the-context-bible): launch post explaining the five context lenses, who the app is for, what's available today, and how to get it.
 
 ## Canonical facts
 

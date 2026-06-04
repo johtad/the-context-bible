@@ -101,7 +101,7 @@ Two practical answers.
 
 ## Reading well with The Context Bible
 
-[The Context Bible](/) was built to put the kind of careful scholarship that pastors and serious students rely on into a reader's pocket. Every passage opens up four lenses — Historical Context, Early Church View, Academic Discourse, and Cross-References — with the relevant scholarly conversation summarized for non-specialists and the citations available when you want to dig further. [Download the app free](/app) or [read in your browser](/read).
+[The Context Bible](/) was built to put the kind of careful scholarship that pastors and serious students rely on into a reader's pocket. Every passage opens up five lenses — Historical Context, Early Church View, Biblical Debates, Cross-References, and Hebrew & Greek Word Study — with the relevant scholarly conversation summarized for non-specialists and the citations available when you want to dig further. [Download the app free](/app) or [read in your browser](/read).
 
 The goal of any scholarship — ours, your pastor's, the academic kind — is the same as Luke's goal in writing his Gospel: *"that thou mightest know the certainty of those things, wherein thou hast been instructed"* ([Luke 1:4 KJV](https://www.biblegateway.com/passage/?search=Luke%201%3A4&version=KJV)). Good scholarship serves that certainty. Bad scholarship trades it for a more dramatic story. Tell the difference, and your reading life is in good hands.
 

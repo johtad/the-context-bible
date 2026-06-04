@@ -125,6 +125,6 @@ Read each one in a single sitting at first. Notice what's *not* the same as the 
 
 ## Reading with The Context Bible
 
-Every Pauline passage in [The Context Bible](/) opens up four lenses side-by-side with the text — Historical Context, Early Church View, Academic Discourse, and Cross-References — which between them give you the dates, the audience, the situation, and the way the earliest readers heard it. [Download free](/app) or [read in your browser](/read).
+Every Pauline passage in [The Context Bible](/) opens up five lenses side-by-side with the text — Historical Context, Early Church View, Biblical Debates, Cross-References, and Hebrew & Greek Word Study — which between them give you the dates, the audience, the situation, the way the earliest readers heard it, and the Greek behind the English. [Download free](/app) or [read in your browser](/read).
 
 *"All scripture is given by inspiration of God…that the man of God may be perfect, throughly furnished unto all good works."* — [2 Tim. 3:16–17 KJV](https://www.biblegateway.com/passage/?search=2%20Timothy%203%3A16-17&version=KJV)

@@ -122,7 +122,7 @@ If you can answer those four questions, you are reading the way the text was mea
 
 ## A note on the tools
 
-[The Context Bible](/) was built around this practice. Every passage in the app surfaces four lenses side-by-side with the text — **Historical Context, Early Church View, Academic Discourse, and Cross-References** — which between them cover all four kinds of context above. You can [read in your browser](/read) or [download the app](/app) free.
+[The Context Bible](/) was built around this practice. Every passage in the app surfaces five lenses side-by-side with the text — **Historical Context, Early Church View, Biblical Debates, Cross-References, and Hebrew & Greek Word Study** — which between them cover all four kinds of context above and add the original-language depth on top. You can [read in your browser](/read) or [download the app](/app) free.
 
 But the practice matters more than any tool. Even if you use a paper Bible and a notebook, the four questions above are the disciplines that turn casual reading into careful study. The Spirit who inspired the text also delights to teach the reader who will slow down and listen.
 

@@ -13,12 +13,13 @@ The Context Bible is built around closing that gap.
 
 ## What the app is
 
-Every passage in the app opens up four lenses, side by side with the text:
+Every passage in the app opens up five lenses, side by side with the text:
 
 - **Historical Context** — the world the passage was written into: the culture, the politics, the audience, the geography.
 - **Early Church View** — how the earliest readers, the church fathers, and the councils understood it.
-- **Academic Discourse** — where today's scholars stand, the major interpretive debates, the textual questions.
+- **Biblical Debates** — where today's scholars stand, the major interpretive debates, the textual questions.
 - **Cross-References** — how the passage echoes, quotes, or is quoted by the rest of Scripture.
+- **Hebrew & Greek Word Study** — the original-language word behind the English, with lexical data and the senses the word carries in its biblical contexts.
 
 You can also **ask a question** about any verse and get an answer with real citations from the text and scholarly sources — not guesses.
 
