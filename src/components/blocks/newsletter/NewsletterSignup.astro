@@ -50,28 +50,40 @@ const {
 					data-source={source}
 					novalidate
 				>
-					<label class="sr-only" for="newsletter-email">Email address</label>
+					<label class="sr-only" for="newsletter-name">First name (optional)</label>
 					<input
-						id="newsletter-email"
+						id="newsletter-name"
 						class="newsletter__input"
-						type="email"
-						name="email"
-						placeholder="you@example.com"
-						autocomplete="email"
-						required
-						maxlength="254"
-					/>
-					<input
 						type="text"
-						name="website"
-						class="newsletter__honeypot"
-						tabindex="-1"
-						autocomplete="off"
-						aria-hidden="true"
+						name="name"
+						placeholder="First name (optional)"
+						autocomplete="given-name"
+						maxlength="80"
 					/>
-					<button class="newsletter__submit" type="submit" data-newsletter-submit>
-						<span data-newsletter-submit-label>Subscribe</span>
-					</button>
+					<div class="newsletter__row">
+						<label class="sr-only" for="newsletter-email">Email address</label>
+						<input
+							id="newsletter-email"
+							class="newsletter__input"
+							type="email"
+							name="email"
+							placeholder="you@example.com"
+							autocomplete="email"
+							required
+							maxlength="254"
+						/>
+						<input
+							type="text"
+							name="website"
+							class="newsletter__honeypot"
+							tabindex="-1"
+							autocomplete="off"
+							aria-hidden="true"
+						/>
+						<button class="newsletter__submit" type="submit" data-newsletter-submit>
+							<span data-newsletter-submit-label>Subscribe</span>
+						</button>
+					</div>
 				</form>
 				<p class="newsletter__status" data-newsletter-status role="status" aria-live="polite"></p>
 				<p class="newsletter__fineprint">
@@ -94,7 +106,10 @@ const {
 		@apply mb-8 text-base text-neutral-600 dark:text-neutral-300;
 	}
 	.newsletter__form {
-		@apply mx-auto flex max-w-md flex-col gap-3 sm:flex-row;
+		@apply mx-auto flex max-w-md flex-col gap-3;
+	}
+	.newsletter__row {
+		@apply flex flex-col gap-3 sm:flex-row;
 	}
 	.newsletter__input {
 		@apply flex-1 rounded-lg border border-neutral-200 bg-white px-4 py-3 text-base text-neutral-900 placeholder-neutral-400 outline-none transition focus:border-primary-500 focus:ring-2 focus:ring-primary-200 dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-100 dark:focus:border-primary-400 dark:focus:ring-primary-900;
@@ -158,6 +173,7 @@ const {
 				event.preventDefault()
 				const data = new FormData(form)
 				const email = String(data.get('email') || '').trim()
+				const name = String(data.get('name') || '').trim()
 				const honeypot = String(data.get('website') || '').trim()
 				if (honeypot) {
 					setStatus('Thanks — check your inbox to confirm.', 'success')
@@ -180,7 +196,7 @@ const {
 					const res = await fetch(`${apiBase}/api/newsletter/subscribe`, {
 						method: 'POST',
 						headers: { 'Content-Type': 'application/json' },
-						body: JSON.stringify({ email, source })
+						body: JSON.stringify({ email, name, source })
 					})
 					const payload = await res.json().catch(() => ({}))
 					if (!res.ok || !payload.ok) {
