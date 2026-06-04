@@ -1,0 +1,451 @@
+---
+// Newsletter Drawer
+// ------------
+// Description: A slide-in side panel that nudges first-time visitors to subscribe
+//   to the daily devotional. Persists "dismissed" / "subscribed" state in
+//   localStorage so returning visitors don't see it again. Desktop = right-edge
+//   drawer (~360px). Narrow viewports = bottom sheet.
+// Storage key: cb_newsletter_drawer_state -> 'dismissed' | 'subscribed'
+// Trigger: visible after ~5s on first visit if not yet stored.
+
+const apiBase = 'https://bible-app-3.onrender.com'
+---
+
+<aside
+	id="newsletter-drawer"
+	class="newsletter-drawer"
+	aria-labelledby="newsletter-drawer-title"
+	aria-hidden="true"
+	hidden
+>
+	<div class="newsletter-drawer__panel" role="dialog" aria-modal="false">
+		<button
+			class="newsletter-drawer__close"
+			type="button"
+			data-newsletter-drawer-close
+			aria-label="Close"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 20 20"
+				fill="currentColor"
+				class="newsletter-drawer__close-icon"
+			>
+				<path
+					d="M6.28 5.22a.75.75 0 0 0-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 1 0 1.06 1.06L10 11.06l3.72 3.72a.75.75 0 1 0 1.06-1.06L11.06 10l3.72-3.72a.75.75 0 0 0-1.06-1.06L10 8.94 6.28 5.22Z"
+				></path>
+			</svg>
+		</button>
+		<div class="newsletter-drawer__body">
+			<p class="newsletter-drawer__eyebrow">Free daily devotional</p>
+			<h2 id="newsletter-drawer-title" class="newsletter-drawer__title">
+				Scripture in context, every morning
+			</h2>
+			<p class="newsletter-drawer__copy">
+				Short, contextual reflections on a Bible passage — delivered around 6 AM
+				Eastern. Unsubscribe any time.
+			</p>
+			<form
+				class="newsletter-drawer__form"
+				data-newsletter-form
+				data-source="drawer"
+				novalidate
+			>
+				<label class="sr-only" for="newsletter-drawer-name">First name (optional)</label>
+				<input
+					id="newsletter-drawer-name"
+					class="newsletter-drawer__input"
+					type="text"
+					name="name"
+					placeholder="First name (optional)"
+					autocomplete="given-name"
+					maxlength="80"
+				/>
+				<label class="sr-only" for="newsletter-drawer-email">Email address</label>
+				<input
+					id="newsletter-drawer-email"
+					class="newsletter-drawer__input"
+					type="email"
+					name="email"
+					placeholder="you@example.com"
+					autocomplete="email"
+					required
+					maxlength="254"
+				/>
+				<input
+					type="text"
+					name="website"
+					class="newsletter-drawer__honeypot"
+					tabindex="-1"
+					autocomplete="off"
+					aria-hidden="true"
+				/>
+				<button
+					class="newsletter-drawer__submit"
+					type="submit"
+					data-newsletter-submit
+				>
+					<span data-newsletter-submit-label>Subscribe</span>
+				</button>
+			</form>
+			<p
+				class="newsletter-drawer__status"
+				data-newsletter-status
+				role="status"
+				aria-live="polite"
+			></p>
+			<button
+				class="newsletter-drawer__nothanks"
+				type="button"
+				data-newsletter-drawer-close
+			>
+				No thanks
+			</button>
+		</div>
+	</div>
+</aside>
+
+<style>
+	.newsletter-drawer {
+		position: fixed;
+		inset: 0;
+		z-index: 60;
+		pointer-events: none;
+	}
+	.newsletter-drawer[data-state='open'] {
+		pointer-events: auto;
+	}
+	.newsletter-drawer__panel {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		top: auto;
+		width: min(380px, calc(100vw - 32px));
+		max-height: calc(100vh - 24px);
+		margin: 0 16px 16px;
+		padding: 24px 24px 20px;
+		border-radius: 16px;
+		background: #ffffff;
+		color: #111827;
+		box-shadow: 0 24px 64px -16px rgba(15, 23, 42, 0.35), 0 8px 24px -8px rgba(15, 23, 42, 0.15);
+		border: 1px solid rgba(15, 23, 42, 0.08);
+		transform: translateY(120%);
+		opacity: 0;
+		transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 220ms ease-out;
+	}
+	@media (min-width: 640px) {
+		.newsletter-drawer__panel {
+			top: 50%;
+			right: 16px;
+			bottom: auto;
+			margin: 0;
+			transform: translate(120%, -50%);
+		}
+	}
+	.newsletter-drawer[data-state='open'] .newsletter-drawer__panel {
+		transform: translateY(0);
+		opacity: 1;
+	}
+	@media (min-width: 640px) {
+		.newsletter-drawer[data-state='open'] .newsletter-drawer__panel {
+			transform: translate(0, -50%);
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		.newsletter-drawer__panel {
+			transition: opacity 100ms linear;
+			transform: none;
+		}
+	}
+
+	:global(html.dark) .newsletter-drawer__panel {
+		background: #0f172a;
+		color: #f1f5f9;
+		border-color: rgba(255, 255, 255, 0.08);
+	}
+
+	.newsletter-drawer__close {
+		position: absolute;
+		top: 12px;
+		right: 12px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border-radius: 999px;
+		background: transparent;
+		color: #6b7280;
+		border: 0;
+		cursor: pointer;
+	}
+	.newsletter-drawer__close:hover {
+		background: rgba(15, 23, 42, 0.06);
+		color: #111827;
+	}
+	:global(html.dark) .newsletter-drawer__close:hover {
+		background: rgba(255, 255, 255, 0.08);
+		color: #f1f5f9;
+	}
+	.newsletter-drawer__close-icon {
+		width: 18px;
+		height: 18px;
+	}
+
+	.newsletter-drawer__eyebrow {
+		margin: 0 0 6px;
+		font-size: 11px;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: #0891b2;
+		font-weight: 600;
+	}
+	.newsletter-drawer__title {
+		margin: 0 0 8px;
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 1.3;
+	}
+	.newsletter-drawer__copy {
+		margin: 0 0 16px;
+		font-size: 14px;
+		line-height: 1.55;
+		color: #4b5563;
+	}
+	:global(html.dark) .newsletter-drawer__copy {
+		color: #cbd5e1;
+	}
+
+	.newsletter-drawer__form {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+	.newsletter-drawer__input {
+		width: 100%;
+		padding: 10px 12px;
+		font-size: 14px;
+		line-height: 1.4;
+		border-radius: 8px;
+		border: 1px solid #e5e7eb;
+		background: #ffffff;
+		color: #111827;
+		outline: none;
+		transition: border-color 120ms ease, box-shadow 120ms ease;
+	}
+	.newsletter-drawer__input::placeholder {
+		color: #9ca3af;
+	}
+	.newsletter-drawer__input:focus {
+		border-color: #0891b2;
+		box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.18);
+	}
+	:global(html.dark) .newsletter-drawer__input {
+		background: #1e293b;
+		border-color: #334155;
+		color: #f1f5f9;
+	}
+
+	.newsletter-drawer__honeypot {
+		position: absolute !important;
+		left: -10000px;
+		top: auto;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+
+	.newsletter-drawer__submit {
+		margin-top: 2px;
+		padding: 11px 14px;
+		font-size: 14px;
+		font-weight: 600;
+		color: #ffffff;
+		background: #0891b2;
+		border: 0;
+		border-radius: 8px;
+		cursor: pointer;
+		transition: background 120ms ease;
+	}
+	.newsletter-drawer__submit:hover {
+		background: #0e7490;
+	}
+	.newsletter-drawer__submit:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
+	.newsletter-drawer__status {
+		margin: 10px 0 0;
+		min-height: 1.2em;
+		font-size: 13px;
+		line-height: 1.4;
+	}
+	.newsletter-drawer__status[data-state='success'] {
+		color: #047857;
+	}
+	.newsletter-drawer__status[data-state='error'] {
+		color: #be123c;
+	}
+	:global(html.dark) .newsletter-drawer__status[data-state='success'] {
+		color: #34d399;
+	}
+	:global(html.dark) .newsletter-drawer__status[data-state='error'] {
+		color: #fb7185;
+	}
+
+	.newsletter-drawer__nothanks {
+		display: inline-block;
+		margin-top: 10px;
+		background: none;
+		border: 0;
+		color: #6b7280;
+		font-size: 12px;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	.newsletter-drawer__nothanks:hover {
+		color: #111827;
+	}
+	:global(html.dark) .newsletter-drawer__nothanks {
+		color: #94a3b8;
+	}
+	:global(html.dark) .newsletter-drawer__nothanks:hover {
+		color: #f1f5f9;
+	}
+
+	.sr-only {
+		position: absolute !important;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+</style>
+
+<script is:inline define:vars={{ apiBase }}>
+	(function () {
+		const STORAGE_KEY = 'cb_newsletter_drawer_state'
+		const SHOW_AFTER_MS = 5000
+		// Pages where a drawer would be redundant or annoying.
+		const SUPPRESS_PATHS = ['/newsletter', '/newsletter/', '/app', '/app/']
+		const drawer = document.getElementById('newsletter-drawer')
+		if (!drawer) return
+		if (SUPPRESS_PATHS.includes(window.location.pathname)) return
+
+		const state = (() => {
+			try {
+				return localStorage.getItem(STORAGE_KEY)
+			} catch (_) {
+				return null
+			}
+		})()
+		if (state === 'dismissed' || state === 'subscribed') return
+
+		const form = drawer.querySelector('[data-newsletter-form]')
+		const submit = drawer.querySelector('[data-newsletter-submit]')
+		const submitLabel = drawer.querySelector('[data-newsletter-submit-label]')
+		const status = drawer.querySelector('[data-newsletter-status]')
+		const closeButtons = drawer.querySelectorAll('[data-newsletter-drawer-close]')
+
+		const open = () => {
+			drawer.hidden = false
+			drawer.setAttribute('data-state', 'open')
+			drawer.setAttribute('aria-hidden', 'false')
+		}
+		const close = (reason) => {
+			drawer.removeAttribute('data-state')
+			drawer.setAttribute('aria-hidden', 'true')
+			try {
+				localStorage.setItem(STORAGE_KEY, reason === 'subscribed' ? 'subscribed' : 'dismissed')
+			} catch (_) {
+				// localStorage not available — fail silent
+			}
+			setTimeout(() => {
+				drawer.hidden = true
+			}, 320)
+		}
+
+		for (const btn of closeButtons) {
+			btn.addEventListener('click', () => close('dismissed'))
+		}
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape' && drawer.getAttribute('data-state') === 'open') {
+				close('dismissed')
+			}
+		})
+
+		const setStatus = (text, kind) => {
+			if (!status) return
+			status.textContent = text || ''
+			if (kind) status.setAttribute('data-state', kind)
+			else status.removeAttribute('data-state')
+		}
+		const setBusy = (busy) => {
+			if (submit) submit.disabled = busy
+			if (submitLabel) submitLabel.textContent = busy ? 'Sending…' : 'Subscribe'
+		}
+
+		const track = (outcome) => {
+			if (typeof window.gtag === 'function') {
+				window.gtag('event', 'newsletter_signup', { outcome, source: 'drawer' })
+			}
+		}
+
+		if (form) {
+			form.addEventListener('submit', async (e) => {
+				e.preventDefault()
+				const data = new FormData(form)
+				const email = String(data.get('email') || '').trim()
+				const name = String(data.get('name') || '').trim()
+				const honeypot = String(data.get('website') || '').trim()
+				if (honeypot) {
+					setStatus("Thanks — check your inbox to confirm.", 'success')
+					setTimeout(() => close('subscribed'), 1500)
+					return
+				}
+				if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+					setStatus('Please enter a valid email address.', 'error')
+					return
+				}
+				setStatus('', null)
+				setBusy(true)
+				try {
+					const res = await fetch(`${apiBase}/api/newsletter/subscribe`, {
+						method: 'POST',
+						headers: { 'Content-Type': 'application/json' },
+						body: JSON.stringify({ email, name, source: 'drawer' })
+					})
+					const payload = await res.json().catch(() => ({}))
+					if (!res.ok || !payload.ok) {
+						setStatus(payload.error || 'Something went wrong. Please try again.', 'error')
+						track('error')
+						setBusy(false)
+						return
+					}
+					if (payload.status === 'already_confirmed') {
+						setStatus("You're already subscribed — see you tomorrow morning.", 'success')
+						track('already_confirmed')
+					} else {
+						setStatus('Check your inbox for a confirmation link.', 'success')
+						track('pending')
+					}
+					setTimeout(() => close('subscribed'), 2200)
+				} catch (err) {
+					console.error('[newsletter drawer]', err)
+					setStatus('Could not reach the server. Please try again in a moment.', 'error')
+					track('network_error')
+				} finally {
+					setBusy(false)
+				}
+			})
+		}
+
+		// Show after a short delay on first visit; respect reduced motion implicitly via CSS.
+		setTimeout(open, SHOW_AFTER_MS)
+	})()
+</script>
