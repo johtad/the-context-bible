@@ -10,6 +10,8 @@ import BlogPostHero from '../components/blocks/blog/BlogPostHero.astro'
 import RelatedPosts from '../components/blocks/blog/RelatedPosts.astro'
 import SchemaArticle from '../components/scripts/SchemaArticle.astro'
 import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
+import SchemaFAQ from '../components/scripts/SchemaFAQ.astro'
+import SchemaHowTo from '../components/scripts/SchemaHowTo.astro'
 
 // Content
 // - SEO
@@ -25,6 +27,27 @@ const SEO = {
 const SITE = 'https://contextscripture.org'
 const canonical = `${SITE}${url || ''}`
 const pubDate: Date = frontmatter.pubDate instanceof Date ? frontmatter.pubDate : new Date(frontmatter.pubDate)
+const updatedDate: Date = frontmatter.updatedDate
+	? frontmatter.updatedDate instanceof Date
+		? frontmatter.updatedDate
+		: new Date(frontmatter.updatedDate)
+	: pubDate
+
+// Optional per-article AI schemas. Add `faqs` or `howto` to a post's
+// frontmatter and the appropriate JSON-LD block will be emitted.
+const faqs: { q: string; a: string }[] | undefined = Array.isArray(frontmatter.faqs)
+	? frontmatter.faqs
+	: undefined
+const howto:
+	| {
+			name: string
+			description?: string
+			steps: { name: string; text: string }[]
+			totalTime?: string
+	  }
+	| undefined = frontmatter.howto && Array.isArray(frontmatter.howto.steps)
+	? frontmatter.howto
+	: undefined
 
 // Prefer the explicit slug prop from the dynamic route; fall back to deriving
 // it from the URL so the layout still works if it's ever used standalone.
@@ -37,6 +60,7 @@ const currentSlug: string =
 		headline={frontmatter.title}
 		description={frontmatter.description}
 		datePublished={pubDate.toISOString()}
+		dateModified={updatedDate.toISOString()}
 		authorName={frontmatter.author || 'The Context Bible team'}
 		url={canonical}
 		image={frontmatter.image}
@@ -49,6 +73,16 @@ const currentSlug: string =
 			{ name: frontmatter.title, url: canonical }
 		]}
 	/>
+	{faqs && <SchemaFAQ items={faqs} />}
+	{howto && (
+		<SchemaHowTo
+			name={howto.name}
+			description={howto.description}
+			steps={howto.steps}
+			totalTime={howto.totalTime}
+			url={canonical}
+		/>
+	)}
 	<BlogPostHero
 		tags={frontmatter.tags}
 		title={frontmatter.title}

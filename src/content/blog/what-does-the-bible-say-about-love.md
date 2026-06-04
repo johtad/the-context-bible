@@ -5,6 +5,17 @@ description: "Biblical love is more than feeling — it is sacrificial, faithful
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['theme', 'love', 'agape', 'commandments', 'context']
+faqs:
+  - q: 'What is agape love?'
+    a: 'Agape is the New Testament''s main Greek word for love. It is the love of willed commitment rather than primarily of feeling — the love God has for the world (John 3:16) and the love Christians are called to have for one another and for enemies. Agape is named by its actions, not its sentiment.'
+  - q: 'What does 1 Corinthians 13 say about love?'
+    a: 'Paul defines love by what it does: "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up… beareth all things, believeth all things, hopeth all things, endureth all things. Charity never faileth" (1 Cor. 13:4–8). Love is a way of behaving, not a feeling that comes and goes.'
+  - q: 'What are the two great commandments?'
+    a: 'When asked the greatest commandment, Jesus answered in two: "Thou shalt love the Lord thy God with all thy heart, and with all thy soul, and with all thy mind" (from Deuteronomy 6:5) and "Thou shalt love thy neighbour as thyself" (from Leviticus 19:18). He said all the law and the prophets hang on these two (Matthew 22:37–40).'
+  - q: 'What does it mean to love your enemies?'
+    a: 'Jesus extends love beyond the comfortable circle: "Love your enemies, bless them that curse you, do good to them that hate you, and pray for them which despitefully use you" (Matthew 5:44). The basis is the family resemblance — the Father sends sun and rain on the just and the unjust. His children love the way He loves.'
+  - q: 'What is the new commandment?'
+    a: 'On the night before His death, Jesus said, "A new commandment I give unto you, That ye love one another; as I have loved you, that ye also love one another" (John 13:34). What makes it new is the standard — agape as defined by Calvary — and the visibility: "By this shall all men know that ye are my disciples."'
 ---
 
 The Bible's teaching on love is at the very center of the whole story. **Love is the character of God Himself** — *"God is love"* ([1 John 4:8 KJV](https://www.biblegateway.com/passage/?search=1%20John%204%3A8&version=KJV)). It is the heart of His commandments — *"thou shalt love the Lord thy God with all thy heart…and thy neighbour as thyself"* ([Matthew 22:37–39](https://www.biblegateway.com/passage/?search=Matthew%2022%3A37-39&version=KJV)). It is the chief mark of His people — *"By this shall all men know that ye are my disciples, if ye have love one to another"* ([John 13:35](https://www.biblegateway.com/passage/?search=John%2013%3A35&version=KJV)). And it is the highest of the abiding gifts — *"now abideth faith, hope, charity, these three; but the greatest of these is charity"* ([1 Corinthians 13:13](https://www.biblegateway.com/passage/?search=1%20Corinthians%2013%3A13&version=KJV)). This article walks through the biblical vocabulary, the central passages, what love is *not*, and how it shapes a life.

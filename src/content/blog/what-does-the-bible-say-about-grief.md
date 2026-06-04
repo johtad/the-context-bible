@@ -5,6 +5,17 @@ description: "The Bible does not rush past grief. It names it, makes space for i
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['theme', 'grief', 'lament', 'suffering', 'context']
+faqs:
+  - q: 'Does the Bible say it is okay to grieve?'
+    a: 'Yes. Scripture does not rush past grief. It includes an entire book of lament (Lamentations), gives whole psalms to complaint, and shows Jesus weeping at the tomb of His friend. Paul tells believers to grieve — only not as those who have no hope (1 Thessalonians 4:13).'
+  - q: 'What does Jesus'' weeping at Lazarus'' tomb teach us?'
+    a: 'John 11:35 — "Jesus wept" — is the shortest verse in the English Bible. Jesus knew He was about to raise Lazarus, yet He still wept with the mourners. The Son of God does not stand above grief; He enters it. It is right to weep. The Lord wept too.'
+  - q: 'What are the Psalms of lament?'
+    a: 'Roughly a third of the Psalter consists of lament psalms — songs of complaint and sorrow brought to God. They typically move from complaint to request to (usually) trust. Examples include Psalms 13, 22, 42, and 88. The Bible gives Christians language for grief.'
+  - q: 'How do Christians grieve with hope?'
+    a: 'Paul writes that believers do not sorrow "as others which have no hope" — but he assumes they sorrow. Christian grief is grief with the resurrection at the end of it: real, honest, mourned, but tethered to the promise that "God shall wipe away all tears from their eyes" (Revelation 21:4).'
+  - q: 'Is grief a sign of weak faith?'
+    a: 'No. Jesus, the One in whom faith is fullest, wept at a tomb. Job''s friends sat with him in silence for seven days — that was their best moment. Grief is a human response to real loss, not a measure of weak faith. The Bible never measures faith by the absence of tears.'
 ---
 
 The Bible's teaching on grief is honest, patient, and full of company. **Scripture does not rush past grief.** It includes an entire book of lament. It gives whole psalms to complaint. Jesus weeps openly at the tomb of His friend, even though He knows He is about to raise him. Paul tells believers to *grieve* — only not as those who have no hope. *"But I would not have you to be ignorant, brethren, concerning them which are asleep, that ye sorrow not, even as others which have no hope"* ([1 Thessalonians 4:13 KJV](https://www.biblegateway.com/passage/?search=1%20Thessalonians%204%3A13&version=KJV)). The Bible's posture toward the grieving is not *get over it*; it is *I am with thee*. This article walks through the central passages, what biblical grief looks like, what it is *not*, and how Scripture walks alongside those who mourn.

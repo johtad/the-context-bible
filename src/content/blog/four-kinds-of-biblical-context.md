@@ -5,6 +5,19 @@ description: 'Historical, cultural, literary, canonical: the four lenses serious
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['bible study', 'hermeneutics', 'context', 'how to read the bible']
+howto:
+  name: 'How to read the Bible in its four kinds of context'
+  description: 'A method for reading any biblical passage in its historical, cultural, literary, and canonical context.'
+  totalTime: 'PT20M'
+  steps:
+    - name: 'Read the passage in its historical context'
+      text: 'Ask when the passage was written, who wrote it, who they wrote to, and what was happening at the time. The historical setting often determines what an instruction or warning actually means.'
+    - name: 'Read the passage in its cultural context'
+      text: 'Ask what customs, expectations, and social structures the original audience assumed. Foot-washing, head coverings, slavery, honor and shame — the cultural background often makes a verse land very differently from how it sounds today.'
+    - name: 'Read the passage in its literary context'
+      text: 'Ask what genre the passage is (narrative, law, poetry, parable, epistle, apocalyptic) and what surrounds it. A verse always means what its paragraph means; a paragraph always means what its chapter means.'
+    - name: 'Read the passage in its canonical context'
+      text: 'Ask how the passage fits in the wider story of Scripture. What does the rest of the Bible say about this theme? Which earlier passages does this one echo, and which later passages echo this one?'
 ---
 
 The four kinds of biblical context every careful Bible reader should know are **historical context** (the time, place, and author behind a passage), **cultural context** (the customs and assumptions of the original audience), **literary context** (the genre and immediate surroundings of the verse), and **canonical context** (where the passage sits in the wider story of Scripture). Together they answer the question every honest reader eventually asks: *what did this mean to the people who first received it?*

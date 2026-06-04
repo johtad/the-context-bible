@@ -5,6 +5,21 @@ description: "Every letter Paul wrote was sent to a real church facing a real pr
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['paul', 'epistles', 'new testament', 'context', 'historical setting']
+howto:
+  name: "How to read the letters of Paul"
+  description: 'A method for reading any Pauline letter — situational, occasional, and pastoral — without flattening it into a doctrinal manual.'
+  totalTime: 'PT25M'
+  steps:
+    - name: 'Identify the situation Paul is writing into'
+      text: 'Every Pauline letter is occasional — written to a specific church or person about a specific issue. Before reading the theology, identify what was happening: a division in Corinth, a heresy in Galatia, a runaway slave in Philemon. The situation shapes the argument.'
+    - name: 'Read the whole letter in one sitting'
+      text: 'Pauline letters were originally read aloud, in full, to the gathered church. Reading the whole letter at once recovers the flow of argument and prevents proof-texting individual verses out of context.'
+    - name: 'Follow the structure of the argument'
+      text: 'Most of Paul''s letters move from theology (what God has done in Christ) to ethics (how we should now live). Watch for "therefore" (Romans 12:1; Ephesians 4:1) — it usually marks the hinge from one section to the next.'
+    - name: 'Use the historical, cultural, and original-language context'
+      text: 'Roman law, Jewish synagogue practice, Stoic philosophy, slavery, household codes — these shaped how Paul wrote and how his readers heard him. The Greek behind a key word often unlocks a passage the English alone cannot.'
+    - name: 'Apply pastorally, in your own situation'
+      text: 'Paul wrote to a specific church first; the principles transfer to ours by analogy, not by direct transcription. Ask what the situation in your church or life is, and how Paul''s pattern of theology-into-ethics applies there.'
 ---
 
 The thirteen letters traditionally attributed to Paul were written across roughly twenty years (AD 48–67) to specific churches and individuals facing specific problems. Reading them as real letters — *who* he is writing to, *when*, *where from*, and *what's gone wrong* — changes almost every paragraph. A verse that sounds like a generic principle is usually answering a question someone in Corinth or Galatia just asked. This guide walks through each letter's setting in a single page, so you can read any of them with the right backdrop in your head.

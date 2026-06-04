@@ -5,6 +5,17 @@ description: 'A careful walk through what Scripture teaches about prayer — the
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['theme', 'prayer', 'spiritual disciplines', 'context']
+faqs:
+  - q: 'What is the Lord''s Prayer and what does it mean?'
+    a: 'The Lord''s Prayer is the prayer Jesus taught His disciples in Matthew 6:9–13. It begins with relationship ("Our Father"), three petitions for God''s glory (hallowed name, kingdom, will), and four for human need (daily bread, forgiveness, deliverance from temptation, doxology). It is meant to be prayed and used as a template for shaping our own prayers.'
+  - q: 'What does "pray without ceasing" mean?'
+    a: 'Paul''s instruction in 1 Thessalonians 5:17 uses the Greek adialeiptōs — "without interruption," the way a fire smolders even when it is not flaming. Paul is describing a continual openness to God, a low-burning conversation that runs underneath the rest of life — not asking the believer to talk to God every second.'
+  - q: 'What is the ACTS prayer pattern?'
+    a: 'ACTS stands for Adoration, Confession, Thanksgiving, and Supplication. It is a simple, scriptural pattern: begin with God''s character, confess sin, give thanks for what God has given, then bring requests. It is not a law, but a help for those whose prayer life has gone quiet or felt narrow.'
+  - q: 'What is the Hebrew and Greek vocabulary for prayer?'
+    a: 'Hebrew uses tephillah (prayer, intercession) and palal (to intervene, to plead). Greek uses proseuchē (general prayer), deēsis (specific request from need), entychanō (intercession), and eucharistia (thanksgiving). Paul gathers four of these in Philippians 4:6: "in every thing by prayer and supplication with thanksgiving let your requests be made known unto God."'
+  - q: 'Did Jesus pray?'
+    a: 'Yes — often and on every important occasion of His ministry. He prayed early in solitary places (Mark 1:35), all night before choosing the Twelve (Luke 6:12), before meals, at His baptism, before raising Lazarus, in Gethsemane, and from the cross. He also taught His disciples to pray when they asked Him to (Luke 11:1).'
 ---
 
 The Bible's teaching on prayer is broad, practical, and deeply pastoral. At its simplest, **prayer is the speech of a child to a Father** — open, honest, expectant, and welcomed. Jesus taught His disciples to begin, *"Our Father which art in heaven"* ([Matthew 6:9 KJV](https://www.biblegateway.com/passage/?search=Matthew%206%3A9&version=KJV)), and Paul widened the instruction to all of life: *"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God"* ([Philippians 4:6](https://www.biblegateway.com/passage/?search=Philippians%204%3A6&version=KJV)). The Psalter shows the same range — adoration, complaint, confession, thanksgiving, intercession — gathered into one prayer book that the church has carried for thousands of years. This article walks through what the Bible says, what it does *not* say, and a simple pattern for beginning.

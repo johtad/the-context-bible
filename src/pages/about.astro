@@ -1,0 +1,279 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
+
+const SEO = {
+	title: 'About The Context Bible — editorial standards, sources, contact',
+	description:
+		'Who builds The Context Bible, how we source the historical, theological, and academic context behind every verse, and the editorial standards our content follows.'
+}
+
+const SITE = 'https://contextscripture.org'
+
+// AboutPage JSON-LD — supplements the global Organization schema with an
+// explicit AboutPage block that AI engines weight for E-E-A-T signals.
+const aboutSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'AboutPage',
+	'@id': `${SITE}/about#aboutpage`,
+	url: `${SITE}/about`,
+	name: SEO.title,
+	description: SEO.description,
+	about: { '@id': `${SITE}/#organization` },
+	publisher: { '@id': `${SITE}/#organization` },
+	inLanguage: 'en'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<SchemaBreadcrumb
+		items={[
+			{ name: 'Home', url: `${SITE}/` },
+			{ name: 'About', url: `${SITE}/about` }
+		]}
+	/>
+	<script
+		is:inline
+		type="application/ld+json"
+		set:html={JSON.stringify(aboutSchema)}
+	/>
+
+	<Section>
+		<Row>
+			<Col span="2" />
+			<Col span="8">
+				<article class="about">
+					<header class="about__header">
+						<p class="about__eyebrow">About</p>
+						<h1>Built so Scripture lands in context.</h1>
+						<p class="about__lede">
+							The Context Bible is a free Bible app and reading site for people who want to
+							understand a verse the way its first readers did — historically, theologically,
+							and in the original languages. We are not a translation. We are the layer that
+							sits next to one.
+						</p>
+					</header>
+
+					<section>
+						<h2>Who we are</h2>
+						<p>
+							The Context Bible is a project of <strong>The Aspire Ed Project</strong>, a
+							small team of pastors, students of biblical scholarship, and software builders
+							in the United States. The team writes under the byline
+							<em>The Context Bible team</em> because most of our content is reviewed by more
+							than one editor before it ships. We can be reached at
+							<a href="mailto:theaspireed@gmail.com">theaspireed@gmail.com</a>.
+						</p>
+					</section>
+
+					<section>
+						<h2>What the app does</h2>
+						<p>
+							For every passage, The Context Bible opens up <strong>five lenses</strong>
+							side by side with the text:
+						</p>
+						<ul>
+							<li>
+								<strong>Historical Context</strong> — the world the passage was written
+								into: culture, politics, audience, geography.
+							</li>
+							<li>
+								<strong>Early Church View</strong> — how the earliest readers, the church
+								fathers, and the councils understood it.
+							</li>
+							<li>
+								<strong>Biblical Debates</strong> — where today's scholars actually stand
+								on the passage, in plain English, with citations available when you want to
+								dig.
+							</li>
+							<li>
+								<strong>Cross-References</strong> — the other places in Scripture that
+								echo, quote, or are quoted by the passage.
+							</li>
+							<li>
+								<strong>Hebrew &amp; Greek Word Study</strong> — the key original-language
+								word in the verse, with the senses it carries and lexical notes.
+							</li>
+						</ul>
+						<p>
+							Plus 29 translations across English and Spanish (and growing), a Daily
+							Devotional, Theme Explain, the Verse of the Day, and Ask Bible Questions with
+							cited answers. The app is fully free, with no Premium tier and no ads in the
+							reading view.
+						</p>
+					</section>
+
+					<section>
+						<h2>Editorial standards</h2>
+						<p>
+							Our published content — blog articles, devotionals, word studies, FAQ
+							answers — follows the standards below.
+						</p>
+						<ul>
+							<li>
+								<strong>Scripture comes first.</strong> Every claim about what the Bible
+								says is anchored to specific verses, cited in the King James Version, and
+								linked to the full passage on BibleGateway for context.
+							</li>
+							<li>
+								<strong>Original languages are used carefully.</strong> When we cite a
+								Hebrew or Greek word, we use the standard transliteration and explain the
+								sense the word carries in the passage at hand — not a generic dictionary
+								entry pasted in.
+							</li>
+							<li>
+								<strong>The early church is heard before modern voices.</strong> Before we
+								summarize a contemporary debate, we represent how the patristic and
+								pre-Reformation church read the passage. The earliest readers are not
+								infallible — but they are closer in time, language, and culture than we are.
+							</li>
+							<li>
+								<strong>Modern scholarship is summarized fairly.</strong> Where scholars
+								disagree, we name the main positions, who holds them, and what they turn
+								on. We do not pretend a debated text is settled.
+							</li>
+							<li>
+								<strong>Pastoral tone, not argumentative.</strong> We write to help
+								readers, not to win. We avoid accusatory framing, definitive statements
+								that invite pushback for its own sake, and the kind of pulpit certainty
+								that does not survive the next semester of seminary.
+							</li>
+							<li>
+								<strong>We name what we do not know.</strong> Where the historical,
+								linguistic, or theological evidence is genuinely thin, we say so rather
+								than dressing speculation as fact.
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Sources we lean on</h2>
+						<p>
+							Our content draws on standard reference works across the major Christian
+							traditions, including:
+						</p>
+						<ul>
+							<li>
+								<strong>Lexica</strong> — BDAG (Bauer/Danker), HALOT, Brown-Driver-Briggs,
+								the Greek-English Lexicon of the LXX, and TDNT (Kittel/Friedrich).
+							</li>
+							<li>
+								<strong>Critical commentaries</strong> — the Anchor Yale, Hermeneia,
+								Word Biblical, Pillar New Testament, New International Greek Testament,
+								and NICOT/NICNT series, along with denominational mainstream commentaries
+								(Catholic, Orthodox, Reformed, Wesleyan, Lutheran).
+							</li>
+							<li>
+								<strong>Patristics</strong> — the Ante-Nicene Fathers and Nicene/Post-Nicene
+								Fathers collections, Ancient Christian Commentary on Scripture, and
+								primary-source patristic editions for individual fathers.
+							</li>
+							<li>
+								<strong>Historical and cultural background</strong> — the Anchor Bible
+								Dictionary, the IVP Background Commentary, Josephus, Philo, the
+								Dead Sea Scrolls editions, and standard Greco-Roman cultural references.
+							</li>
+							<li>
+								<strong>Modern scholarly conversation</strong> — published peer-reviewed
+								articles in journals such as JBL, NTS, NovT, JSOT, JSNT, CBQ, and the
+								mainstream evangelical and Catholic biblical studies journals.
+							</li>
+						</ul>
+						<p>
+							Where a specific article relies on a specific source, we name the author and
+							work in the article itself.
+						</p>
+					</section>
+
+					<section>
+						<h2>Tradition-aware framing</h2>
+						<p>
+							The Context Bible is built for Protestant, Catholic, and Orthodox readers.
+							Where the traditions differ — on canon, on sacraments, on the role of the
+							church fathers, on Marian theology, on church polity — we represent the
+							positions fairly without flattening them into a generic ecumenical paste. The
+							in-app responses can be set to read passages from your tradition's vantage
+							point.
+						</p>
+					</section>
+
+					<section>
+						<h2>Corrections, questions, partnership</h2>
+						<p>
+							If you spot an error — a factual mistake, a misattribution, a sloppy summary
+							of a scholarly position — please tell us at
+							<a href="mailto:theaspireed@gmail.com">theaspireed@gmail.com</a>. We correct
+							quickly and publicly.
+						</p>
+						<p>
+							If you are a publisher, ministry, seminary, or church and want to talk about
+							partnership — content collaboration, translation licensing, or bringing the
+							app to your community — the same address works.
+						</p>
+					</section>
+
+					<section>
+						<h2>How to use the site</h2>
+						<ul>
+							<li>
+								<a href="/read">Read in your browser</a> — the full reader with all five
+								context lenses, no install required.
+							</li>
+							<li>
+								<a href="/app">Download the app</a> — free on iOS and Android.
+							</li>
+							<li>
+								<a href="/blog">Browse the blog</a> — cornerstone guides, theme studies,
+								Q&amp;As, Hebrew and Greek word studies, and daily devotionals.
+							</li>
+							<li>
+								<a href="/newsletter">Subscribe to the daily devotional</a> — short
+								contextual reflections delivered each morning, free.
+							</li>
+						</ul>
+					</section>
+				</article>
+			</Col>
+			<Col span="2" />
+		</Row>
+	</Section>
+</Layout>
+
+<style>
+	.about {
+		@apply max-w-none;
+	}
+	.about__header {
+		@apply mb-10;
+	}
+	.about__eyebrow {
+		@apply mb-2 text-xs font-semibold uppercase tracking-widest text-primary-600 dark:text-primary-400;
+	}
+	.about h1 {
+		@apply mb-4 text-3xl font-semibold leading-tight text-neutral-900 dark:text-neutral-50 lg:text-4xl;
+	}
+	.about__lede {
+		@apply text-lg leading-relaxed text-neutral-600 dark:text-neutral-300;
+	}
+	.about section {
+		@apply mt-10;
+	}
+	.about h2 {
+		@apply mb-3 text-2xl font-semibold text-neutral-900 dark:text-neutral-50;
+	}
+	.about p {
+		@apply mb-4 text-base leading-relaxed text-neutral-700 dark:text-neutral-300;
+	}
+	.about ul {
+		@apply mb-4 list-disc space-y-2 pl-6 text-base leading-relaxed text-neutral-700 dark:text-neutral-300;
+	}
+	.about a {
+		@apply text-primary-600 underline-offset-2 hover:underline dark:text-primary-400;
+	}
+	.about strong {
+		@apply text-neutral-900 dark:text-neutral-50;
+	}
+</style>

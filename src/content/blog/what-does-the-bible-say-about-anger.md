@@ -5,6 +5,17 @@ description: "The Bible takes anger seriously — it warns against the destructi
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['theme', 'anger', 'wrath', 'self-control', 'context']
+faqs:
+  - q: 'Is it a sin to be angry?'
+    a: 'Not in itself. Paul writes, "Be ye angry, and sin not" (Ephesians 4:26) — there is an anger that does not sin, and there is an anger that does. Jesus Himself became angry in the synagogue and in the temple. The question is not whether to feel anger but what we do with it.'
+  - q: 'What does "be angry and sin not" mean?'
+    a: 'Paul makes three concrete moves in Ephesians 4:26–27: acknowledge that anger itself is not yet sin; do not let the sun go down on it (deal with it that day); and do not give place to the devil (long-held anger creates room for bitterness and the wish to harm).'
+  - q: 'What does the Bible say about righteous anger?'
+    a: 'The Bible distinguishes righteous anger (anger at evil, at the abuse of the vulnerable, at hardness of heart) from sinful anger (wounded pride, retaliation). A simple test: who is the offense actually against? Anger for God''s name and for the harmed is closer to righteous; anger for self is usually something else.'
+  - q: 'What did Jesus get angry about?'
+    a: 'Mark 3:5 records Jesus looking "round about on them with anger, being grieved for the hardness of their hearts" before healing a man on the Sabbath. He also drove the money-changers from the temple (Matthew 21:12). Jesus'' anger is paired with grief at love being refused — not wounded ego.'
+  - q: 'How should Christians handle anger?'
+    a: 'James''s instruction (1:19) is the discipline: "swift to hear, slow to speak, slow to wrath." Proverbs adds, "He that is slow to anger is better than the mighty" (16:32). The wise person slows down, examines the source honestly, deals with it that day, and refuses to let the sun set on it.'
 ---
 
 The Bible's teaching on anger is more nuanced than many readers expect. Scripture neither dismisses anger as always wrong nor approves of it as always right. **Anger is treated as a powerful human response that can be either righteous or destructive, and Scripture gives concrete instruction for handling it well.** Paul writes: *"Be ye angry, and sin not: let not the sun go down upon your wrath: Neither give place to the devil"* ([Ephesians 4:26–27 KJV](https://www.biblegateway.com/passage/?search=Ephesians%204%3A26-27&version=KJV)). James adds: *"Wherefore, my beloved brethren, let every man be swift to hear, slow to speak, slow to wrath: For the wrath of man worketh not the righteousness of God"* ([James 1:19–20](https://www.biblegateway.com/passage/?search=James%201%3A19-20&version=KJV)). And Proverbs returns to anger again and again, naming both its dangers and its discipline. This article walks through the central passages, what biblical anger looks like, what it is *not*, and how to handle it well.

@@ -5,6 +5,17 @@ description: 'Biblical hope is not wishful thinking — it is confident expectat
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['theme', 'hope', 'resurrection', 'suffering', 'context']
+faqs:
+  - q: 'What is biblical hope?'
+    a: 'Biblical hope is confident expectation anchored in the character of God and in the resurrection of Jesus Christ. It is not wishful thinking. The Hebrew tiqvah literally means a cord — the thing one is tethered to. Hebrews 6:19 calls it "an anchor of the soul, both sure and stedfast, and which entereth into that within the veil."'
+  - q: 'What does the Greek word elpis mean?'
+    a: 'Elpis is the New Testament Greek word for hope. It means confident expectation — not a guess about an uncertain outcome but a settled looking-forward to a promised one. Christian elpis is fastened to the historical resurrection of Jesus, which makes it a "living hope" (1 Peter 1:3).'
+  - q: 'How is biblical hope different from optimism?'
+    a: 'Optimism is a temperament — a tendency to expect things to go well. Hope is not a temperament; it is a posture toward what God has promised. Hope is available to the melancholic and the cheerful alike. Some of the most hope-filled saints in church history have been people of naturally somber dispositions.'
+  - q: 'What is the "hope of glory"?'
+    a: 'Paul writes in Colossians 1:27, "Christ in you, the hope of glory." The hope of glory is not somewhere else waiting — it is in the believer now by the indwelling Christ and the earnest of the Spirit. The full glory is still future, but the foretaste lives now.'
+  - q: 'Can Christians grieve and still have hope?'
+    a: 'Yes. Paul writes that Christians do not grieve "as others who have no hope" (1 Thessalonians 4:13) — but he assumes they grieve. Biblical hope does not require pretending the loss does not hurt. It means grieving with the resurrection at the end of it.'
 ---
 
 The Bible's teaching on hope is much sturdier than the way the word is often used today. Modern English uses *hope* to mean wishful thinking — *I hope it doesn't rain.* The Bible uses it to mean **confident expectation anchored in the character of God and in the resurrection of Jesus Christ**. Peter writes: *"Blessed be the God and Father of our Lord Jesus Christ, which according to his abundant mercy hath begotten us again unto a lively hope by the resurrection of Jesus Christ from the dead, to an inheritance incorruptible, and undefiled, and that fadeth not away"* ([1 Peter 1:3–4 KJV](https://www.biblegateway.com/passage/?search=1%20Peter%201%3A3-4&version=KJV)). Paul prays for the believers in Rome: *"Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost"* ([Romans 15:13](https://www.biblegateway.com/passage/?search=Romans%2015%3A13&version=KJV)). This article walks through the vocabulary, the key passages, what biblical hope is *not*, and how it shapes ordinary days.

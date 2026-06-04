@@ -46,7 +46,14 @@ const schema = {
 		? { '@type': 'ImageObject', url: image.startsWith('http') ? image : `${SITE}${image}` }
 		: undefined,
 	keywords: tags && tags.length ? tags.join(', ') : undefined,
-	inLanguage: 'en'
+	inLanguage: 'en',
+	// Tell voice assistants and AI summarizers which DOM region to use as
+	// the canonical extractable answer. The first paragraph of every post
+	// is intentionally written as a front-loaded direct answer.
+	speakable: {
+		'@type': 'SpeakableSpecification',
+		cssSelector: ['.post-body > p:first-of-type', 'h1']
+	}
 }
 ---
 

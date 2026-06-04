@@ -5,6 +5,17 @@ description: "Biblical joy is not the same as happiness — it is a deep, settle
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['theme', 'joy', 'gladness', 'fruit of the spirit', 'context']
+faqs:
+  - q: 'What is the difference between joy and happiness in the Bible?'
+    a: 'Happiness rises and falls with circumstance — the English word comes from "hap" (chance). Biblical joy has a different source: God Himself. Circumstances can move it, but they do not own it. That is why Paul can write "Rejoice in the Lord alway" (Philippians 4:4) from a prison cell.'
+  - q: 'What is the joy of the Lord?'
+    a: 'Nehemiah 8:10 says, "the joy of the LORD is your strength." Biblical joy is not what we manufacture for God; it is what God gives us. It is sustained by His presence ("In thy presence is fulness of joy" — Psalm 16:11), by His Spirit (Galatians 5:22), and by His promises.'
+  - q: 'Is joy a fruit of the Spirit?'
+    a: 'Yes. Joy is the second item in Paul''s list of the fruit of the Spirit in Galatians 5:22: "love, joy, peace, longsuffering, gentleness, goodness, faith, meekness, temperance." It grows on the vine of a Spirit-indwelt life — not manufactured by willpower.'
+  - q: 'What does "Rejoice in the Lord always" mean?'
+    a: 'Paul writes from prison in Philippians 4:4, "Rejoice in the Lord alway: and again I say, Rejoice." The Greek pantote means "in every season." Christian rejoicing is not contingent on circumstances cooperating — it is rooted in who God is and what He has done.'
+  - q: 'Can Christians have joy and grief at the same time?'
+    a: 'Yes. Paul captures the paradox in 2 Corinthians 6:10: "as sorrowful, yet alway rejoicing." Christian joy is not the absence of grief; it is the deeper layer that runs beneath grief and outlasts it. The two coexist.'
 ---
 
 The Bible's teaching on joy is one of its most surprising. Scripture treats joy as a **settled gladness rooted in God's character**, not as a mood that depends on circumstance. Paul writes from prison, of all places, and tells his readers to *"Rejoice in the Lord alway: and again I say, Rejoice"* ([Philippians 4:4 KJV](https://www.biblegateway.com/passage/?search=Philippians%204%3A4&version=KJV)). Nehemiah, addressing a weeping people, tells them *"the joy of the LORD is your strength"* ([Nehemiah 8:10](https://www.biblegateway.com/passage/?search=Nehemiah%208%3A10&version=KJV)). Jesus prays, on the night He is to be betrayed, *"that my joy might remain in you, and that your joy might be full"* ([John 15:11](https://www.biblegateway.com/passage/?search=John%2015%3A11&version=KJV)). This article walks through what the Bible means by joy, what it is *not*, and how it can be present even in the hardest seasons.

@@ -5,6 +5,17 @@ description: 'The Bible''s teaching on forgiveness is among its most demanding a
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['theme', 'forgiveness', 'reconciliation', 'gospel', 'context']
+faqs:
+  - q: 'What does the Bible say about forgiving others?'
+    a: 'The Bible commands Christians to forgive one another as God has forgiven them. Paul writes, "Be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ''s sake hath forgiven you" (Ephesians 4:32). Forgiveness given to us is the engine for forgiveness from us.'
+  - q: 'Is forgiveness the same as reconciliation?'
+    a: 'No. Forgiveness is a unilateral act of the heart — you can forgive someone who never apologizes. Reconciliation is bilateral and requires both parties. Christians are commanded to forgive always; they are not commanded to remain in unsafe or destructive relationships.'
+  - q: 'How many times should I forgive someone?'
+    a: 'When Peter asks if seven times is enough, Jesus answers, "I say not unto thee, Until seven times: but, Until seventy times seven" (Matthew 18:22). The number is symbolic — it means more than you can count. Jesus is removing a cap, not setting one.'
+  - q: 'What does it mean to forgive as God forgave us?'
+    a: 'God''s forgiveness is complete (as far as the east is from the west), grounded in His own character, faithful to His promise, and costly — it cost the cross. Christian forgiveness participates in that pattern: releasing the debt fully, because we have been released of an unpayable one.'
+  - q: 'Does forgiveness mean forgetting what happened?'
+    a: 'No. Forgetting is not the biblical model. "He casts our sins into the depths of the sea" is not divine amnesia — it is divine choice. God knows; He chooses not to hold it against us. Christian forgiveness operates the same way: naming the wrong, then choosing not to charge it.'
 ---
 
 The Bible's teaching on forgiveness is one of its most demanding and most freeing themes. At its heart, biblical forgiveness rests on a single foundation: **God has forgiven us, and the forgiveness we extend to one another is a participation in His.** Paul puts the line directly: *"And be ye kind one to another, tenderhearted, forgiving one another, even as God for Christ's sake hath forgiven you"* ([Ephesians 4:32 KJV](https://www.biblegateway.com/passage/?search=Ephesians%204%3A32&version=KJV)). Jesus' Parable of the Unforgiving Servant ([Matthew 18:21–35](https://www.biblegateway.com/passage/?search=Matthew%2018%3A21-35&version=KJV)) is the most pointed illustration: a man forgiven an unpayable debt who refuses to forgive a small one is rebuked sharply. The pattern is consistent across both Testaments: forgiveness given to us is the engine for forgiveness from us. This article walks through what the Bible teaches, what it does *not* teach, and how to begin practicing it.

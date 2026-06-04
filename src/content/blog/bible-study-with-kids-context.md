@@ -5,6 +5,21 @@ description: "Children can handle far more of the Bible's real setting than we o
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['family bible study', 'kids', 'parenting', 'historical context', 'practical']
+howto:
+  name: 'How to do Bible study with kids in context'
+  description: 'A method for reading Scripture with children so they grow up with the historical and cultural setting baked into their understanding.'
+  totalTime: 'PT15M'
+  steps:
+    - name: 'Read a short passage aloud together'
+      text: 'Pick one short passage — five to ten verses. Read it aloud once, slowly. Reading aloud is biblical (the early church read Scripture aloud) and pulls children into the rhythm of the text.'
+    - name: 'Name the setting in one or two sentences'
+      text: 'Tell the kids who wrote this, who they wrote to, and what was happening. "Paul wrote this from prison to a church he loved." "Moses wrote this after Israel had been in the desert for forty years." One sentence is enough to give the passage a place.'
+    - name: 'Ask one open question'
+      text: 'Open questions invite participation. "What surprised you in this passage?" "What word did you not understand?" "Who in the story would you have been most like?" Avoid yes/no questions; they shut conversation down.'
+    - name: 'Find one detail in its cultural context'
+      text: 'Pick one cultural detail — a custom, a place name, a measurement, a job. Explain it briefly. The goal is curiosity, not a history lesson. "A talent was about twenty years of a worker''s wages — that''s why the master''s mercy is so striking."'
+    - name: 'Pray a short, honest prayer together'
+      text: 'Close by praying a short prayer — sometimes from the passage itself. Modeling honest prayer with kids is more formative than any explanation. Keep it brief; let them pray something too if they want.'
 ---
 
 Kids can absorb far more of the Bible's real setting than we often think. The mistake is treating "age-appropriate" as a synonym for "stripped down." A better goal is **vivid simplicity**: give children a concrete, imaginable picture of the world a passage lives in, in language they can hold. *Joseph wasn't sent to a generic jail; he was sent to Pharaoh's prison in Egypt, where prisoners ground grain.* *The shepherds weren't decoration in a Christmas pageant; they were night-shift workers nobody respected, hearing the most important news in the world first.* That kind of detail makes the story stick. This is a practical guide to doing it.

@@ -5,6 +5,19 @@ description: 'The Bereans of Acts 17 were called noble for receiving teaching ea
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['bible study', 'hermeneutics', 'acts 17', 'discernment', 'how to read the bible']
+howto:
+  name: 'How to study the Bible like a Berean'
+  description: 'A method for receiving teaching readily, then testing every claim against the text — the practice Luke commends in Acts 17:11.'
+  totalTime: 'PT30M'
+  steps:
+    - name: 'Receive the word with readiness of mind'
+      text: 'Approach Scripture and teaching with eagerness rather than suspicion. The Berean posture begins by listening well — open to what the text says, not just looking for what to refute.'
+    - name: 'Search the Scriptures daily'
+      text: 'Test every claim against the text itself, not against memory or feeling. Look up the passages cited. Read the surrounding context. Compare with parallel passages elsewhere in Scripture.'
+    - name: 'Use the historical and original-language context'
+      text: 'Ask what the passage meant to its first readers. Use the historical setting, the original-language word behind the English, and the early church''s reading. Context keeps the text from being twisted to fit our assumptions.'
+    - name: 'Weigh honestly and decide'
+      text: 'Whether the teaching holds up is a judgment, not a feeling. If it lines up with Scripture in context, receive it. If it does not, set it aside. "Prove all things; hold fast that which is good" (1 Thessalonians 5:21).'
 ---
 
 The **"Berean approach"** to Bible study is a three-step discipline drawn from [Acts 17:10–11](https://www.biblegateway.com/passage/?search=Acts%2017%3A10-11&version=KJV): **receive teaching eagerly, search the Scriptures yourself to test it, and weigh what you find before believing it**. Luke calls the Bereans *"more noble"* than the Thessalonian Jews precisely because they did all three. The Berean approach is the antidote to two opposite errors — credulous acceptance and reflexive suspicion — and it is the right framework for using historical context, the early church, and modern scholarship without falling into either ditch.

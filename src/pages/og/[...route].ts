@@ -34,6 +34,11 @@ const staticPages: Record<string, PageEntry> = {
 		description:
 			'A short, contextual reflection on Scripture in your inbox each morning. Free. Unsubscribe any time.'
 	},
+	about: {
+		title: 'About The Context Bible',
+		description:
+			'Editorial standards, scholarly sources, and the team behind The Context Bible.'
+	},
 	contact: {
 		title: 'Contact — The Context Bible',
 		description: 'Reach the team behind The Context Bible.'

@@ -5,6 +5,17 @@ description: "The Bible names anxiety directly and offers a thorough treatment o
 author: 'The Context Bible team'
 image: '/app-icon.png'
 tags: ['theme', 'anxiety', 'worry', 'mental health', 'context']
+faqs:
+  - q: 'Does the Bible say anxiety is a sin?'
+    a: 'No. Scripture treats anxiety as a real human experience, not a moral failure in itself. It names anxiety directly and offers a set of disciplines — prayer, thanksgiving, casting cares on God — for replacing it with peace, but never calls the experience of anxiety itself sin.'
+  - q: 'What does Philippians 4:6–7 say about anxiety?'
+    a: 'Paul writes, "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus." The instruction is specific — pair prayer with thanksgiving, and the peace of God will garrison your heart.'
+  - q: 'What does Jesus say about worry in Matthew 6?'
+    a: 'Jesus tells His disciples not to worry about food, drink, or clothing (Matt. 6:25–34). He points to the birds and the lilies — the Father who feeds and clothes them will not neglect His children. The famous closing line is "Sufficient unto the day is the evil thereof" — bound the worry to today.'
+  - q: 'How do I cast my anxiety on God according to 1 Peter 5:7?'
+    a: 'Peter writes, "Casting all your care upon him; for he careth for you." The Greek epirhipsantes is a "toss it on" word — the image is of a load thrown onto someone strong enough to carry it. The casting is possible because the Catcher is loving.'
+  - q: "Is biblical anxiety relief about the storm calming or God's presence?"
+    a: 'The Bible promises the presence of God in the storm more often than the removal of the storm. Christian peace is not the answer in the form of changed circumstances; it is the answer in the form of His presence. The peace of God "passeth all understanding" — it does not depend on the situation making sense.'
 ---
 
 The Bible has a great deal to say about anxiety and worry, and what it says is **pastoral, practical, and full of relief**. Scripture names anxiety directly, takes it seriously, and offers a set of disciplines for replacing it — not with willpower, but with prayer, with God's character, with the company of others, and with a settled posture toward tomorrow. The famous summaries are familiar: *"casting all your care upon him; for he careth for you"* ([1 Peter 5:7](https://www.biblegateway.com/passage/?search=1%20Peter%205%3A7&version=KJV)). *"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus"* ([Philippians 4:6–7](https://www.biblegateway.com/passage/?search=Philippians%204%3A6-7&version=KJV)). *"Take therefore no thought for the morrow…sufficient unto the day is the evil thereof"* ([Matthew 6:34](https://www.biblegateway.com/passage/?search=Matthew%206%3A34&version=KJV)). This article walks through the major passages and what they shape in practice.

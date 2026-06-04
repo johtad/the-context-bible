@@ -1,0 +1,48 @@
+---
+// JSON-LD HowTo emitter for instructional blog posts.
+//
+// AI engines (ChatGPT, Perplexity, Gemini) extract step-by-step content
+// from HowTo schema for "how do I…" queries. Pass a name, an optional
+// description, and an array of { name, text } steps.
+
+type Step = { name: string; text: string }
+type Props = {
+	name: string
+	description?: string
+	steps: Step[]
+	totalTime?: string // ISO 8601 duration, e.g., 'PT15M'
+	url?: string
+}
+const { name, description, steps, totalTime, url } = Astro.props
+
+function stripHtml(s: string) {
+	return s
+		.replace(/<[^>]+>/g, '')
+		.replace(/&nbsp;/g, ' ')
+		.replace(/&amp;/g, '&')
+		.replace(/&quot;/g, '"')
+		.replace(/&#39;/g, "'")
+		.trim()
+}
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'HowTo',
+	name,
+	description: description ? stripHtml(description) : undefined,
+	totalTime,
+	url,
+	step: steps.map((s, i) => ({
+		'@type': 'HowToStep',
+		position: i + 1,
+		name: stripHtml(s.name),
+		text: stripHtml(s.text)
+	}))
+}
+---
+
+<script
+	is:inline
+	type="application/ld+json"
+	set:html={JSON.stringify(schema, (_, v) => (v === undefined ? undefined : v))}
+/>
