@@ -1,0 +1,74 @@
+---
+// Featured Article
+// ------------
+// Description: Single prominent card promoting a foundational blog post on the
+//   homepage. Props default to the four-kinds-of-biblical-context cornerstone
+//   piece, but can be reused for any post.
+
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+
+type Props = {
+	eyebrow?: string
+	title?: string
+	description?: string
+	href?: string
+	ctaLabel?: string
+	browseHref?: string
+	browseLabel?: string
+}
+const {
+	eyebrow = 'Start here',
+	title = 'The four kinds of biblical context every reader should know',
+	description = 'Historical, cultural, literary, canonical: the four lenses serious Bible readers use to understand what a passage meant. A practical guide with examples from Scripture and how to study each one.',
+	href = '/blog/four-kinds-of-biblical-context/',
+	ctaLabel = 'Read the guide',
+	browseHref = '/blog/#cornerstones',
+	browseLabel = 'Browse all cornerstone guides'
+} = Astro.props
+---
+
+<Section id="featured-article">
+	<Row>
+		<Col span="2" />
+		<Col span="8">
+			<a class="featured-article" href={href}>
+				<span class="featured-article__eyebrow">{eyebrow}</span>
+				<h2 class="featured-article__title">{title}</h2>
+				<p class="featured-article__description">{description}</p>
+				<span class="featured-article__cta">
+					{ctaLabel} <span aria-hidden="true">→</span>
+				</span>
+			</a>
+			<p class="featured-article__browse">
+				<a href={browseHref}>{browseLabel} →</a>
+			</p>
+		</Col>
+		<Col span="2" />
+	</Row>
+</Section>
+
+<style>
+	.featured-article {
+		@apply block rounded-2xl border border-neutral-200 bg-white p-8 transition-all duration-200 hover:border-primary-300 hover:shadow-lg dark:border-neutral-800 dark:bg-neutral-950 dark:hover:border-primary-500/40 lg:p-10;
+	}
+	.featured-article__eyebrow {
+		@apply mb-3 inline-block rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-700 dark:bg-primary-950 dark:text-primary-300;
+	}
+	.featured-article__title {
+		@apply mb-3 text-2xl font-semibold leading-tight text-neutral-900 dark:text-neutral-50 lg:text-3xl;
+	}
+	.featured-article__description {
+		@apply mb-5 text-base leading-relaxed text-neutral-600 dark:text-neutral-300;
+	}
+	.featured-article__cta {
+		@apply text-base font-semibold text-primary-600 dark:text-primary-400;
+	}
+	.featured-article__browse {
+		@apply mt-4 text-center text-sm;
+	}
+	.featured-article__browse a {
+		@apply font-medium text-primary-600 hover:underline dark:text-primary-400;
+	}
+</style>
