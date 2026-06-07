@@ -39,6 +39,11 @@ const staticPages: Record<string, PageEntry> = {
 		description:
 			'Editorial standards, scholarly sources, and the team behind The Context Bible.'
 	},
+	guide: {
+		title: '10 Verses That Mean Something Different Once You Know the History',
+		description:
+			'A free PDF guide from The Context Bible. Ten familiar verses whose meaning shifts once you know the historical setting they were written into.'
+	},
 	contact: {
 		title: 'Contact — The Context Bible',
 		description: 'Reach the team behind The Context Bible.'

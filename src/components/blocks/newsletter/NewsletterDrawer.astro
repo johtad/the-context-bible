@@ -332,7 +332,7 @@ const apiBase = 'https://bible-app-3.onrender.com'
 		const STORAGE_KEY = 'cb_newsletter_drawer_state'
 		const SHOW_AFTER_MS = 5000
 		// Pages where a drawer would be redundant or annoying.
-		const SUPPRESS_PATHS = ['/newsletter', '/newsletter/', '/app', '/app/']
+		const SUPPRESS_PATHS = ['/newsletter', '/newsletter/', '/app', '/app/', '/guide', '/guide/']
 		const drawer = document.getElementById('newsletter-drawer')
 		if (!drawer) return
 		if (SUPPRESS_PATHS.includes(window.location.pathname)) return

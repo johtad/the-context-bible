@@ -1,0 +1,545 @@
+---
+import Layout from '../layouts/Layout.astro'
+import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
+
+const SEO = {
+	title: '10 Verses That Mean Something Different Once You Know the History — free guide',
+	description:
+		'A short, free PDF guide from The Context Bible. Ten familiar verses whose meaning shifts once you know the historical setting they were written into.'
+}
+const SITE = 'https://contextscripture.org'
+const apiBase = 'https://bible-app-3.onrender.com'
+---
+
+<Layout title={SEO.title} description={SEO.description} classes="guide-page">
+	<SchemaBreadcrumb
+		items={[
+			{ name: 'Home', url: `${SITE}/` },
+			{ name: 'Free guide', url: `${SITE}/guide` }
+		]}
+	/>
+
+	<!-- HERO -->
+	<section class="hero">
+		<div class="wrap hero-inner">
+			<div>
+				<div class="kicker">A free guide</div>
+				<h1>10 Verses That Mean Something Different Once You Know the <em>History</em></h1>
+				<p class="lede">
+					The Bible was written into a world — a time, a place, a people. Step back into
+					it, and familiar verses open up in ways you may never have seen.
+				</p>
+			</div>
+
+			<div class="card" id="card">
+				<div id="formview" data-formview>
+					<h2>Send me the free guide</h2>
+					<p class="sub">Plus a daily devotional and a weekly verse-in-context email.</p>
+					<form data-newsletter-form data-source="guide-page" novalidate>
+						<label for="guide-name">First name</label>
+						<input
+							id="guide-name"
+							type="text"
+							name="name"
+							placeholder="Your first name"
+							autocomplete="given-name"
+							maxlength="80"
+						/>
+						<label for="guide-email">Email address</label>
+						<input
+							id="guide-email"
+							type="email"
+							name="email"
+							placeholder="you@example.com"
+							autocomplete="email"
+							required
+							maxlength="254"
+						/>
+						<input
+							type="text"
+							name="website"
+							class="honeypot"
+							tabindex="-1"
+							autocomplete="off"
+							aria-hidden="true"
+						/>
+						<button type="submit" class="cta" data-newsletter-submit>
+							<span data-newsletter-submit-label>Send me the free guide</span>
+						</button>
+					</form>
+					<p class="status" data-newsletter-status role="status" aria-live="polite"></p>
+					<div class="reassure">
+						<svg
+							width="15"
+							height="15"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5l-8-3z"></path>
+						</svg>
+						We'll never share your email. Unsubscribe anytime.
+					</div>
+				</div>
+
+				<div class="thanks" data-thanksview>
+					<div class="check">
+						<svg
+							width="26"
+							height="26"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.4"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M20 6 9 17l-5-5"></path>
+						</svg>
+					</div>
+					<h2>Check your inbox</h2>
+					<p>
+						We just sent a confirmation link. Open it and your free guide will arrive in your
+						inbox right away. If you don't see it in a minute, peek in your promotions or
+						spam folder.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- INSIDE -->
+	<section class="inside">
+		<div class="wrap">
+			<div class="sec-label">A look inside</div>
+			<h3>The same words, a deeper meaning</h3>
+			<p class="isub">Three of the ten you'll find in the guide.</p>
+			<div class="teasers">
+				<div class="teaser">
+					<div class="ref">Revelation 3:15–16</div>
+					<h4>"Lukewarm" was never about being half-hearted</h4>
+					<p>
+						Laodicea's water arrived warm and undrinkable, while neighboring towns had hot
+						springs and cold streams. The rebuke is being useless — not being undecided.
+					</p>
+				</div>
+				<div class="teaser">
+					<div class="ref">Matthew 19:24</div>
+					<h4>There was no gate called "the Needle's Eye"</h4>
+					<p>
+						No evidence such a gate ever existed; the idea appears a thousand years later.
+						Jesus meant a flat impossibility — then said God makes the impossible possible.
+					</p>
+				</div>
+				<div class="teaser">
+					<div class="ref">Luke 15:20</div>
+					<h4>The father humiliated himself to reach his son</h4>
+					<p>
+						A dignified elder did not run in public. To run, he had to take on shame — a
+						father willing to be humbled to restore his child.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CLOSING -->
+	<section class="closing">
+		<div class="wrap">
+			<p class="verse">
+				"The entrance of thy words giveth light; it giveth understanding unto the simple."
+			</p>
+			<div class="ref2">Psalm 119:130</div>
+			<a href="#card" class="ghost">Get the free guide →</a>
+		</div>
+	</section>
+</Layout>
+
+<style is:global>
+	/* Guide-page palette + typography. Scoped to body.guide-page so the rest of the
+	   site keeps its Inter/Outfit + cyan/neutral system. */
+	body.guide-page {
+		--guide-ink: #1f2a44;
+		--guide-gold: #c8962f;
+		--guide-gold-light: #e6b352;
+		--guide-cream: #faf6ef;
+		--guide-paper: #fffdf8;
+		--guide-text: #2c2c2c;
+		--guide-muted: #6b6452;
+		--guide-line: #e7ddc9;
+		font-family: 'Newsreader', Georgia, serif;
+		background: var(--guide-cream);
+		color: var(--guide-text);
+	}
+	body.guide-page .hero,
+	body.guide-page .inside,
+	body.guide-page .closing {
+		display: block;
+	}
+	body.guide-page .wrap {
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 0 28px;
+	}
+
+	body.guide-page .hero {
+		background:
+			radial-gradient(120% 90% at 80% -10%, rgba(230, 179, 82, 0.16), transparent 55%),
+			radial-gradient(90% 70% at 0% 110%, rgba(94, 120, 180, 0.18), transparent 60%),
+			var(--guide-ink);
+		color: #f4eedf;
+		padding: 24px 0 80px;
+	}
+	body.guide-page .hero .hero-inner {
+		display: grid;
+		grid-template-columns: 1.05fr 0.95fr;
+		gap: 56px;
+		align-items: center;
+		padding: 28px 0 24px;
+	}
+	body.guide-page .kicker {
+		font-family: 'Fraunces', Georgia, serif;
+		text-transform: uppercase;
+		letter-spacing: 0.24em;
+		font-size: 0.78rem;
+		color: var(--guide-gold-light);
+		margin-bottom: 18px;
+	}
+	body.guide-page h1 {
+		font-family: 'Fraunces', Georgia, serif;
+		font-weight: 700;
+		font-size: clamp(2.1rem, 4.2vw, 3.3rem);
+		line-height: 1.08;
+		letter-spacing: -0.01em;
+		color: #fbf7ee;
+		margin: 0 0 22px;
+	}
+	body.guide-page h1 em {
+		font-style: italic;
+		color: var(--guide-gold-light);
+	}
+	body.guide-page .lede {
+		font-size: 1.15rem;
+		line-height: 1.55;
+		color: #d8d4c5;
+		max-width: 48ch;
+	}
+
+	body.guide-page .card {
+		background: var(--guide-paper);
+		color: var(--guide-text);
+		border-radius: 16px;
+		padding: 36px 32px;
+		box-shadow: 0 28px 70px -28px rgba(0, 0, 0, 0.55);
+		border: 1px solid rgba(0, 0, 0, 0.04);
+	}
+	body.guide-page .card h2 {
+		font-family: 'Fraunces', Georgia, serif;
+		font-size: 1.55rem;
+		color: var(--guide-ink);
+		margin: 0 0 6px;
+	}
+	body.guide-page .card .sub {
+		color: var(--guide-muted);
+		margin: 0 0 20px;
+		font-size: 0.98rem;
+	}
+	body.guide-page label {
+		display: block;
+		font-family: 'Fraunces', Georgia, serif;
+		font-weight: 600;
+		font-size: 0.82rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: var(--guide-ink);
+		margin-bottom: 6px;
+	}
+	body.guide-page input[type='text'],
+	body.guide-page input[type='email'] {
+		width: 100%;
+		padding: 13px 14px;
+		border: 1px solid var(--guide-line);
+		background: #fff;
+		border-radius: 8px;
+		font-family: inherit;
+		font-size: 1rem;
+		color: var(--guide-text);
+		margin-bottom: 14px;
+		transition: border-color 0.15s, box-shadow 0.15s;
+	}
+	body.guide-page input:focus {
+		outline: none;
+		border-color: var(--guide-gold);
+		box-shadow: 0 0 0 3px rgba(200, 150, 47, 0.18);
+	}
+	body.guide-page .honeypot {
+		position: absolute !important;
+		left: -10000px;
+		width: 1px;
+		height: 1px;
+	}
+	body.guide-page .cta {
+		width: 100%;
+		background: var(--guide-ink);
+		color: #fbf7ee;
+		border: 0;
+		border-radius: 8px;
+		padding: 14px 16px;
+		font-family: 'Fraunces', Georgia, serif;
+		font-weight: 600;
+		font-size: 1.05rem;
+		cursor: pointer;
+		transition: background 0.15s, transform 0.05s;
+		margin-top: 4px;
+	}
+	body.guide-page .cta:hover {
+		background: #161d33;
+	}
+	body.guide-page .cta:disabled {
+		opacity: 0.65;
+		cursor: not-allowed;
+	}
+	body.guide-page .status {
+		margin: 12px 0 0;
+		min-height: 1.2em;
+		font-size: 0.95rem;
+		color: var(--guide-muted);
+	}
+	body.guide-page .status[data-state='error'] {
+		color: #b04141;
+	}
+	body.guide-page .status[data-state='success'] {
+		color: #5c7a3f;
+	}
+	body.guide-page .reassure {
+		margin-top: 16px;
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		color: var(--guide-muted);
+		font-size: 0.86rem;
+	}
+	body.guide-page .thanks {
+		display: none;
+		text-align: center;
+		padding: 14px 4px;
+	}
+	body.guide-page .thanks.is-active {
+		display: block;
+	}
+	body.guide-page #formview.is-hidden {
+		display: none;
+	}
+	body.guide-page .thanks .check {
+		width: 54px;
+		height: 54px;
+		border-radius: 50%;
+		background: rgba(200, 150, 47, 0.14);
+		color: var(--guide-gold);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 14px;
+	}
+	body.guide-page .thanks h2 {
+		font-family: 'Fraunces', Georgia, serif;
+		color: var(--guide-ink);
+		margin-bottom: 10px;
+	}
+	body.guide-page .thanks p {
+		color: var(--guide-muted);
+		font-size: 1.02rem;
+	}
+
+	body.guide-page .inside {
+		padding: 74px 0 16px;
+		background: var(--guide-cream);
+	}
+	body.guide-page .sec-label {
+		font-family: 'Fraunces', Georgia, serif;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.24em;
+		font-size: 0.74rem;
+		color: var(--guide-gold);
+		text-align: center;
+		margin-bottom: 12px;
+	}
+	body.guide-page .inside h3 {
+		font-family: 'Fraunces', Georgia, serif;
+		font-weight: 700;
+		font-size: clamp(1.7rem, 3vw, 2.3rem);
+		color: var(--guide-ink);
+		text-align: center;
+		line-height: 1.15;
+		margin-bottom: 8px;
+	}
+	body.guide-page .inside .isub {
+		text-align: center;
+		color: var(--guide-muted);
+		font-size: 1.08rem;
+		margin-bottom: 44px;
+	}
+	body.guide-page .teasers {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 22px;
+	}
+	body.guide-page .teaser {
+		background: var(--guide-paper);
+		border: 1px solid var(--guide-line);
+		border-radius: 12px;
+		padding: 26px 24px 24px;
+		transition: transform 0.2s, box-shadow 0.2s;
+	}
+	body.guide-page .teaser:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 18px 36px -20px rgba(31, 42, 68, 0.4);
+	}
+	body.guide-page .teaser .ref {
+		font-family: 'Fraunces', Georgia, serif;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		font-size: 0.7rem;
+		color: var(--guide-gold);
+		margin-bottom: 10px;
+	}
+	body.guide-page .teaser h4 {
+		font-family: 'Fraunces', Georgia, serif;
+		font-weight: 600;
+		font-size: 1.22rem;
+		line-height: 1.22;
+		color: var(--guide-ink);
+		margin-bottom: 10px;
+	}
+	body.guide-page .teaser p {
+		font-size: 0.98rem;
+		line-height: 1.5;
+		color: #41454d;
+	}
+
+	body.guide-page .closing {
+		padding: 70px 0 78px;
+		text-align: center;
+		background: var(--guide-cream);
+	}
+	body.guide-page .closing .verse {
+		font-style: italic;
+		font-size: 1.32rem;
+		line-height: 1.5;
+		color: var(--guide-ink);
+		max-width: 30ch;
+		margin: 0 auto 10px;
+	}
+	body.guide-page .closing .ref2 {
+		font-family: 'Fraunces', Georgia, serif;
+		color: var(--guide-gold);
+		font-size: 0.82rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		margin-bottom: 30px;
+	}
+	body.guide-page .ghost {
+		display: inline-block;
+		font-family: 'Fraunces', Georgia, serif;
+		font-weight: 600;
+		font-size: 1.02rem;
+		color: var(--guide-ink);
+		text-decoration: none;
+		border-bottom: 2px solid var(--guide-gold);
+		padding-bottom: 3px;
+		transition: color 0.15s;
+	}
+	body.guide-page .ghost:hover {
+		color: var(--guide-gold);
+	}
+
+	@media (max-width: 860px) {
+		body.guide-page .hero-inner {
+			grid-template-columns: 1fr;
+			gap: 40px;
+			padding: 24px 0 32px;
+		}
+		body.guide-page .teasers {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
+
+<!-- Load the brand fonts only on this page. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+	rel="stylesheet"
+/>
+
+<script is:inline define:vars={{ apiBase }}>
+	(function () {
+		const form = document.querySelector('body.guide-page [data-newsletter-form]')
+		if (!form) return
+		const formView = document.querySelector('[data-formview]')
+		const thanksView = document.querySelector('[data-thanksview]')
+		const submit = form.querySelector('[data-newsletter-submit]')
+		const submitLabel = form.querySelector('[data-newsletter-submit-label]')
+		const status = document.querySelector('[data-newsletter-status]')
+		const setStatus = (text, kind) => {
+			if (!status) return
+			status.textContent = text || ''
+			if (kind) status.setAttribute('data-state', kind)
+			else status.removeAttribute('data-state')
+		}
+		const setBusy = (busy) => {
+			if (submit) submit.disabled = busy
+			if (submitLabel) submitLabel.textContent = busy ? 'Sending…' : 'Send me the free guide'
+		}
+		const track = (outcome) => {
+			if (typeof window.gtag === 'function') {
+				window.gtag('event', 'newsletter_signup', { outcome, source: 'guide-page' })
+			}
+		}
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault()
+			const data = new FormData(form)
+			const email = String(data.get('email') || '').trim()
+			const name = String(data.get('name') || '').trim()
+			const honeypot = String(data.get('website') || '').trim()
+			if (honeypot) {
+				formView.classList.add('is-hidden')
+				thanksView.classList.add('is-active')
+				return
+			}
+			if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+				setStatus('Please enter a valid email address.', 'error')
+				return
+			}
+			setStatus('', null)
+			setBusy(true)
+			try {
+				const res = await fetch(`${apiBase}/api/newsletter/subscribe`, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ email, name, source: 'guide-page' })
+				})
+				const payload = await res.json().catch(() => ({}))
+				if (!res.ok || !payload.ok) {
+					setStatus(payload.error || 'Something went wrong. Please try again.', 'error')
+					track('error')
+					setBusy(false)
+					return
+				}
+				formView.classList.add('is-hidden')
+				thanksView.classList.add('is-active')
+				track(payload.status === 'already_confirmed' ? 'already_confirmed' : 'pending')
+			} catch (err) {
+				console.error('[guide signup]', err)
+				setStatus('Could not reach the server. Please try again in a moment.', 'error')
+				track('network_error')
+			} finally {
+				setBusy(false)
+			}
+		})
+	})()
+</script>
