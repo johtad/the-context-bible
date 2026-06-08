@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro'
+import SchemaBreadcrumb from '../components/scripts/SchemaBreadcrumb.astro'
+
+const SEO = {
+	title: 'Context Matters — a free guide to reading the Bible in its world',
+	description:
+		'A short, free book from The Context Bible. A beginner-friendly guide to reading the Bible in its historical, cultural, and literary context — with a six-question framework you can use on any passage.'
+}
+const SITE = 'https://contextscripture.org'
+const PDF = '/guides/context-matters.pdf'
+---
+
+<Layout title={SEO.title} description={SEO.description} classes="guide-page">
+	<SchemaBreadcrumb
+		items={[
+			{ name: 'Home', url: `${SITE}/` },
+			{ name: 'Free book', url: `${SITE}/book` }
+		]}
+	/>
+
+	<!-- HERO -->
+	<section class="hero">
+		<div class="wrap hero-inner">
+			<div>
+				<div class="kicker">A free book</div>
+				<h1>Context <em>Matters</em></h1>
+				<p class="lede">
+					The Bible was written into a world — a time, a place, a people. A short
+					guide for the curious: how to read it in the world it was written in, and
+					a six-question framework you can use on any passage.
+				</p>
+			</div>
+
+			<div class="card" id="card">
+				<h2>Download the book</h2>
+				<p class="sub">~40 pages · PDF · free to share.</p>
+				<a class="cta" href={PDF} download="Context-Matters.pdf">Get the free PDF</a>
+				<p class="status" style="text-align:center;">
+					<a
+						href={PDF}
+						target="_blank"
+						rel="noopener"
+						style="color:var(--guide-muted);text-decoration:underline;font-size:0.9rem;"
+					>
+						Or open it in your browser first
+					</a>
+				</p>
+				<div class="reassure">
+					<svg
+						width="15"
+						height="15"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5l-8-3z"></path>
+					</svg>
+					No signup required. Distributed freely for personal and ministry use.
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- INSIDE -->
+	<section class="inside">
+		<div class="wrap">
+			<div class="sec-label">A look inside</div>
+			<h3>The same words, a deeper meaning</h3>
+			<p class="isub">Three of the worked examples you'll find in the book.</p>
+			<div class="teasers">
+				<div class="teaser">
+					<div class="ref">Jeremiah 29:11</div>
+					<h4>The graduation-card verse is a letter to exiles</h4>
+					<p>
+						"Plans to prosper you" was written to people told they'd die in
+						Babylon, their grandchildren the first to come home. The promise is
+						deeper than the coffee mug — and it can hold you when the door does
+						not open.
+					</p>
+				</div>
+				<div class="teaser">
+					<div class="ref">Philippians 4:13</div>
+					<h4>"I can do all things" is a witness from a prison cell</h4>
+					<p>
+						The verse on locker-room walls is, in context, almost the opposite of
+						a winning slogan. Paul has just said he's learned to be hungry. It's a
+						promise of the strength to lose well, not to win.
+					</p>
+				</div>
+				<div class="teaser">
+					<div class="ref">Mark 10:25</div>
+					<h4>There was no gate called "the Needle's Eye"</h4>
+					<p>
+						No archaeological or historical evidence such a gate existed; the
+						story first shows up a thousand years later. Jesus meant a flat
+						impossibility — then said God makes the impossible possible.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- WHAT'S IN IT -->
+	<section class="inside" style="padding-top: 0;">
+		<div class="wrap">
+			<div class="sec-label">What's in the book</div>
+			<h3>A framework, a vocabulary, a small library</h3>
+			<p class="isub">In a long afternoon, you'll finish it — and read the Bible differently.</p>
+			<div class="teasers" style="grid-template-columns: repeat(2, 1fr);">
+				<div class="teaser">
+					<div class="ref">Part One &middot; Why context matters</div>
+					<h4>The Bible was not written to you</h4>
+					<p>
+						Why that's good news — and what historical context actually means
+						(and what it does not).
+					</p>
+				</div>
+				<div class="teaser">
+					<div class="ref">Part Two &middot; The world behind the text</div>
+					<h4>Gods, empires, honor, shame, patrons</h4>
+					<p>
+						The air the original audience breathed — the Old Testament world, the
+						New Testament world, and the cultural categories you're missing.
+					</p>
+				</div>
+				<div class="teaser">
+					<div class="ref">Part Three &middot; A method you can use</div>
+					<h4>Six questions to ask every time</h4>
+					<p>
+						A simple framework — and four worked examples that show it landing
+						(Mark 10:25, Jer 29:11, 2 Cor 6:14, Phil 4:13).
+					</p>
+				</div>
+				<div class="teaser">
+					<div class="ref">Part Four &middot; Going deeper</div>
+					<h4>A starter library and lifelong habits</h4>
+					<p>
+						Sixteen trusted books across study Bibles, background commentaries,
+						method, and theological depth — plus six habits for a lifetime of
+						contextual reading.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CLOSING -->
+	<section class="closing">
+		<div class="wrap">
+			<p class="verse">
+				"The entrance of thy words giveth light; it giveth understanding unto the simple."
+			</p>
+			<div class="ref2">Psalm 119:130</div>
+			<a href="#card" class="ghost">Get the free book →</a>
+		</div>
+	</section>
+</Layout>
+
+<style is:global>
+	/* This page reuses the body.guide-page CSS already defined in /guide.
+	   Only book-page-specific overrides go here. */
+	body.guide-page h1 {
+		font-size: clamp(2.6rem, 5.2vw, 4rem);
+	}
+	body.guide-page .cta {
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		margin-bottom: 4px;
+	}
+	body.guide-page .cta:hover {
+		color: #fbf7ee;
+	}
+</style>
+
+<!-- Load the brand fonts only on this page. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+	rel="stylesheet"
+/>
