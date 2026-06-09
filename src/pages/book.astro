@@ -8,7 +8,6 @@ const SEO = {
 		'A short, free book from The Context Bible. A beginner-friendly guide to reading the Bible in its historical, cultural, and literary context — with a six-question framework you can use on any passage.'
 }
 const SITE = 'https://contextscripture.org'
-const apiBase = 'https://bible-app-3.onrender.com'
 const PDF = '/guides/context-matters.pdf'
 ---
 
@@ -16,6 +15,7 @@ const PDF = '/guides/context-matters.pdf'
 	<SchemaBreadcrumb
 		items={[
 			{ name: 'Home', url: `${SITE}/` },
+			{ name: 'Resources', url: `${SITE}/` },
 			{ name: 'Free book', url: `${SITE}/book` }
 		]}
 	/>
@@ -35,87 +35,31 @@ const PDF = '/guides/context-matters.pdf'
 			</div>
 
 			<div class="card" id="card">
-				<div id="formview" data-formview>
-					<h2>Send me the free book</h2>
-					<p class="sub">Plus a daily devotional and a weekly verse-in-context email.</p>
-					<form data-newsletter-form data-source="book-page" novalidate>
-						<label for="book-name">First name</label>
-						<input
-							id="book-name"
-							type="text"
-							name="name"
-							placeholder="Your first name"
-							autocomplete="given-name"
-							maxlength="80"
-						/>
-						<label for="book-email">Email address</label>
-						<input
-							id="book-email"
-							type="email"
-							name="email"
-							placeholder="you@example.com"
-							autocomplete="email"
-							required
-							maxlength="254"
-						/>
-						<input
-							type="text"
-							name="website"
-							class="honeypot"
-							tabindex="-1"
-							autocomplete="off"
-							aria-hidden="true"
-						/>
-						<button type="submit" class="cta" data-newsletter-submit>
-							<span data-newsletter-submit-label>Send me the free book</span>
-						</button>
-					</form>
-					<p class="status" data-newsletter-status role="status" aria-live="polite"></p>
-					<div class="reassure">
-						<svg
-							width="15"
-							height="15"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5l-8-3z"></path>
-						</svg>
-						We'll never share your email. Unsubscribe anytime.
-					</div>
-				</div>
-
-				<div class="thanks" data-thanksview>
-					<div class="check">
-						<svg
-							width="26"
-							height="26"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2.4"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<path d="M20 6 9 17l-5-5"></path>
-						</svg>
-					</div>
-					<h2>Check your inbox</h2>
-					<p>
-						We just sent a confirmation link. Open it and your free book will arrive
-						in your inbox right away. If you don't see it in a minute, peek in
-						your promotions or spam folder.
-					</p>
-					<p style="margin-top:18px;">
-						<a
-							href={PDF}
-							download="Context-Matters.pdf"
-							style="display:inline-block;padding:10px 18px;border-radius:8px;background:transparent;border:1.5px solid var(--guide-gold);color:var(--guide-ink);text-decoration:none;font-family:'Fraunces',Georgia,serif;font-weight:600;"
-						>
-							Or download the PDF now →
-						</a>
-					</p>
+				<h2>Download the book</h2>
+				<p class="sub">~46 pages · PDF · free to share.</p>
+				<a class="cta" href={PDF} download="Context-Matters.pdf">Get the free PDF</a>
+				<p class="status" style="text-align:center;">
+					<a
+						href={PDF}
+						target="_blank"
+						rel="noopener"
+						style="color:var(--guide-muted);text-decoration:underline;font-size:0.9rem;"
+					>
+						Or open it in your browser first
+					</a>
+				</p>
+				<div class="reassure">
+					<svg
+						width="15"
+						height="15"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5l-8-3z"></path>
+					</svg>
+					No signup required. Distributed freely for personal and ministry use.
 				</div>
 			</div>
 		</div>
@@ -142,8 +86,8 @@ const PDF = '/guides/context-matters.pdf'
 					<div class="ref">Philippians 4:13</div>
 					<h4>"I can do all things" is a witness from a prison cell</h4>
 					<p>
-						The verse on locker-room walls is, in context, almost the opposite of
-						a winning slogan. Paul has just said he's learned to be hungry.
+						The verse on locker-room walls is, in context, almost the opposite
+						of a winning slogan. Paul has just said he's learned to be hungry.
 						It's a promise of the strength to lose well, not to win.
 					</p>
 				</div>
@@ -222,6 +166,15 @@ const PDF = '/guides/context-matters.pdf'
 	body.guide-page h1 {
 		font-size: clamp(2.6rem, 5.2vw, 4rem);
 	}
+	body.guide-page .cta {
+		display: block;
+		text-align: center;
+		text-decoration: none;
+		margin-bottom: 4px;
+	}
+	body.guide-page .cta:hover {
+		color: #fbf7ee;
+	}
 </style>
 
 <!-- Load the brand fonts only on this page. -->
@@ -231,71 +184,3 @@ const PDF = '/guides/context-matters.pdf'
 	href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
 	rel="stylesheet"
 />
-
-<script is:inline define:vars={{ apiBase }}>
-	(function () {
-		const form = document.querySelector('body.guide-page [data-newsletter-form][data-source="book-page"]')
-		if (!form) return
-		const card = form.closest('.card')
-		const formView = card.querySelector('[data-formview]')
-		const thanksView = card.querySelector('[data-thanksview]')
-		const submit = form.querySelector('[data-newsletter-submit]')
-		const submitLabel = form.querySelector('[data-newsletter-submit-label]')
-		const status = card.querySelector('[data-newsletter-status]')
-		const setStatus = (text, kind) => {
-			if (!status) return
-			status.textContent = text || ''
-			if (kind) status.setAttribute('data-state', kind)
-			else status.removeAttribute('data-state')
-		}
-		const setBusy = (busy) => {
-			if (submit) submit.disabled = busy
-			if (submitLabel) submitLabel.textContent = busy ? 'Sending…' : 'Send me the free book'
-		}
-		const track = (outcome) => {
-			if (typeof window.gtag === 'function') {
-				window.gtag('event', 'newsletter_signup', { outcome, source: 'book-page' })
-			}
-		}
-		form.addEventListener('submit', async (e) => {
-			e.preventDefault()
-			const data = new FormData(form)
-			const email = String(data.get('email') || '').trim()
-			const name = String(data.get('name') || '').trim()
-			const honeypot = String(data.get('website') || '').trim()
-			if (honeypot) {
-				formView.classList.add('is-hidden')
-				thanksView.classList.add('is-active')
-				return
-			}
-			if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-				setStatus('Please enter a valid email address.', 'error')
-				return
-			}
-			setStatus('', null)
-			setBusy(true)
-			try {
-				const res = await fetch(`${apiBase}/api/newsletter/subscribe`, {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/json' },
-					body: JSON.stringify({ email, name, source: 'book-page' })
-				})
-				const payload = await res.json().catch(() => ({}))
-				if (!res.ok || !payload.ok) {
-					setStatus(payload.error || 'Something went wrong. Please try again.', 'error')
-					track('error')
-					setBusy(false)
-					return
-				}
-				formView.classList.add('is-hidden')
-				thanksView.classList.add('is-active')
-				track(payload.status === 'already_confirmed' ? 'already_confirmed' : 'pending')
-			} catch (err) {
-				console.error('[book signup]', err)
-				setStatus('Could not reach the server. Please try again in a moment.', 'error')
-			} finally {
-				setBusy(false)
-			}
-		})
-	})()
-</script>
