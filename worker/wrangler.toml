@@ -1,0 +1,24 @@
+name = "contextscripture-book-gate"
+main = "src/index.ts"
+compatibility_date = "2026-06-01"
+
+# Bind the PDF as an importable binary module.
+rules = [
+  { type = "Data", globs = ["**/*.pdf"], fallthrough = true }
+]
+
+# KV namespace stores collected emails: key=email, value=JSON metadata.
+# Run `wrangler kv:namespace create BOOK_EMAILS` to create it, then paste the id below.
+[[kv_namespaces]]
+binding = "BOOK_EMAILS"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+# Public-facing vars. Override for prod/dev as needed.
+[vars]
+SITE_ORIGIN = "https://contextscripture.org"
+FROM_EMAIL = "Context Bible <hello@contextscripture.org>"
+TOKEN_TTL_HOURS = "168"  # links valid for 7 days
+
+# Secrets set via `wrangler secret put`:
+#   RESEND_API_KEY    — from https://resend.com → API Keys
+#   TOKEN_SECRET      — any long random string, e.g. `openssl rand -hex 32`
