@@ -121,6 +121,24 @@ async function handleDownload(req: Request, env: Env, origin: string): Promise<R
 		)
 	}
 
+	// Record the download on the KV record.
+	try {
+		const existingRaw = await env.BOOK_EMAILS.get(payload.e)
+		const existing = existingRaw ? (JSON.parse(existingRaw) as Record<string, unknown>) : null
+		if (existing) {
+			const updated = {
+				...existing,
+				last_seen: new Date().toISOString(),
+				downloaded_at: existing.downloaded_at || new Date().toISOString(),
+				download_count: ((existing.download_count as number) || 0) + 1
+			}
+			await env.BOOK_EMAILS.put(payload.e, JSON.stringify(updated))
+		}
+	} catch (err) {
+		console.error('[book-gate] KV download update failed:', (err as Error).message)
+		// Non-fatal — still serve the PDF.
+	}
+
 	const bytes = pdfBytes as unknown as ArrayBuffer
 	return new Response(bytes, {
 		status: 200,
