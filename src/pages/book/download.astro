@@ -1,0 +1,103 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import '../../styles/guide-page.css'
+
+const SEO = {
+	title: 'Download Context Matters',
+	description: 'Your free copy of Context Matters.'
+}
+const SITE = 'https://contextscripture.org'
+
+// Must match the URL set in /book.astro.
+const WORKER_URL = 'https://contextscripture-book-gate.contextbible.workers.dev'
+---
+
+<Layout title={SEO.title} description={SEO.description} classes="guide-page" noindex={true}>
+	<section class="hero" style="min-height: 60vh; display: flex; align-items: center;">
+		<div class="wrap" style="max-width: 640px; text-align: center; padding: 80px 28px;">
+			<div class="kicker">Your free book is ready</div>
+			<h1 style="margin-bottom: 18px;">Context <em>Matters</em></h1>
+			<p class="lede" style="max-width: 52ch; margin: 0 auto 32px;">
+				Tap the button to download the PDF. The book is yours to keep, read,
+				and share.
+			</p>
+
+			<div data-download-card data-state="ready">
+				<button class="cta" style="display:inline-block;width:auto;padding:14px 32px;" data-download-button>
+					Download the book (PDF)
+				</button>
+				<p class="status" data-download-status role="status" aria-live="polite" style="margin-top: 16px; min-height: 1.4em;"></p>
+			</div>
+
+			<p style="margin-top: 40px; font-size: 0.92rem;">
+				<a href="/book" class="ghost">Back to the book page</a>
+			</p>
+		</div>
+	</section>
+</Layout>
+
+<!-- Load the brand fonts only on this page. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
+	rel="stylesheet"
+/>
+
+<script is:inline define:vars={{ WORKER_URL }}>
+	(function () {
+		const card = document.querySelector('[data-download-card]')
+		const button = card?.querySelector('[data-download-button]')
+		const status = card?.querySelector('[data-download-status]')
+		if (!card || !button || !status) return
+
+		const params = new URLSearchParams(window.location.search)
+		const token = params.get('token') || ''
+
+		const setStatus = (text, kind) => {
+			status.textContent = text || ''
+			if (kind) status.setAttribute('data-state', kind)
+			else status.removeAttribute('data-state')
+		}
+
+		if (!token) {
+			button.disabled = true
+			setStatus('This page needs to be opened from the link in your email.', 'error')
+			return
+		}
+
+		button.addEventListener('click', async () => {
+			button.disabled = true
+			button.textContent = 'Preparing your download…'
+			setStatus('', null)
+			try {
+				const url = `${WORKER_URL}/api/book/download?token=${encodeURIComponent(token)}`
+				const res = await fetch(url)
+				if (!res.ok) {
+					const body = await res.json().catch(() => ({}))
+					setStatus(
+						body.error || 'This link is invalid or has expired. Please request a fresh one from /book.',
+						'error'
+					)
+					button.textContent = 'Download failed'
+					return
+				}
+				const blob = await res.blob()
+				const a = document.createElement('a')
+				a.href = URL.createObjectURL(blob)
+				a.download = 'Context-Matters.pdf'
+				document.body.appendChild(a)
+				a.click()
+				document.body.removeChild(a)
+				URL.revokeObjectURL(a.href)
+				button.textContent = 'Downloaded ✓'
+				setStatus('Your book is downloading. Share it freely.', 'success')
+			} catch (err) {
+				console.error('[book download]', err)
+				button.disabled = false
+				button.textContent = 'Try again'
+				setStatus('Could not reach the server. Please try again.', 'error')
+			}
+		})
+	})()
+</script>

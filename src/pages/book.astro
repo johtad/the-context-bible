@@ -9,7 +9,10 @@ const SEO = {
 		'A short, free book from The Context Bible. A beginner-friendly guide to reading the Bible in its historical, cultural, and literary context — with a six-question framework you can use on any passage.'
 }
 const SITE = 'https://contextscripture.org'
-const PDF = '/guides/context-matters.pdf'
+
+// Cloudflare Worker that gates the PDF behind an email submission.
+// After deploying the worker (see worker/README.md), set this to its URL.
+const WORKER_URL = 'https://contextscripture-book-gate.contextbible.workers.dev'
 ---
 
 <Layout title={SEO.title} description={SEO.description} classes="guide-page">
@@ -36,31 +39,80 @@ const PDF = '/guides/context-matters.pdf'
 			</div>
 
 			<div class="card" id="card">
-				<h2>Download the book</h2>
-				<p class="sub">~46 pages · PDF · free to share.</p>
-				<a class="cta" href={PDF} download="Context-Matters.pdf">Get the free PDF</a>
-				<p class="status" style="text-align:center;">
-					<a
-						href={PDF}
-						target="_blank"
-						rel="noopener"
-						style="color:var(--guide-muted);text-decoration:underline;font-size:0.9rem;"
-					>
-						Or open it in your browser first
-					</a>
-				</p>
-				<div class="reassure">
-					<svg
-						width="15"
-						height="15"
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-					>
-						<path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5l-8-3z"></path>
-					</svg>
-					No signup required. Distributed freely for personal and ministry use.
+				<div id="formview" data-formview>
+					<h2>Send me the free book</h2>
+					<p class="sub">~46 pages · PDF · free to share. We'll email you a download link.</p>
+					<form data-book-form novalidate>
+						<label for="book-name">First name <span style="color:var(--guide-muted);font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+						<input
+							id="book-name"
+							type="text"
+							name="name"
+							placeholder="Your first name"
+							autocomplete="given-name"
+							maxlength="80"
+						/>
+						<label for="book-email">Email address</label>
+						<input
+							id="book-email"
+							type="email"
+							name="email"
+							placeholder="you@example.com"
+							autocomplete="email"
+							required
+							maxlength="254"
+						/>
+						<input
+							type="text"
+							name="website"
+							class="honeypot"
+							tabindex="-1"
+							autocomplete="off"
+							aria-hidden="true"
+						/>
+						<button type="submit" class="cta" data-book-submit>
+							<span data-book-submit-label>Email me the book</span>
+						</button>
+					</form>
+					<p class="status" data-book-status role="status" aria-live="polite"></p>
+					<div class="reassure">
+						<svg
+							width="15"
+							height="15"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path d="M12 2 4 5v6c0 5 3.4 8.5 8 10 4.6-1.5 8-5 8-10V5l-8-3z"></path>
+						</svg>
+						We'll never share your email. Unsubscribe anytime.
+					</div>
+				</div>
+
+				<div class="thanks" data-thanksview>
+					<div class="check">
+						<svg
+							width="26"
+							height="26"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2.4"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M20 6 9 17l-5-5"></path>
+						</svg>
+					</div>
+					<h2>Check your inbox</h2>
+					<p>
+						We just sent you a download link. Tap the button in the email to
+						come back here and grab the PDF. The link is good for 7 days.
+					</p>
+					<p style="font-size:0.9rem;margin-top:14px;color:var(--guide-muted);">
+						Don't see it in a minute? Peek in your promotions or spam folder.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -161,23 +213,6 @@ const PDF = '/guides/context-matters.pdf'
 	</section>
 </Layout>
 
-<style is:global>
-	/* Reuses the body.guide-page CSS already defined in /guide.
-	   Only book-page-specific overrides go here. */
-	body.guide-page h1 {
-		font-size: clamp(2.6rem, 5.2vw, 4rem);
-	}
-	body.guide-page .cta {
-		display: block;
-		text-align: center;
-		text-decoration: none;
-		margin-bottom: 4px;
-	}
-	body.guide-page .cta:hover {
-		color: #fbf7ee;
-	}
-</style>
-
 <!-- Load the brand fonts only on this page. -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -185,3 +220,72 @@ const PDF = '/guides/context-matters.pdf'
 	href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap"
 	rel="stylesheet"
 />
+
+<script is:inline define:vars={{ WORKER_URL }}>
+	(function () {
+		const form = document.querySelector('[data-book-form]')
+		if (!form) return
+		const card = form.closest('.card')
+		const formView = card.querySelector('[data-formview]')
+		const thanksView = card.querySelector('[data-thanksview]')
+		const submit = form.querySelector('[data-book-submit]')
+		const submitLabel = form.querySelector('[data-book-submit-label]')
+		const status = card.querySelector('[data-book-status]')
+		const setStatus = (text, kind) => {
+			if (!status) return
+			status.textContent = text || ''
+			if (kind) status.setAttribute('data-state', kind)
+			else status.removeAttribute('data-state')
+		}
+		const setBusy = (busy) => {
+			if (submit) submit.disabled = busy
+			if (submitLabel) submitLabel.textContent = busy ? 'Sending…' : 'Email me the book'
+		}
+		const track = (outcome) => {
+			if (typeof window.gtag === 'function') {
+				window.gtag('event', 'book_request', { outcome })
+			}
+		}
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault()
+			const data = new FormData(form)
+			const email = String(data.get('email') || '').trim()
+			const name = String(data.get('name') || '').trim()
+			const honeypot = String(data.get('website') || '').trim()
+			if (honeypot) {
+				formView.classList.add('is-hidden')
+				thanksView.classList.add('is-active')
+				return
+			}
+			if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+				setStatus('Please enter a valid email address.', 'error')
+				return
+			}
+			setStatus('', null)
+			setBusy(true)
+			try {
+				const res = await fetch(`${WORKER_URL}/api/book/request`, {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json' },
+					body: JSON.stringify({ email, name })
+				})
+				const payload = await res.json().catch(() => ({}))
+				if (!res.ok || !payload.ok) {
+					setStatus(payload.error || 'Something went wrong. Please try again.', 'error')
+					track('error')
+					setBusy(false)
+					return
+				}
+				formView.classList.add('is-hidden')
+				thanksView.classList.add('is-active')
+				track('sent')
+			} catch (err) {
+				console.error('[book signup]', err)
+				setStatus('Could not reach the server. Please try again in a moment.', 'error')
+				track('network_error')
+			} finally {
+				setBusy(false)
+			}
+		})
+	})()
+</script>
