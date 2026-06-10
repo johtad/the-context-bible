@@ -11,7 +11,7 @@ rules = [
 # Run `wrangler kv:namespace create BOOK_EMAILS` to create it, then paste the id below.
 [[kv_namespaces]]
 binding = "BOOK_EMAILS"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "b86f30431399470dae06014163c5eb64"
 
 # Public-facing vars. Override for prod/dev as needed.
 [vars]
